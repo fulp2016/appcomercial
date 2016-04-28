@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+cadVariables = location.search.substring(1,location.search.length);
+arrVariables = cadVariables.split("&");
+for (i=0; i<arrVariables.length; i++) {
+arrVariableActual = arrVariables[i].split("=");
+if (isNaN(parseFloat(arrVariableActual[1])))
+eval(arrVariableActual[0]+"='"+unescape(arrVariableActual[1])+"';");
+else
+eval(arrVariableActual[0]+"="+arrVariableActual[1]+";");
+}
+
+</script>
+<title>Servicio de Orientaci&oacute;n Laboral</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="css/jquery.mobile-1.0rc1.min.css" />
+<link rel="stylesheet" href="css/styles.css" />
+
+</head>
+    
+<body>
+<div id="appsolListPage" data-role="page" >
+
+
+	<div data-role="header" data-position="fixed">
+		<h1 id="apptitle">Destacados</h1>
+	</div>
+	<div data-role="navbar">
+		<ul>
+			<li id="ofertas"><a href="#" onclick="getDestacadosList();"  id="mendest">Destacados</a></li>
+			<li><a href="#" onclick="getCitaForm();" id="mencita">Cita</a></li>
+			<li><a href="#" onclick="getAvisosList();" id="menaviso">Avisos</a></li>
+			<li><a href="#" onclick="getSesionForm();" id="meniniciar">Iniciar sesión</a></li>
+		</ul>
+	</div><!-- /navbar -->
+
+	<div data-role="content" id="contenedorDestacados">
+         <ul id="destacadosList" data-role="listview" data-filter="true"></ul>
+    </div>		
+    
+    <div data-role="content" id="contenedorCita">
+         <form id="solcita" name="solcita" action="*">
+         	<p><input type="text" placeholder="NOMBRE" id="nombre" name="nombre"></p>
+            <p><input type="email" placeholder="EMAIL" id="email" name="email"></p>
+            <p><input type="tel" placeholder="TELÉFONO" id="telefono" name="telefono"></p>
+            <p><input type="button" value="SOLICITAR CITA" name="solicitar" id="solicitar"> </p>
+         </form>
+    </div>	
+    
+    <div data-role="content" id="contenedorAvisos">
+         <ul id="destacadosList" data-role="listview" data-filter="true"></ul>
+    </div>	
+    
+    <div data-role="content" id="contenedorSesion">
+         <form id="solcita" name="solcita" action="*">
+         	<p><input type="text" placeholder="NOMBRE USUARIO" id="login" name="login"></p>
+            <p><input type="password" placeholder="CONTRASEÑA" id="pass" name="pass"></p>
+            <p><input type="button" value="INICIAR" name="iniciar" id="iniciar"> </p>
+         </form>
+    </div>	
+	
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.0rc1.min.js"></script>
+<script src="js/appsollist.js"></script>
+<script src="js/appsoldetails.js"></script>
+<script src="phonegap.js"></script>
+<script>
+
+var sesion = cod_personal;	
+if((cod_personal!='0')&&(cod_personal!=''))
+{
+	//mostrarDestacados();
+	document.getElementById('meniniciar').id='mencerrar';
+	document.getElementById('mencerrar').innerHTML='Cerrar sesión';
+}
+
+
+if(pagina=='destacado'){getDestacadosList(); document.getElementById("mendest").className = "ui-btn-active";}
+else if(pagina=='cita'){getCitaForm(); document.getElementById("mencita").className = "ui-btn-active";}
+else if(pagina=='aviso'){getAvisosList(); document.getElementById("menaviso").className = "ui-btn-active";}
+else if(pagina=='inicio'){getSesionForm(); document.getElementById("meniniciar").className = "ui-btn-active";}
+
+$(document).ready(function() {	
+
+	$('#iniciar').click(function(){
+		var username = $(this).val();		
+		var dataString = "login="+document.getElementById("login").value+"&pass="+document.getElementById("pass").value+"&regId2="+regId;
+		$.ajax({
+            type: "POST",
+            url: "http://www.fulp.es/FULP/mensajesapp/registro_app.php",
+            data: dataString,
+            success: function(data) {
+				if(data=='0')
+				{
+					alert("Error al iniciar sesión");
+				}
+				else
+				{
+					cod_personal = data;
+					sesion = data;
+					document.getElementById('meniniciar').id='mencerrar';
+					document.getElementById('mencerrar').innerHTML='Cerrar sesión';
+					getDestacadosList();
+					document.getElementById('mencerrar').className.replace( /(?:^|\s)ui-btn-active(?!\S)/ , '' );
+					document.getElementById("mendest").className = "ui-btn-active";
+				}
+            }
+        });
+    });             
+	
+});
+</script>
+</body>
+
+</html>

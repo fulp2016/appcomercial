@@ -1,0 +1,42 @@
+
+<html>
+    <head>
+        <script type="text/javascript" src="phonegap.js"></script> 
+        <script type="text/javascript" src="PushNotification.js"></script> 
+        <script type="text/javascript" src="js/index.js"></script> 
+        <script src="js/jquery.js"></script>           
+        <meta charset="utf-8" />
+      
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <title>Servicio de Orientaci&oacute;n Laboral</title>
+    </head>
+    <body  class="p1">
+    <div class="cabecera">
+    	<br>
+        <p><img src="img/logos_sol.png"></p>
+        <br>
+    	<p class="tit">Servicio<br>de Orientaci&oacute;n Laboral</p>
+        <br>
+        <p class="subtit">SOL</p>
+    </div>
+    <br>
+        <div class="app">
+        <img src="img/loading.gif" width="50%">
+            <form id="resgistro" name="resgistro" method="get" action="pagina1.html"> 
+               <!-- <input type="hidden" id="cod_personal" name="cod_personal" >
+                <input type="hidden" name="regId" id="regId" >
+				<input type="hidden" name="pagina" id="pagina" > 		-->		
+            </form>   
+        <div id="deviceready" class="blink"> 
+                <p class="event listening">CONECTANDO</p> 
+                <p class="event received">LISTO!!</p> 
+            </div>
+       </div>  
+        <script type="text/javascript"> 
+        //El registro al servicio de google lo hacemos automáticamente 
+        	app.initialize(); 		
+			setTimeout('app.registrarDispositivo()',5000);
+        </script>  	   
+	</body>
+</html>
