@@ -15,24 +15,14 @@ function evolucion_insertas_formalizados()
                                   '</tr>'+
 	                            '</thead>'+
                               '<tbody>');
-		$('#ev-inserta').append('<tr>'+
-                                  '<td></td>'+
-								  '<td></td>'+
-								  '<td></td>'+
-								  '<td></td>'+
-								  '<td></td>'+							  								  								    
-								'</tr>'+
-								'<tr>'+
-                                  '<td><strong>TOTAL</strong></td>'+
-								  '<td><strong></strong></td>'
-								  '<td><strong></strong></td>'+
-								  '<td><strong></strong></td>'+
-								'</tr>');
-		//$.each(data, function(index, dato) {
-			//alert(JSON.stringify(dato));
+		
+		$.each(data, function(index, dato) {
 			
+			$('#ev-inserta').append( '<tr>'+
+                                  
+								'</tr>');
 
-		//});
+		});
 		
 		$('#ev-inserta').append( '</tbody>'+  
 								'</table>');
