@@ -1,10 +1,9 @@
 function evolucion_insertas_formalizados() 
 {
-	alert('3ntra');
 	$('#ev-inserta').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json";
 	$.getJSON(serviceURL, function(data) {
-		//alert(data);
+
 		$('#ev-inserta').append( '<table class="table table-hover">'+
 									'<thead>'+                                  
 									'<tr>'+                                     
@@ -17,9 +16,9 @@ function evolucion_insertas_formalizados()
 	                            '</thead>'+
                               '<tbody>');
 		
-		/*$.each(data, function(index, dato) {
+		$.each(data, function(index, dato) {
 			alert(dato.MES);
-			/*$('#ev-inserta').append('<tr>'+
+			$('#ev-inserta').append('<tr>'+
                                   '<td>'+dato.MES+'</td>'+
 								  '<td>'+dato.TOTAL_ANT+'</td>'+
 								  '<td>'+dato.TOTAL_ACT+'</td>'+
@@ -32,9 +31,9 @@ function evolucion_insertas_formalizados()
 								  '<td><strong></strong></td>'
 								  '<td><strong></strong></td>'+
 								  '<td><strong></strong></td>'+
-								'</tr>');*/
+								'</tr>');
 
-		/*});*/
+		});
 		
 		$('#ev-inserta').append( '</tbody>'+  
 								'</table>');
