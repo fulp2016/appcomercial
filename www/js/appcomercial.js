@@ -19,7 +19,7 @@ function evolucion_insertas_formalizados()
                                       '<th>TOTAL 16</th>'+
 									  '<th>ACUM 15</th>'+
 									  '<th>ACUM 16</th>'+                                   									  									  
-                                  '</tr>'
+                                  '</tr>');
 		alert(mesact);
 		$.each(data, function(index, dato) {
 			
