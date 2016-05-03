@@ -12,24 +12,25 @@ function evolucion_insertas_formalizados()
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json";
 	$.getJSON(serviceURL, function(data) {
 
-		$('#ev-inserta').append( '<table class="table table-hover">'+                               
+		
+		var cad ='<table class="table table-hover">'+                               
 									'<tr>'+                                     
                                       '<td>Mes</td>'+
 									  '<td>TOTAL 15</td>'+
                                       '<td>TOTAL 16</td>'+
 									  '<td>ACUM 15</td>'+
 									  '<td>ACUM 16</td>'+                                   									  									  
-                                  '</tr>'+
-								  '<tr>'+                                     
+                                  '</tr>';
+		/*$('#ev-inserta').append( '<table class="table table-hover">'+                               
+									'<tr>'+                                     
                                       '<td>Mes</td>'+
 									  '<td>TOTAL 15</td>'+
                                       '<td>TOTAL 16</td>'+
 									  '<td>ACUM 15</td>'+
 									  '<td>ACUM 16</td>'+                                   									  									  
-                                  '</tr>');
-		
+                                  '</tr>');*/
+
 		$.each(data, function(index, dato) {
-			
 			/*if(dato.MES < mesact)
 			{
 				acumact = parseint(acumact) + parseint(dato.TOTAL_ACT);
@@ -40,14 +41,20 @@ function evolucion_insertas_formalizados()
 				acumact = '';
 				acumant = '';
 			}*/
-			
-			$('#ev-inserta').append( '<tr>'+
+			 cad = cad + '<tr>'+
                                   '<td>'+dato.MES+'</td>'+
 								  '<td>'+dato.TOTAL_ANT+'</td>'+
 								  '<td>'+dato.TOTAL_ACT+'</td>'+
 								  '<td>'+acumant+'</td>'+
 								  '<td>'+acumact+'</td>'+							  								  								    
-								'</tr>');
+								'</tr>';
+			/*$('#ev-inserta').append( '<tr>'+
+                                  '<td>'+dato.MES+'</td>'+
+								  '<td>'+dato.TOTAL_ANT+'</td>'+
+								  '<td>'+dato.TOTAL_ACT+'</td>'+
+								  '<td>'+acumant+'</td>'+
+								  '<td>'+acumact+'</td>'+							  								  								    
+								'</tr>');*/
 								
 			/*total_act = total_act + dato.TOTAL_ACT;	
 			total_ant = total_ant + dato.TOTAL_ANT;
@@ -55,15 +62,24 @@ function evolucion_insertas_formalizados()
 			total_acumant = total_acumant + acumant;*/
 
 		});
-		
-		$('#ev-inserta').append( '<tr>'+
+		 cad = cad + '<tr>'+
                                   '<td><strong>TOTAL</strong></td>'+
 								  '<td><strong>'+total_ant+'</strong></td>'+
 								  '<td><strong>'+total_act+'</strong></td>'+
 								  '<td><strong>'+total_acumact+'</strong></td>'+
 								  '<td><strong>'+total_acumact+'</strong></td>'+
 								'</tr>'+ 
-								'</table>');
+								'</table>';
+		/*$('#ev-inserta').append( '<tr>'+
+                                  '<td><strong>TOTAL</strong></td>'+
+								  '<td><strong>'+total_ant+'</strong></td>'+
+								  '<td><strong>'+total_act+'</strong></td>'+
+								  '<td><strong>'+total_acumact+'</strong></td>'+
+								  '<td><strong>'+total_acumact+'</strong></td>'+
+								'</tr>'+ 
+								'</table>');*/
+								
+		$('#ev-inserta').append(cad);						
 
 	});
 }
