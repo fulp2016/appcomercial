@@ -12,17 +12,14 @@ function evolucion_insertas_formalizados()
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json";
 	$.getJSON(serviceURL, function(data) {
 
-		$('#ev-inserta').append( '<table class="table table-hover">'+
-									'<thead>'+                                  
+		$('#ev-inserta').append( '<table class="table table-hover">'+                               
 									'<tr>'+                                     
                                       '<th>Mes</th>'+
 									  '<th>TOTAL 15</th>'+
                                       '<th>TOTAL 16</th>'+
 									  '<th>ACUM 15</th>'+
 									  '<th>ACUM 16</th>'+                                   									  									  
-                                  '</tr>'+
-	                            '</thead>'+
-                              '<tbody>');
+                                  '</tr>'
 		alert(mesact);
 		$.each(data, function(index, dato) {
 			
@@ -58,8 +55,7 @@ function evolucion_insertas_formalizados()
 								  '<td><strong>'+total_act+'</strong></td>'+
 								  '<td><strong>'+total_acumact+'</strong></td>'+
 								  '<td><strong>'+total_acumact+'</strong></td>'+
-								'</tr>'+
-								'</tbody>'+  
+								'</tr>'+ 
 								'</table>');
 
 	});
