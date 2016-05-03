@@ -25,7 +25,7 @@ function evolucion_insertas_formalizados()
 		
 		$.each(data, function(index, dato) {
 			
-			if(dato.MES<mesact)
+			/*if(dato.MES<mesact)
 			{
 				acumact = acumact + dato.TOTAL_ACT;
 				acumant = acumact + dato.TOTAL_ANT;
@@ -34,7 +34,7 @@ function evolucion_insertas_formalizados()
 			{
 				acumact = '';
 				acumant = '';
-			}
+			}*/
 			
 			$('#ev-inserta').append( '<tr>'+
                                   '<td>'+dato.MES+'</td>'+
@@ -45,9 +45,9 @@ function evolucion_insertas_formalizados()
 								'</tr>');
 								
 			total_act = total_act + dato.TOTAL_ACT;	
-			total_ant = total_ant + dato.TOTAL_ANT;
+			/*total_ant = total_ant + dato.TOTAL_ANT;
 			total_acumact = total_acumact + acumact;
-			total_acumant = total_acumant + acumant;
+			total_acumant = total_acumant + acumant;*/
 
 		});
 		
