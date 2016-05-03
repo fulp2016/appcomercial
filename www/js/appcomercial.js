@@ -20,7 +20,7 @@ function evolucion_insertas_formalizados()
 									  '<td>ACUM 15</td>'+
 									  '<td>ACUM 16</td>'+                                   									  									  
                                   '</tr>');
-		alert(mesact);
+		
 		$.each(data, function(index, dato) {
 			
 			/*if(dato.MES < mesact)
