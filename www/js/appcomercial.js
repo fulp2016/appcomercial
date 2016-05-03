@@ -15,9 +15,10 @@ function evolucion_insertas_formalizados()
                                   '</tr>'+
 	                            '</thead>'+
                               '<tbody>');
-		
+		alert(data);
+		/*
 		$.each(data, function(index, dato) {
-			alert(dato.MES);
+			
 			$('#ev-inserta').append('<tr>'+
                                   '<td>'+dato.MES+'</td>'+
 								  '<td>'+dato.TOTAL_ANT+'</td>'+
@@ -33,7 +34,7 @@ function evolucion_insertas_formalizados()
 								  '<td><strong></strong></td>'+
 								'</tr>');
 
-		});
+		});*/
 		
 		$('#ev-inserta').append( '</tbody>'+  
 								'</table>');
