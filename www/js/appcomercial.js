@@ -44,8 +44,8 @@ function evolucion_insertas_formalizados()
 								  '<td>'+acumact+'</td>'+							  								  								    
 								'</tr>');
 								
-			total_act = total_act + dato.TOTAL_ACT;	
-			/*total_ant = total_ant + dato.TOTAL_ANT;
+			/*total_act = total_act + dato.TOTAL_ACT;	
+			total_ant = total_ant + dato.TOTAL_ANT;
 			total_acumact = total_acumact + acumact;
 			total_acumant = total_acumant + acumant;*/
 
