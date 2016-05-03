@@ -24,7 +24,13 @@ function evolucion_insertas_formalizados()
 								  '<td>'+dato.TOTAL_ACT+'</td>'+
 								  '<td>'+'</td>'+
 								  '<td>'+'</td>'+							  								  								    
-								
+								'</tr>'+
+								'<tr>'+
+                                  '<td><strong>TOTAL</strong></td>'+
+								  '<td><strong></strong></td>'
+								  '<td><strong></strong></td>'+
+								  '<td><strong></strong></td>'+
+								  '<td><strong></strong></td>'+
 								'</tr>');
 
 		});
