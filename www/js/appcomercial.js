@@ -17,7 +17,7 @@ function evolucion_insertas_formalizados()
                               '<tbody>');
 		
 		$.each(data, function(index, dato) {
-			alert(dato);
+			alert(JSON.stringify(dato));
 			/*$('#ev-inserta').append('<tr>'+
                                   '<td>'+dato.MES+'</td>'+
 								  '<td>'+dato.TOTAL_ANT+'</td>'+
