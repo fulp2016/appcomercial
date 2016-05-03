@@ -26,7 +26,7 @@ function evolucion_insertas_formalizados()
 
 		$.each(data, function(index, dato) {
 			
-			if(dato.MES < mesact)
+			/*if(dato.MES < mesact)
 			{
 				alert('entra');
 				//acumact = parseint(acumact) + parseint(dato.TOTAL_ACT);
@@ -36,7 +36,7 @@ function evolucion_insertas_formalizados()
 			{
 				acumact = '';
 				acumant = '';
-			}
+			}*/
 			
 			cad = cad + '<tr>'+
                             '<td>'+dato.MES+'</td>'+
