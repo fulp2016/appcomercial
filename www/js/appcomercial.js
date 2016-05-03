@@ -28,7 +28,7 @@ function evolucion_insertas_formalizados()
 			
 			if(dato.MES < mesact)
 			{
-				acumact = int(acumact) + int(dato.TOTAL_ACT);
+				acumact = parseInt(acumact) + parseInt(dato.TOTAL_ACT);
 				//acumant = acumact + dato.TOTAL_ANT;
 			}
 			else 
