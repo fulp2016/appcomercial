@@ -19,6 +19,13 @@ function evolucion_insertas_formalizados()
                                       '<td>TOTAL 16</td>'+
 									  '<td>ACUM 15</td>'+
 									  '<td>ACUM 16</td>'+                                   									  									  
+                                  '</tr>'+
+								  '<tr>'+                                     
+                                      '<td>Mes</td>'+
+									  '<td>TOTAL 15</td>'+
+                                      '<td>TOTAL 16</td>'+
+									  '<td>ACUM 15</td>'+
+									  '<td>ACUM 16</td>'+                                   									  									  
                                   '</tr>');
 		
 		$.each(data, function(index, dato) {
