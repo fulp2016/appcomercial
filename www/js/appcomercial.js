@@ -19,7 +19,12 @@ function evolucion_insertas_formalizados()
 		$.each(data, function(index, dato) {
 			
 			$('#ev-inserta').append( '<tr>'+
-                                  
+                                  '<td>'+dato.MES+'</td>'+
+								  '<td>'+dato.TOTAL_ANT+'</td>'+
+								  '<td>'+dato.TOTAL_ACT+'</td>'+
+								  '<td>'+'</td>'+
+								  '<td>'+'</td>'+							  								  								    
+								
 								'</tr>');
 
 		});
