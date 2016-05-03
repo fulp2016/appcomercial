@@ -27,7 +27,7 @@ function evolucion_insertas_formalizados()
 								'</tr>'+
 								'<tr>'+
                                   '<td><strong>TOTAL</strong></td>'+
-								  '<td><strong></strong></td>'
+								  '<td><strong></strong></td>'+
 								  '<td><strong></strong></td>'+
 								  '<td><strong></strong></td>'+
 								  '<td><strong></strong></td>'+
