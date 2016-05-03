@@ -22,7 +22,7 @@ function evolucion_insertas_formalizados()
 								'<th>ACUM 16</th>'+                                   									  									  
                             '</tr>'+
 						'</thead>'+	
-                        '<tbody>');
+                        '<tbody>';
 
 		$.each(data, function(index, dato) {
 			
@@ -44,7 +44,7 @@ function evolucion_insertas_formalizados()
 							'<td>'+dato.TOTAL_ACT+'</td>'+
 							'<td>'+acumant+'</td>'+
 							'<td>'+acumact+'</td>'+							  								  								    
-						'</tr>');
+						'</tr>';
 								
 			/*total_act = total_act + dato.TOTAL_ACT;	
 			total_ant = total_ant + dato.TOTAL_ANT;
@@ -61,7 +61,8 @@ function evolucion_insertas_formalizados()
 						'<td><strong>'+total_acumact+'</strong></td>'+
 					'</tr>'+
 				'</tbody>'+  
-			'</table>');
+			'</table>';
+			
 		$('#ev-inserta').append(cad);	
 
 	});
