@@ -1,6 +1,7 @@
 function evolucion_insertas_formalizados() 
 {
-	//var mesact = getMonth();
+	var date = new Date();
+	var mesact = date.getMonth()+1;
 	var acumact = 0;
 	var acumant = 0;
 	var total_act = 0;
@@ -22,7 +23,7 @@ function evolucion_insertas_formalizados()
                                   '</tr>'+
 	                            '</thead>'+
                               '<tbody>');
-		//alert(mesact);
+		alert(mesact);
 		$.each(data, function(index, dato) {
 			
 			/*if(dato.MES < mesact)
