@@ -14,11 +14,11 @@ function evolucion_insertas_formalizados()
 
 		$('#ev-inserta').append( '<table class="table table-hover">'+                               
 									'<tr>'+                                     
-                                      '<th>Mes</th>'+
-									  '<th>TOTAL 15</th>'+
-                                      '<th>TOTAL 16</th>'+
-									  '<th>ACUM 15</th>'+
-									  '<th>ACUM 16</th>'+                                   									  									  
+                                      '<td>Mes</td>'+
+									  '<td>TOTAL 15</td>'+
+                                      '<td>TOTAL 16</td>'+
+									  '<td>ACUM 15</td>'+
+									  '<td>ACUM 16</td>'+                                   									  									  
                                   '</tr>');
 		alert(mesact);
 		$.each(data, function(index, dato) {
