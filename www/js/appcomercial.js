@@ -15,10 +15,7 @@ function evolucion_insertas_formalizados()
                                   '</tr>'+
 	                            '</thead>'+
                               '<tbody>');
-		
-		$.each(data, function(index, dato) {
-			//alert(JSON.stringify(dato));
-			$('#ev-inserta').append('<tr>'+
+		$('#ev-inserta').append('<tr>'+
                                   '<td></td>'+
 								  '<td></td>'+
 								  '<td></td>'+
@@ -31,8 +28,11 @@ function evolucion_insertas_formalizados()
 								  '<td><strong></strong></td>'+
 								  '<td><strong></strong></td>'+
 								'</tr>');
+		//$.each(data, function(index, dato) {
+			//alert(JSON.stringify(dato));
+			
 
-		});
+		//});
 		
 		$('#ev-inserta').append( '</tbody>'+  
 								'</table>');
