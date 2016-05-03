@@ -17,21 +17,20 @@ function evolucion_insertas_formalizados()
                               '<tbody>');
 		
 		$.each(data, function(index, dato) {
-			alert(JSON.stringify(dato));
-			/*$('#ev-inserta').append('<tr>'+
-                                  '<td>'+dato.MES+'</td>'+
-								  '<td>'+dato.TOTAL_ANT+'</td>'+
-								  '<td>'+dato.TOTAL_ACT+'</td>'+
-								  '<td>'+'</td>'+
-								  '<td>'+'</td>'+							  								  								    
+			//alert(JSON.stringify(dato));
+			$('#ev-inserta').append('<tr>'+
+                                  '<td></td>'+
+								  '<td></td>'+
+								  '<td></td>'+
+								  '<td></td>'+
+								  '<td></td>'+							  								  								    
 								'</tr>'+
-								
 								'<tr>'+
                                   '<td><strong>TOTAL</strong></td>'+
 								  '<td><strong></strong></td>'
 								  '<td><strong></strong></td>'+
 								  '<td><strong></strong></td>'+
-								'</tr>');*/
+								'</tr>');
 
 		});
 		
