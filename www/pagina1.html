@@ -22,8 +22,9 @@
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- Theme style -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-
-
+<link rel="stylesheet" href="css/styles_content.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/appcomercial.js" type="text/javascript"></script>	
 	
 <div class="skin-black">
@@ -138,7 +139,15 @@
                       </div>
 						
 					</div>
-                    
+                   
+<!-- /Pie -->
+    <div id="menu-pie" data-role="footer" data-position="fixed">
+    	<a onclick="getDestacadosList();" data-role="button" data-inline="true" id="mendest"><img src="img/bdestacado.png"></a>
+        <a onclick="getCitaForm();" data-role="button" data-inline="true" id="mencita"><img src="img/bcita.png"></a>
+        <a onclick="getAvisosList();" data-role="button" data-inline="true" id="menaviso"><img src="img/baviso.png"></a>
+		<a onclick="getFavoritosList();" data-role="button" data-inline="true" id="menfav"><img src="img/bfavorito.png"></a>
+		<a style="display:none" onclick="getItinerarioList();" data-role="button" data-inline="true" id="meniti"><img src="img/binicio.png"></a>
+	</div>				   
                     
               <!-- row end -->
                 </section><!-- /.content -->
