@@ -29,7 +29,7 @@ function evolucion_insertas_formalizados()
 			if(dato.MES < mesact)
 			{
 				acumact = parseInt(acumact) + parseInt(dato.TOTAL_ACT);
-				//acumant = acumact + dato.TOTAL_ANT;
+				acumant = parseInt(acumant) + parseInt(dato.TOTAL_ANT);
 			}
 			else 
 			{
@@ -45,10 +45,12 @@ function evolucion_insertas_formalizados()
 							'<td>'+acumact+'</td>'+							  								  								    
 						'</tr>';
 								
-			/*total_act = total_act + dato.TOTAL_ACT;	
-			total_ant = total_ant + dato.TOTAL_ANT;
-			total_acumact = total_acumact + acumact;
-			total_acumant = total_acumant + acumant;*/
+			total_act = parseInt(total_act) + parseInt(dato.TOTAL_ACT);
+			total_ant = parseInt(total_ant) + parseInt(dato.TOTAL_ANT);
+			if(acumact==''){acumact=0;}
+			total_acumact = parseInt(total_acumact) + parseInt(acumact);
+			if(acumant==''){acumant=0;}
+			total_acumant = parseInt(total_acumant) + parseInt(acumant);
 
 		});
 		
