@@ -5713,6 +5713,7 @@ a.list-group-item.active:focus .list-group-item-text {
 .panel > .table-responsive {
   margin-bottom: 0;
   border: 0;
+  font-size: 12px;
 }
 
 .panel-heading {

@@ -18,7 +18,7 @@ function evolucion_insertas_formalizados()
 		var cad = '<table class="table table-hover">'+
 						'<thead>'+                                  
 							'<tr>'+                                     
-                                '<th>Mes</th>'+
+                                '<th>M</th>'+
 								'<th>T15</th>'+
                                 '<th>T16</th>'+
 								'<th>ACU15</th>'+
