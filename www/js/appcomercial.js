@@ -123,7 +123,7 @@ function resumen_relaciones()
 	});
 }
 
-unction evolucion_alta_solicitantes()
+function evolucion_alta_solicitantes()
 {
 	var cad = '';
 	$('#rel-fomalizadas').empty();
