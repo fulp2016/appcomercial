@@ -19,10 +19,10 @@ function evolucion_insertas_formalizados()
 						'<thead>'+                                  
 							'<tr>'+                                     
                                 '<th>Mes</th>'+
-								'<th>TOTAL 15</th>'+
-                                '<th>TOTAL 16</th>'+
-								'<th>ACUM 15</th>'+
-								'<th>ACUM 16</th>'+                                   									  									  
+								'<th>T15</th>'+
+                                '<th>T16</th>'+
+								'<th>ACU15</th>'+
+								'<th>ACU16</th>'+                                   									  									  
                             '</tr>'+
 						'</thead>'+	
                         '<tbody>';
