@@ -146,7 +146,7 @@ function evolucion_alta_solicitantes()
 				'<tbody>';
 	
 		$.each(data, function(index, dato) {
-			if(dato.MES <= mesact)
+			if(dato.MES >= mesact)
 			{
 				cad = cad +
 					'<tr>'+
@@ -167,3 +167,43 @@ function evolucion_alta_solicitantes()
 	});
 }
 
+function evolucion_alta_empresas()
+{
+	var date = new Date();
+	var mesact = date.getMonth()-1;
+	var cad = '';
+	$('#rel-fomalizadas').empty();
+	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_empresas.json";
+	$.getJSON(serviceURL, function(data) {
+		
+		cad = '<table class="table table-hover" style="font-size:12px !important">'+
+				'<thead>'+                              
+					'<tr>'+                                      
+						'<th>MES</th>'+
+						'<th>A&Ntilde;O</th>'+
+						'<th>ONLINE</th>'+                                   
+						'<th>TOTAL</th>'+                            
+					'</tr>'+
+				'</thead>'+
+				'<tbody>';
+	
+		$.each(data, function(index, dato) {
+			if(dato.MES >= mesact)
+			{
+				cad = cad +
+					'<tr>'+
+						'<td>'+dato.MES+'</td>'+
+						'<td>'+dato.EJERCICIO+'</td>'+
+						'<td>'+dato.ALTA_ONLINE+'</td>'+
+						'<td>'+dato.TOTAL+'</td>'+
+					'</tr>';
+			}
+		});
+		
+		cad = cad +
+				'</tbody>'+
+			'</table>';
+			
+		$('#ev-altas').append(cad);		
+	});
+}
