@@ -129,7 +129,7 @@ function evolucion_alta_solicitantes()
 	var date = new Date();
 	var mesact = date.getMonth()-1;
 	var cad = '';
-	$('#rel-fomalizadas').empty();
+	$('#ev-alta-soli').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_solicitantes.json";
 	$.getJSON(serviceURL, function(data) {
 		
@@ -163,7 +163,7 @@ function evolucion_alta_solicitantes()
 				'</tbody>'+
 			'</table>';
 			
-		$('#ev-altas').append(cad);		
+		$('#ev-alta-soli').append(cad);		
 	});
 }
 
@@ -172,7 +172,7 @@ function evolucion_alta_empresas()
 	var date = new Date();
 	var mesact = date.getMonth()-1;
 	var cad = '';
-	$('#rel-fomalizadas').empty();
+	$('#ev-alta-emp').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_empresas.json";
 	$.getJSON(serviceURL, function(data) {
 		
@@ -204,6 +204,6 @@ function evolucion_alta_empresas()
 				'</tbody>'+
 			'</table>';
 			
-		$('#ev-altas').append(cad);		
+		$('#ev-alta-emp').append(cad);		
 	});
 }
