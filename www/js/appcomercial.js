@@ -38,11 +38,11 @@ function evolucion_insertas_formalizados()
 				if (increm > 0){signinc = '+';}else{signinc = '';}
 				if (increm.length == 1){espincrem='&nbsp;&nbsp;&nbsp;&nbsp;';}
 				
-				if(acumact>acumant){acumact=acumact + '<span class="label label-success">';}
-				else if(acumact==acumant){acumact=acumact + '<span class="label label-warning">';}
-				else {acumact=acumact + '<span class="label badge-danger">';}
+				if(acumact>acumant){acumact=acumact + espincrem + '<span class="label label-success">';}
+				else if(acumact==acumant){acumact=acumact + espincrem + '<span class="label label-warning">';}
+				else {acumact=acumact + espincrem + '<span class="label badge-danger">';}
 				
-				acumact = acumact + espincrem + signinc + Math.round(increm) + '% </span>';
+				acumact = acumact + signinc + Math.round(increm) + '% </span>';
 
 			}
 			else 
