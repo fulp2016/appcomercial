@@ -90,6 +90,7 @@ function evolucion_insertas_formalizados()
 
 function resumen_relaciones()
 {
+	
 	var cad = '';
 	$('#rel-fomalizadas').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/resumen_relaciones.json";
@@ -125,6 +126,8 @@ function resumen_relaciones()
 
 function evolucion_alta_solicitantes()
 {
+	var date = new Date();
+	var mesact = date.getMonth()-1;
 	var cad = '';
 	$('#rel-fomalizadas').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_solicitantes.json";
@@ -143,15 +146,17 @@ function evolucion_alta_solicitantes()
 				'<tbody>';
 	
 		$.each(data, function(index, dato) {
-			
-			cad = cad +
-				'<tr>'+
-					'<td>'+dato.MES+'</td>'+
-					'<td>'+dato.EJERCICIO+'</td>'+
-					'<td>'+dato.ALTA_INSERTA+'</td>'+
-					'<td>'+dato.ALTA_EMPLEO+'</td>'+
-					'<td>'+dato.ALTA_PRACTICA+'</td>'+
-				'</tr>';
+			if(dato.MES <= mesact)
+			{
+				cad = cad +
+					'<tr>'+
+						'<td>'+dato.MES+'</td>'+
+						'<td>'+dato.EJERCICIO+'</td>'+
+						'<td>'+dato.ALTA_INSERTA+'</td>'+
+						'<td>'+dato.ALTA_EMPLEO+'</td>'+
+						'<td>'+dato.ALTA_PRACTICA+'</td>'+
+					'</tr>';
+			}
 		});
 		
 		cad = cad +
