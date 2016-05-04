@@ -88,11 +88,11 @@ function evolucion_insertas_formalizados()
 	});
 }
 
-function resumen_ofertas_publicadas()
+function resumen_relaciones()
 {
 	var cad = '';
 	$('#rel-fomalizadas').empty();
-	var serviceURL = "http://www.fulp.es/servicesfulp/resumen_ofertas_publicadas.json";
+	var serviceURL = "http://www.fulp.es/servicesfulp/resumen_relaciones.json";
 	$.getJSON(serviceURL, function(data) {
 		
 		cad = '<table class="table table-hover" style="font-size:12px !important">'+
@@ -122,3 +122,43 @@ function resumen_ofertas_publicadas()
 		$('#rel-fomalizadas').append(cad);		
 	});
 }
+
+unction evolucion_alta_solicitantes()
+{
+	var cad = '';
+	$('#rel-fomalizadas').empty();
+	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_solicitantes.json";
+	$.getJSON(serviceURL, function(data) {
+		
+		cad = '<table class="table table-hover" style="font-size:12px !important">'+
+				'<thead>'+                              
+					'<tr>'+                                      
+						'<th>MES</th>'+
+						'<th>A&Ntilde;O</th>'+
+						'<th>INSERTA</th>'+                                   
+						'<th>EMPLEO</th>'+ 
+						'<th>PR&Aacute;C</th>'+                               
+					'</tr>'+
+				'</thead>'+
+				'<tbody>';
+	
+		$.each(data, function(index, dato) {
+			
+			cad = cad +
+				'<tr>'+
+					'<td>'+dato.MES+'</td>'+
+					'<td>'+dato.EJERCICIO+'</td>'+
+					'<td>'+dato.ALTA_INSERTA+'</td>'+
+					'<td>'+dato.ALTA_EMPLEO+'</td>'+
+					'<td>'+dato.ALTA_PRACTICA+'</td>'+
+				'</tr>';
+		});
+		
+		cad = cad +
+				'</tbody>'+
+			'</table>';
+			
+		$('#ev-altas').append(cad);		
+	});
+}
+
