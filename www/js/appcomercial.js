@@ -26,10 +26,22 @@ function evolucion_insertas_formalizados()
 
 		$.each(data, function(index, dato) {
 			
-			if(dato.MES < mesact)
+			if(dato.MES <= mesact)
 			{
 				acumact = parseInt(acumact) + parseInt(dato.TOTAL_ACT);
 				acumant = parseInt(acumant) + parseInt(dato.TOTAL_ANT);
+				
+				var increm = ((parseInt(acumact)-parseInt(acumant))/parseInt(acumant)*100);
+				var espincrem = '&nbsp;&nbsp;';
+				var signinc = '';
+				if (increm > 0){signinc = '+';}else{signinc = '';}
+				if (increm.length == 1){espincrem='&nbsp;&nbsp;&nbsp;&nbsp;';}
+				
+				if(acumact>acumant){acumact + '<span class="label label-success">';}
+				else if(acumact==acumant){acumact + '<span class="label label-warning">';}
+				else {acumact + '<span class="label badge-danger">';}
+				
+				acumact = acumact + espincrem + signinc + $increm + '% </span>';
 			}
 			else 
 			{
@@ -47,10 +59,6 @@ function evolucion_insertas_formalizados()
 								
 			total_act = parseInt(total_act) + parseInt(dato.TOTAL_ACT);
 			total_ant = parseInt(total_ant) + parseInt(dato.TOTAL_ANT);
-			if(acumact==''){acumact=0;}
-			total_acumact = parseInt(total_acumact) + parseInt(acumact);
-			if(acumant==''){acumant=0;}
-			total_acumant = parseInt(total_acumant) + parseInt(acumant);
 
 		});
 		
@@ -58,8 +66,8 @@ function evolucion_insertas_formalizados()
                         '<td><strong>TOTAL</strong></td>'+
 						'<td><strong>'+total_ant+'</strong></td>'+
 						'<td><strong>'+total_act+'</strong></td>'+
-						'<td><strong>'+total_acumact+'</strong></td>'+
-						'<td><strong>'+total_acumact+'</strong></td>'+
+						'<td><strong>'+acumant+'</strong></td>'+
+						'<td><strong>'+acumact+'</strong></td>'+
 					'</tr>'+
 				'</tbody>'+  
 			'</table>';
