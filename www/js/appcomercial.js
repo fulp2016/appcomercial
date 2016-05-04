@@ -15,7 +15,7 @@ function evolucion_insertas_formalizados()
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json";
 	$.getJSON(serviceURL, function(data) {
 
-		var cad = '<table class="table table-hover">'+
+		var cad = '<table class="table table-hover" style="font-size:10px !important">'+
 						'<thead>'+                                  
 							'<tr>'+                                     
                                 '<th>M</th>'+
