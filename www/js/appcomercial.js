@@ -32,7 +32,8 @@ function evolucion_insertas_formalizados()
 				acumant = parseInt(acumant) + parseInt(dato.TOTAL_ANT);
 				
 				var increm = ((parseInt(acumact)-parseInt(acumant))/parseInt(acumant)*100);
-				var espincrem = '&nbsp;&nbsp;';
+				
+				/*var espincrem = '&nbsp;&nbsp;';
 				var signinc = '';
 				if (increm > 0){signinc = '+';}else{signinc = '';}
 				if (increm.length == 1){espincrem='&nbsp;&nbsp;&nbsp;&nbsp;';}
@@ -41,7 +42,8 @@ function evolucion_insertas_formalizados()
 				else if(acumact==acumant){acumact + '<span class="label label-warning">';}
 				else {acumact + '<span class="label badge-danger">';}
 				
-				acumact = acumact + espincrem + signinc + $increm + '% </span>';
+				acumact = acumact + espincrem + signinc + $increm + '% </span>';*/
+				alert(increm);
 			}
 			else 
 			{
