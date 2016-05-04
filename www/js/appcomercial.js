@@ -7,18 +7,18 @@ function numero_perfiles_solicitantes()
 	$('#empresas').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/numero_perfiles_solicitantes.json";
 	$.getJSON(serviceURL, function(data) {
-		$.each(data, function(index, dato) {
-			$('#inserta').append('<span>'+dato.PERFILES_INSERTA+'</span>Perfiles Inserta');
-			$('#empleo').append('<span>'+dato.PERFILES_EMPLEO+'</span>Perfiles Empleo');
-			$('#practica').append('<span>'+dato.PERFILES_PRACTICA+'</span>Perfiles Prácticas');
-		});
+
+			$('#inserta').append('<span>'+data.PERFILES_INSERTA+'</span>Perfiles Inserta');
+			$('#empleo').append('<span>'+data.PERFILES_EMPLEO+'</span>Perfiles Empleo');
+			$('#practica').append('<span>'+data.PERFILES_PRACTICA+'</span>Perfiles Prácticas');
+
 	});
 	
 	var serviceURL2 = "http://www.fulp.es/servicesfulp/numero_empresas_empleo.json";
 	$.getJSON(serviceURL2, function(data2) {
-		$.each(data2, function(index, dato) {
-			$('#empresas').append('<span>'+dato.NUMERO_EMPRESAS+'</span>Empresas');
-		});
+
+			$('#empresas').append('<span>'+data2.NUMERO_EMPRESAS+'</span>Empresas');
+
 	});
 }
 
