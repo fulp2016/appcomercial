@@ -5,7 +5,7 @@ function numero_perfiles_solicitantes()
 	$('#empleo').empty();
 	$('#practica').empty();
 	$('#empresas').empty();
-	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json";
+	var serviceURL = "http://www.fulp.es/servicesfulp/numero_perfiles_solicitantes.json";
 	$.getJSON(serviceURL, function(data) {
 		$.each(data, function(index, dato) {
 			$('#inserta').append('<span>'+dato.PERFILES_INSERTA+'</span>Perfiles Inserta');
@@ -14,7 +14,7 @@ function numero_perfiles_solicitantes()
 		});
 	});
 	
-	var serviceURL2 = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json";
+	var serviceURL2 = "http://www.fulp.es/servicesfulp/numero_empresas_empleo.json";
 	$.getJSON(serviceURL2, function(data2) {
 		$.each(data2, function(index, dato) {
 			$('#empresas').append('<span>'+dato.NUMERO_EMPRESAS+'</span>Empresas');
