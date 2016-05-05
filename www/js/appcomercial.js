@@ -238,15 +238,15 @@ function listado_empresas(a)
 	var clase = 'l1';
 	var serviceURL = "http://www.fulp.es/servicesfulp/listado_busqueda_empresas.json?txt="+a;
 	$.getJSON(serviceURL, function(data) {
-		
+		$.each(data, function(index, dato) {
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
 			
-			cad = '<div class="empresa '+ clase +'">'+
-					'<div class="nombre-empresa">Fundación</div>'
-					'<div class="nif-empresa">G35000000</div>'
+			cad = cad + '<div class="empresa '+ clase +'">'+
+					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'
+					'<div class="nif-empresa">'+dato.NIF+'</div>'
 					'<div class="enlace-empresa">Ver ficha</div>'
 					'</div>';
-
+		});
 	});
 	
 	$('#list-empresas').append(cad);
