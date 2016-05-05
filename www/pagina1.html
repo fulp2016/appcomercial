@@ -9,106 +9,61 @@
 <script src="phonegap.js"></script>
 	
 <div class="skin-black" data-role="page">
-
-                <div data-role="content" class="wrapper row-offcanvas row-offcanvas-left">
-                    
-
-                    <aside class="right-side">
-
-                <!-- Main content -->
-                <section class="content">
-
-                    <div class="row" style="margin-bottom:5px;">
-
-
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix">
-                                <!--<span class="sm-st-icon st-red"><i class="fa fa-check-square-o"></i></span>-->
-                                <div class="sm-st-info" id="inserta">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix">
-                                <!--<span class="sm-st-icon st-violet"><i class="fa fa-envelope-o"></i></span>-->
-                                <div class="sm-st-info"  id="empleo">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix">
-                                <!--<span class="sm-st-icon st-blue"><i class="fa fa-dollar"></i></span>-->
-                                <div class="sm-st-info" id="practica">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix">
-                                <!--<span class="sm-st-icon st-green"><i class="fa fa-paperclip"></i></span>-->
-                                <div class="sm-st-info" id="empresas">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Main row -->
-                    <div class="row">
-						
-                        <div>
-                            <!--earning graph start-->
-                            <section class="panel">
-                                <header class="panel-heading">
-                                  PROGRAMAS INSERTA FORMALIZADOS
-                            </header>
-                            <div id="ev-inserta" class="panel-body table-responsive" >
-                                
-							</div>
-							</section>
-
-                         <section class="panel">
-                              <header class="panel-heading">
-                                  RESUMEN RELACIONES FORMALIZADAS
-                            </header>
-                            <div id="rel-fomalizadas" class="panel-body table-responsive">
-                                
-						  </div>
-					  </section>
-					  
-					  
-					  <section class="panel">
-                              <header class="panel-heading">
-                                  EVOLUCI&Oacute;N ALTA SOLICITANTES
-                            </header>
-                            <div id="ev-alta-soli" class="panel-body table-responsive">
-                                
-						  </div>
-					  </section>
-					  
-					  
-					  <section class="panel">
-                              <header class="panel-heading">
-                                  EVOLUCI&Oacute;N ALTA EMPRESAS
-                            </header>
-                            <div id="ev-alta-emp" class="panel-body table-responsive">
-                                
-						  </div>
-					  </section>
-					  
-
-                      </div>
-						
+	<div data-role="content" class="wrapper row-offcanvas row-offcanvas-left">
+		<aside class="right-side">
+			<section class="content">
+				<div class="row" style="margin-bottom:5px;">
+					<div class="col-md-3">
+						<div class="sm-st clearfix">
+							<div class="sm-st-info" id="inserta"></div>
+						</div>
 					</div>
-                   <br><br><br>
-       
-              <!-- row end -->
-                </section><!-- /.content -->
-            </aside><!-- /.right-side -->
+					<div class="col-md-3">
+						<div class="sm-st clearfix">
+							<div class="sm-st-info"  id="empleo"></div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="sm-st clearfix">
+							<div class="sm-st-info" id="practica"></div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="sm-st clearfix">
+							<div class="sm-st-info" id="empresas"></div>
+						</div>
+					</div>
+				</div>
+				<!-- Main row -->
+				<div class="row">
+					<div>
+						<!--earning graph start-->
+						<section class="panel">
+							<header class="panel-heading">PROGRAMAS INSERTA FORMALIZADOS</header>
+                            <div id="ev-inserta" class="panel-body table-responsive" ></div>
+						</section>
 
-        </div><!-- ./wrapper -->
+						<section class="panel">
+							<header class="panel-heading">RESUMEN RELACIONES FORMALIZADAS</header>
+                            <div id="rel-fomalizadas" class="panel-body table-responsive"></div>
+						</section>
+					  
+						<section class="panel">
+							<header class="panel-heading">EVOLUCI&Oacute;N ALTA SOLICITANTES</header>
+                            <div id="ev-alta-soli" class="panel-body table-responsive"></div>
+						</section>
+					  
+						<section class="panel">
+							<header class="panel-heading">EVOLUCI&Oacute;N ALTA EMPRESAS</header>
+                            <div id="ev-alta-emp" class="panel-body table-responsive"></div>
+						</section>
+					</div>
+				</div>
+                   <br><br><br>
+				<!-- row end -->
+			</section><!-- /.content -->
+		</aside><!-- /.right-side -->
+	</div><!-- ./wrapper -->
 
 		<!-- /Pie -->
     <div id="menu-pie" data-role="footer" data-position="fixed">
@@ -116,7 +71,14 @@
         <a onclick="getCitaForm();" data-role="button" data-inline="true" id="mencita"><img src="img/bcita.png"></a>
         <a onclick="getAvisosList();" data-role="button" data-inline="true" id="menaviso"><img src="img/baviso.png"></a>
 		<a onclick="getFavoritosList();" data-role="button" data-inline="true" id="menfav"><img src="img/bfavorito.png"></a>
-	</div>				   
-            
+	</div>
+	
 </div>
 
+<script>
+	evolucion_insertas_formalizados();
+	resumen_relaciones();
+	evolucion_alta_solicitantes();
+	evolucion_alta_empresas();
+	numero_perfiles_solicitantes();
+</script>
