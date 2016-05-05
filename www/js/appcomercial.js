@@ -247,8 +247,10 @@ function listado_empresas(a)
 					'<div class="enlace-empresa">Ver ficha</div>'+
 					'</div>';
 		});
+		
+		$('#list-empresas').append(cad);
 	});
 	
-	$('#list-empresas').append(cad);
+	
 	
 }
