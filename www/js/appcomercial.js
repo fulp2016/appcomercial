@@ -242,9 +242,9 @@ function listado_empresas(a)
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
 			
 			cad = cad + '<div class="empresa '+ clase +'">'+
-					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'
-					'<div class="nif-empresa">'+dato.NIF+'</div>'
-					'<div class="enlace-empresa">Ver ficha</div>'
+					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'+
+					'<div class="nif-empresa">'+dato.NIF+'</div>'+
+					'<div class="enlace-empresa">Ver ficha</div>'+
 					'</div>';
 		});
 	});
