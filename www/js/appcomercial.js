@@ -1,6 +1,6 @@
 
 function numero_perfiles_solicitantes()
-{
+{ 
 	$('#inserta').empty();
 	$('#empleo').empty();
 	$('#practica').empty();
