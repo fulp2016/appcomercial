@@ -231,8 +231,8 @@ function evolucion_alta_empresas()
 	});
 }
 
-function numero_perfiles_solicitantes(a)
-{ alert(1);
+function listado_empresas(a)
+{ 
 	$('#list-empresas').empty();
 	var cad = '';
 	var clase = 'l1';
