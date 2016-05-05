@@ -1,12 +1,16 @@
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="css/styles_content.css" />
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/appcomercial.js" type="text/javascript"></script>	
-<script src="phonegap.js"></script>
-	
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1; text/html; charset=UTF-8;">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/styles_content.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<script src="js/appcomercial.js" type="text/javascript"></script>	
+	<script src="phonegap.js"></script>
+</head>
 <div class="skin-black" data-role="page">
 	<div data-role="content" class="wrapper row-offcanvas row-offcanvas-left">
 		<aside class="right-side">
@@ -66,8 +70,8 @@
 
 		<!-- /Pie -->
     <div id="menu-pie" data-role="footer" data-position="fixed">
-    	<a onclick="getDestacadosList();" data-role="button" data-inline="true" id="mendest"><img src="img/bdestacado.png"></a>
-        <a onclick="getCitaForm();" data-role="button" data-inline="true" id="mencita"><img src="img/bcita.png"></a>
+    	<a onclick="window.location.href='dashboard.html'" data-role="button" data-inline="true" id="mendest"><img src="img/bdestacado.png"></a>
+        <a onclick="window.location.href='busq_empresas.html'" data-role="button" data-inline="true" id="mencita"><img src="img/bcita.png"></a>
         <a onclick="getAvisosList();" data-role="button" data-inline="true" id="menaviso"><img src="img/baviso.png"></a>
 		<a onclick="getFavoritosList();" data-role="button" data-inline="true" id="menfav"><img src="img/bfavorito.png"></a>
 	</div>
