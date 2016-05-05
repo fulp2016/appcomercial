@@ -10,6 +10,8 @@
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="phonegap.js"></script>
+	
+	<script src="js/appcomercial.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -17,8 +19,23 @@
 
     
 	<div class="wrapper row-offcanvas row-offcanvas-left" data-role="content">
-		<div class="buscador"><input placeholder="CIF O NOMBRE DE ENTIDAD" type="search" id="buscador" autocomplete="on" autofocus="autofocus"><input type="button" value="GO"></div>
-		<div id="list-empresas"></div>
+		<div class="buscador">
+			<input placeholder="CIF O NOMBRE DE ENTIDAD" type="search" id="buscador" autocomplete="on" autofocus="autofocus">
+			<input type="button" onclick="numero_perfiles_solicitantes(document.getElementById('buscador').value)" value="GO">
+		</div>
+		<div id="list-empresas">
+			<div class="empresa l1">
+				<div class="nombre-empresa">Fundación</div>
+				<div class="nif-empresa">G35000000</div>
+				<div class="enlace-empresa">Ver ficha</div>
+			</div>	
+			
+			<div class="empresa l2">
+				<div class="nombre-empresa">Fundación</div>
+				<div class="nif-empresa">G35000000</div>
+				<div class="enlace-empresa">Ver ficha</div>
+			</div>	
+		</div>
 		
 	</div>
 	
