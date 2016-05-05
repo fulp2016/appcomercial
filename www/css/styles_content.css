@@ -24,7 +24,7 @@
 #contenido #contenedorSesion{ text-align:center;}
 
 
-#menu-pie { background:url("../img/fondo.png") no-repeat center center fixed; -webkit-background-size: 100%;  background-size: 100%; position:fixed; bottom:0; left:0;  width:100%; padding:10px; text-align:center; border:0;}
+#menu-pie { background-color:#E9530D; -webkit-background-size: 100%;  background-size: 100%; position:fixed; bottom:0; left:0;  width:100%; padding:10px; text-align:center; border:0;}
 #menu-pie a{ margin:0 3% 0 3%;}
 #menu-pie img{ width:50px; height:50px;} 
 #menu-pie #mendest, #menu-pie #menaviso, #menu-pie #mencita , #menu-pie #menfav, #menu-pie #meniti{ padding:0; height:50px; width:50px; border-radius:10px; text-align:center; }
