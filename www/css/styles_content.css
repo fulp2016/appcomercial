@@ -1,23 +1,5 @@
 @charset "utf-8";
 
-#appsolListPage,detailsPage{
-	background: url("../img/fondo.png") no-repeat center center fixed; background-color:#ff8663; -webkit-background-size: cover; background-size: cover; font-family:"Coolvetica",arial;}
-
-#cabecera { background:transparent; position:fixed; top:0; left:0; width:100%; border:0; padding:0; margin:0;}
-#cabecera img {width: 100%;max-height: 130px;}
-#cabecera div { margin-top:0; padding-top:0; float:right; margin-right:20px;}
-#cabecera div.btn img{width:100%;}
-#cabecera #meniniciar{position:absolute; top:5%; right:1%; padding:0; height:50px; width:50px; border-radius:10px; text-align:center; background:transparent;}
-
-@media(min-width:600px)
-{
-	#cabecera { width:100%; height: 100px; overflow:hidden;}
-	#cabecera.naranja{background-color: #E9530D !important;}
-	#cabecera.blanco{background-color: #FFF !important;}
-	#cabecera img { width:auto;}
-	#cabecera #meniniciar{top:20%; right:5%;}
-}
-
 #contenido { width:100%; min-height:300px; overflow:hidden; padding:0;}
 #contenido input{ width:90%; border-radius:10px;}
 #contenido #contenedorCita{ text-align:center;}
@@ -30,105 +12,10 @@
 #menu-pie #mendest, #menu-pie #menaviso, #menu-pie #mencita , #menu-pie #menfav, #menu-pie #meniti{ padding:0; height:50px; width:50px; border-radius:10px; text-align:center; }
 #menu-pie #meniniciar img{ width:50px; height:50px;}   
 
-
-#contenedorDestacados{ padding-right:4px; padding-top:0;}
-#destacadosList{ padding:0; width:100%;}
-#destacadosList ul{ width:100%;}
-#destacadosList a li { background:#fff; list-style:none; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:10px; margin:10px 0; width:100%; min-height:40px;}
-#destacadosList a { text-decoration:none !important;}
-#destacadosList a li div.imagn{ width:100%; }
-#destacadosList a li div.contn{ width:100%; }
-#destacadosList .icofavorito{width:25px; margin: 0 10px 0 5px; padding: 15px 0 5px 0; float:left;}
-#destacadosList a li div.imagn img { width:40px; float:right; margin-left:10px;}
-#destacadosList a li h4{ color:#e9530d; font-size:14px; font-weight:bold;}
-#destacadosList a li p{ color:#666;  font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:normal;}
-#destacadosList a li p i {color:#999; font-size:11px;}
-#destacadosList a li span{ color:#000; margin:0 10px;}
-#destacadosList a li p,#destacadosList a li h4{margin:0;}
-#destacadosList .imgcontent{overflow: hidden; width:100%; height:200px; margin-top:10px;}
-#destacadosList .imgcontent img{ width:100%}
-
-#contenedorFavoritos{ padding-right:4px; padding-top:0;}
-#favoritosList{ padding:0; width:100%;}
-#favoritosList ul{ width:100%;}
-#favoritosList a li { background:#fff; list-style:none; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:10px; margin:10px 0; width:100%; min-height:40px;}
-#favoritosList a { text-decoration:none !important;}
-#favoritosList a li div.imagn{ width:100%; }
-#favoritosList a li div.contn{ width:100%; }
-#favoritosList .icofavorito{width:25px; margin: 0 10px 0 5px; padding: 15px 0 5px 0; float:left;}
-#favoritosList a li div.imagn img { width:40px; float:right; margin-left:10px;}
-#favoritosList a li h4{ color:#e9530d; font-size:14px; font-weight:bold;}
-#favoritosList a li p{ color:#666;  font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:normal;}
-#favoritosList a li p i {color:#999; font-size:11px;}
-#favoritosList a li span{ color:#000; margin:0 10px;}
-#favoritosList a li p,#favoritosList a li h4{margin:0;}
-#favoritosList .imgcontent{overflow: hidden; width:100%; height:200px; margin-top:10px;}
-#favoritosList .imgcontent img{ width:100%}
-
-#contenedorAvisos{ padding-right:4px; padding-top:0;}
-#avisosList{ padding:0; width:100%;}
-#avisosList ul{ width:100%;}
-#avisosList li { background:#f3f3f3; list-style:none; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:10px; margin:1px 0; width:100%; min-height:40px;}
-#avisosList li.nuevo{background:#fff; /*background-image:url("../img/nuevo_aviso.png"); background-repeat: no-repeat; background-attachment: fixed;  background-position: 97% 1%; background-size: 10px; */}
-#avisosList li div.imagn{ width:100%; }
-#avisosList li div.imagn img { width:40px; float:left; margin-right:10px;}
-#avisosList li div.contn{ width:100%; }
-#avisosList li p{ color:#666;  font-size:13px; font-family:Arial, Helvetica, sans-serif; font-weight:normal;}
-#avisosList a { margin:0; padding:0;}
-
-#contenedorItinerario{ padding-right:4px; padding-top:0;}
-#contenedorItinerario #mencerrar{}
-#itinerarioList{ padding:0; width:100%;}
-#itinerarioList ul{ width:100%;}
-#itinerarioList li { background:#fff; list-style:none; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:10px; margin:5px 0; width:100%; min-height:40px;}
-#itinerarioList  li div.imagn{ width:100%; }
-#itinerarioList  li div.imagn img { width:40px;  float:left; margin-right:10px;}
-#itinerarioList li h4{ color:#e9530d; font-size:14px; font-weight:bold;}
-#itinerarioList li div.contn{ width:100%; }
-#itinerarioList li p{ color:#666;  font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:normal;}
-
-#contenedorDetalle { background-color:#fff; margin:2px;}
-#contenedorDetalle #titulo h4{ font-size:16px; font-weight:bold; color:#e9530d; text-align:center;}
-#contenedorDetalle #titulo p{ font-size:14px; font-weight:bold; color:#000; text-align:center;}
-#contenedorDetalle #titulo p i {color:#999; font-size:11px; font-weight:normal;}
-#contenedorDetalle #dgenerales{background-color:#f2f2f2; padding:5px 5px; margin:10px 0; font-size:12px;}
-#contenedorDetalle #descripcion{margin:10px 0;}
-#contenedorDetalle #descripcion h5{font-size:14px; font-weight:bold; color:#e9530d;}
-#contenedorDetalle #descripcion p{font-size:12px; text-align:justify;}
-#contenedorDetalle #bton{margin:10px 0; text-align:center;}
-#contenedorDetalle #bton a{ background-color:#e9530d; color:#fff;}
-
-#contenedorTerraza { background-color:#fff; margin:2px;}
-#contenedorTerraza #tituloT h4{ font-size:16px; font-weight:bold; color:#e9530d; text-align:center;}
-#contenedorTerraza #tituloT  p { font-size:14px; font-weight:bold; color:#000; text-align:center;}
-#contenedorTerraza #imagenT {overflow: hidden; width:100%; height:200px; margin:10px 0;}
-#contenedorTerraza #imagenT img{ width:100%}
-#contenedorTerraza #dgeneralesT{background-color:#f2f2f2; padding:5px 5px; margin:10px 0; font-size:12px;}
-#contenedorTerraza #descripcionT{margin:10px 0;}
-#contenedorTerraza #descripcionT h5{font-size:14px; font-weight:bold; color:#e9530d;}
-#contenedorTerraza #descripcionT p{font-size:12px; text-align:justify;}
-#contenedorTerraza #btonT{margin:10px 0; text-align:center;}
-#contenedorTerraza #btonT a{ background-color:#e9530d; color:#fff;}
-
-#contenedorSol { background-color:#fff; margin:2px;}
-#contenedorSol #tituloS h4{ font-size:16px; font-weight:bold; color:#e9530d; text-align:center;}
-#contenedorSol #tituloS  p { font-size:14px; font-weight:bold; color:#000; text-align:center;}
-#contenedorSol #dgeneralesS{background-color:#f2f2f2; padding:5px 5px; margin:10px 0; font-size:12px;}
-#contenedorSol #descripcionS{margin:10px 0;}
-#contenedorSol #descripcionS h5{font-size:14px; font-weight:bold; color:#e9530d;}
-#contenedorSol #descripcionS p{font-size:12px; text-align:justify;}
-#contenedorSol #formS{margin:10px 0; text-align:center;}
-#contenedorSol #formS a{ background-color:#e9530d; color:#fff;}
-
-#contenedorCita {margin:2px;}
-#contenedorCita a#solicitar {background-color:#e9530d; color:#fff;}
-
 #contenedorSesion {margin:2px;}
 #contenedorSesion a#iniciar {background-color:#e9530d; color:#fff;}
 
 
-
-/*#menu-pie #mencerrar img{ width:50px; height:50px;}   
-#cabecera #mencerrar{position:absolute; top:5%;
-right:1%; padding:0; height:50px; width:50px; border-radius:10px; text-align:center; background:transparent;}*/
-
+.buscador {background-color: #fefefe; padding:5px; border-radius:3px; display: flex;}
+.buscador .ui-input-search{width:70%; border-radius: 10px; margin-right:5px;}
+.buscador .ui-input-btn {width:auto !important; border-radius: 20px !important; padding:5px; margin: 10px !important;}
