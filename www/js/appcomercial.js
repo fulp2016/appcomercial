@@ -8,9 +8,9 @@ function numero_perfiles_solicitantes()
 	var serviceURL = "http://www.fulp.es/servicesfulp/numero_perfiles_solicitantes.json";
 	$.getJSON(serviceURL, function(data) {
 
-			$('#inserta').append('<span>'+data.PERFILES_INSERTA+'</span>Perfiles Inserta');
-			$('#empleo').append('<span>'+data.PERFILES_EMPLEO+'</span>Perfiles Empleo');
-			$('#practica').append('<span>'+data.PERFILES_PRACTICA+'</span>Perfiles Prácticas');
+			$('#inserta').append('<span>'+data.PERFILES_INSERTA+'</span>Inserta');
+			$('#empleo').append('<span>'+data.PERFILES_EMPLEO+'</span>Empleo');
+			$('#practica').append('<span>'+data.PERFILES_PRACTICA+'</span>Prácticas');
 
 	});
 	
