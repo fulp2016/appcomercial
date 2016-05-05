@@ -232,17 +232,13 @@ function evolucion_alta_empresas()
 }
 
 function numero_perfiles_solicitantes(a)
-{ 
+{ alert(1);
 	$('#list-empresas').empty();
 	var cad = '';
 	var clase = 'l1';
 	var serviceURL = "http://www.fulp.es/servicesfulp/listado_busqueda_empresas.json?txt="+a;
 	$.getJSON(serviceURL, function(data) {
-
-			$('#inserta').append('<span>'+data.PERFILES_INSERTA+'</span>Inserta');
-			$('#empleo').append('<span>'+data.PERFILES_EMPLEO+'</span>Empleo');
-			$('#practica').append('<span>'+data.PERFILES_PRACTICA+'</span>Prácticas');
-			
+		
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
 			
 			cad = '<div class="empresa '+ clase +'">'+
