@@ -112,7 +112,7 @@ body.fixed .wrapper {
 /* Content */
 .content {
   padding: 20px 15px;
-  background: #f0f3f4;
+  /*background: #f0f3f4;*/
   overflow: auto;
 }
 /* Utility */
