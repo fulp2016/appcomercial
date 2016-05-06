@@ -18,7 +18,7 @@
 
 .buscador {background-color: #fefefe; padding:5px; border-radius:3px; display: flex;}
 .buscador .ui-input-search{width:90%; border-radius: 10px; margin-right:5px;}
-.buscador .ui-input-btn {width:3% !important; border-radius: 20px !important; padding:5px; margin: 10px !important;}
+.buscador .ui-input-btn {width:50px !important; border-radius: 20px !important; padding:5px; margin: 10px !important;}
 
 #list-empresas {padding:5px; background-color:#f0f3f4;}
 #list-empresas .empresa{display:flex; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px;}

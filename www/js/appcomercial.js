@@ -253,7 +253,7 @@ function listado_empresas(a)
 		
 }
 
-function listado_empresas(a,b)
+function datos_ficha_empresas(a,b)
 { 
 	$('#ficha-empresas').empty();
 	var cad = '';
