@@ -240,12 +240,11 @@ function listado_empresas(a)
 	$.getJSON(serviceURL, function(data) {
 		$.each(data, function(index, dato) {
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
-			
 			cad = cad + '<div class="empresa '+ clase +'">'+
 					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'+
 					'<div class="grupo">'+
 					'<div class="nif-empresa"><b>CIF:</b> '+dato.NIF+'</div>'+
-					'<div class="enlace-empresa"><a data-role="button" href="ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'">VER FICHA</a></div>'+
+					'<div class="enlace-empresa"><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'">VER FICHA</a></div>'+
 					'</div>'+
 					'</div>';
 		});
