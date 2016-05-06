@@ -14,17 +14,25 @@
 	
 	<script src="js/appcomercial.js" type="text/javascript"></script>
 </head>
+<script>
+cadVariables = location.search.substring(1,location.search.length);
+arrVariables = cadVariables.split("&");
+for (i=0; i<arrVariables.length; i++) {
+arrVariableActual = arrVariables[i].split("=");
+if (isNaN(parseFloat(arrVariableActual[1])))
+eval(arrVariableActual[0]+"='"+unescape(arrVariableActual[1])+"';");
+else
+eval(arrVariableActual[0]+"="+arrVariableActual[1]+";");
+}
+</script>
 <body>
 
 <div class="skin-black" data-role="page">
 
     
-	<div id="empresas-contenido" class="wrapper row-offcanvas row-offcanvas-left" data-role="content">
-		<div class="buscador">
-			<input placeholder="CIF O NOMBRE DE ENTIDAD" type="search" id="buscador" autocomplete="on" autofocus="autofocus">
-			<input type="button" onclick="listado_empresas(document.getElementById('buscador').value)" value="GO">
-		</div>
-		<div id="list-empresas">
+	<div class="wrapper row-offcanvas row-offcanvas-left" data-role="content">
+		
+		<div id="ficha-empresas">
 
 		</div>
 		
@@ -40,6 +48,7 @@
     
 </div>
 <script>
+	listado_empresas(cod_entidad,cod_unidad);
 /*var uuid = window.localStorage.getItem("uuid");
 var regId = window.localStorage.getItem("regId");
 var cod_personal = window.localStorage.getItem("cod_personal");

@@ -244,13 +244,59 @@ function listado_empresas(a)
 			cad = cad + '<div class="empresa '+ clase +'">'+
 					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'+
 					'<div class="nif-empresa">'+dato.NIF+'</div>'+
-					'<div class="enlace-empresa">Ver ficha</div>'+
+					'<div class="enlace-empresa"><a href="ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'">Ver ficha</a></div>'+
 					'</div>';
 		});
 		
 		$('#list-empresas').append(cad);
 	});
-	
-	
-	
+		
+}
+
+function listado_empresas(a,b)
+{ 
+	$('#ficha-empresas').empty();
+	var cad = '';
+	var clase = 'l1';
+	var serviceURL = "http://www.fulp.es/servicesfulp/obtener_datos_entidad.json?cod_entidad="+a+"&cod_unidad="+b;
+	$.getJSON(serviceURL, function(data) {
+		
+		cad = '<table class="tabla_empresa">'+
+				'<tr>'+
+					'<th colspan="2">'+data.NOMBRE_EMPRESA+'</th>'+
+				'</tr>'+
+				'<tr>'+
+					'<td class="titulo"><b>CIF</b></td>'+
+					'<td>'+data.NIF+'</td>'+
+				'</tr>'+
+				'<tr>'+	
+					'<td class="titulo"><b>Tipo de entidad: </b></td>'+
+					'<td>'+data.DENOMINACION_TIPO_ENTIDAD+'</td>'+
+				'</tr>'+
+				'<tr>'+
+					'<td class="titulo"><b> Telefonos: </b></td>'+
+					'<td>'+data.NIF+' - '+data.NIF+'</td>'+
+				'</tr>'+
+				'<tr>'+
+					'<td class="titulo"><b> E-mail: </b></td>'+
+					'<td>'+data.EMAIL_NOTIFICACION+'</td>'+
+				'</tr>'+
+				'<tr>'+
+					'<td class="titulo"> <b> Dirección: </b></td>'+
+					'<td>'+data.DOMICILIO+'</td>'+
+				'</tr>'+
+				'<tr>'+
+					'<td class="titulo"><b> Actividad: </b></td>'+
+					'<td>'+data.DENOMINACION_ACTIVIDAD+'</td>'+
+				'</tr>'+
+				'<tr>'+	
+					'<td class="titulo"><b>Web: </b></td>'+
+					'<td>'+data.WEB+'</td>'+
+					''+
+				'</tr>'+
+			'</table>';
+		
+		$('#ficha-empresas').append(cad);
+	});
+		
 }

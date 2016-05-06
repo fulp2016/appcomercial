@@ -21,9 +21,18 @@
 .buscador .ui-input-btn {width:3% !important; border-radius: 20px !important; padding:5px; margin: 10px !important;}
 
 #list-empresas {padding:5px; background-color:#f0f3f4;}
-#list-empresas .empresa{display:flex; border-top: 1px solid #E9530D; border-bottom: 1px solid #E9530D; padding: 10px;}
-#list-empresas .empresa.l1{background-color:#FFAD86;}
+#list-empresas .empresa{display:flex; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px;}
+#list-empresas .empresa a{color:#E9530D}
+#list-empresas .empresa a:hover{color:#DE8257}
+#list-empresas .empresa.l1{background-color:#E0E0E0;}
 #list-empresas .empresa.l2{background-color:#FFF;}
 #list-empresas .empresa .nombre-empresa{margin:0 auto 0 0; max-width: 70%; width: 100%;}
 #list-empresas .empresa .nif-empresa{margin:0 auto 0 auto; max-width: 20%; width: 100%; text-align: center;}
 #list-empresas .empresa .enlace-empresa{margin:0 0 0 auto; max-width: 10%; width: 100%; text-align: center;}
+
+#empresas-contenido.ui-content{padding:0;}
+
+#ficha-empresas .tabla_empresa{margin:auto;  background: #fff;}
+#ficha-empresas .tabla_empresa tr th{padding: 10px 5px; color: #E9530D;}
+#ficha-empresas .tabla_empresa tr td{padding:5px; border: 1px solid #eee;}
+#ficha-empresas .tabla_empresa tr td.titulo{background:#ddd;}
