@@ -274,7 +274,7 @@ function datos_ficha_empresas(a,b)
 				'</tr>'+
 				'<tr>'+
 					'<td class="titulo"><b> Telefonos: </b></td>'+
-					'<td>'+data.NIF+' - '+data.NIF+'</td>'+
+					'<td>'+data.TELEFONO1+' - '+data.TELEFONO2+'</td>'+
 				'</tr>'+
 				'<tr>'+
 					'<td class="titulo"><b> E-mail: </b></td>'+
