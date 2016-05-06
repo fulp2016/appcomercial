@@ -243,8 +243,10 @@ function listado_empresas(a)
 			
 			cad = cad + '<div class="empresa '+ clase +'">'+
 					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'+
-					'<div class="nif-empresa">'+dato.NIF+'</div>'+
-					'<div class="enlace-empresa"><a href="ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'">Ver ficha</a></div>'+
+					'<div class="grupo">'+
+					'<div class="nif-empresa"><b>CIF:</b> '+dato.NIF+'</div>'+
+					'<div class="enlace-empresa"><a data-role="button" href="ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'">VER FICHA</a></div>'+
+					'</div>'+
 					'</div>';
 		});
 		
