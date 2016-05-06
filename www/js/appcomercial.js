@@ -241,11 +241,11 @@ function listado_empresas(a)
 		$.each(data, function(index, dato) {
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
 			cad = cad + '<div class="empresa '+ clase +'">'+
-					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'+
 					'<div class="grupo">'+
+					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'+
 					'<div class="nif-empresa"><b>CIF:</b> '+dato.NIF+'</div>'+
-					'<div class="enlace-empresa"><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'">VER FICHA</a></div>'+
 					'</div>'+
+					'<div class="enlace-empresa"><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'"><img src="img/bdestacado.png"></a></div>'+
 					'</div>';
 		});
 		
@@ -256,6 +256,7 @@ function listado_empresas(a)
 
 function datos_ficha_empresas(a,b)
 { 
+	$('#cabecera').empty();
 	$('#ficha-empresas').empty();
 	var cad = '';
 	var clase = 'l1';
@@ -263,9 +264,6 @@ function datos_ficha_empresas(a,b)
 	$.getJSON(serviceURL, function(data) {
 		
 		cad = '<table class="tabla_empresa">'+
-				'<tr>'+
-					'<th colspan="2">'+data.NOMBRE_EMPRESA+'</th>'+
-				'</tr>'+
 				'<tr>'+
 					'<td class="titulo"><b>CIF</b></td>'+
 					'<td>'+data.NIF+'</td>'+
@@ -296,7 +294,7 @@ function datos_ficha_empresas(a,b)
 					''+
 				'</tr>'+
 			'</table>';
-		
+		$('#cabecera').append(data.NOMBRE_EMPRESA);
 		$('#ficha-empresas').append(cad);
 	});
 		

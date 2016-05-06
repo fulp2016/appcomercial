@@ -112,7 +112,7 @@ body.fixed .wrapper {
 /* Content */
 .content {
   padding: 20px 15px;
-  /*background: #f0f3f4;*/
+  background: #f9f9f9;
   overflow: auto;
 }
 /* Utility */
@@ -3942,7 +3942,7 @@ white-space: nowrap;
 .panel .panel-heading {
 padding: 10px 15px;
 text-transform: uppercase;
-background-color:#F9F9F9;
+background-color:#ECECEC;
 }
 .bg-info {
 background-color: #7acbee;
