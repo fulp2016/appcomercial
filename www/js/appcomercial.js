@@ -297,5 +297,54 @@ function datos_ficha_empresas(a,b)
 		$('#cabecera').append(data.NOMBRE_EMPRESA);
 		$('#ficha-empresas').append(cad);
 	});
-		
 }
+
+function obt_contactos_empresa(a,b)
+{
+	$('#contacto-empresa').empty();
+	var cad = '';
+	var clase = 'l1';
+	var serviceURL = "http://www.fulp.es/servicesfulp/obtener_contactos_entidad.json?cod_entidad="+a+"&cod_unidad="+b;
+	$.getJSON(serviceURL, function(data) {
+				
+			cad = '<table class="contactos_empresa">'+
+					'<tr>'+
+						'<th colspan="2">Personas de contacto</th>'+
+					'<tr>';
+					
+		$.each(data, function(index, dato) {
+			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
+			cad = cad + 
+					'<tr>'+
+						'<td colspan="2" class="titulo '+clase+'">'+dato.NOMBRE_CONTACTO+' <br> <span class="sub-dep">'+dato.DESCRIPCION_CONTACTO+'</span></td>'+
+					'</tr>'+
+					'<tr>'+
+						'<td class="'+clase+'">';
+						
+						if(dato.TELEFONO_CONTACTO){
+							cad = cad + '<a data-role="button" data-inline="true"  href="tel:'+dato.TELEFONO_CONTACTO.replace(/[-.]/gi,'')+'">'+dato.TELEFONO_CONTACTO.replace(/[-.]/gi,'')+'</a>';
+						}
+						
+						if((dato.TELEFONO_CONTACTO)&&(dato.MOVIL_CONTACTO)){cad = cad + ' - ';}
+						
+						if(dato.MOVIL_CONTACTO){
+							cad = cad + '<a data-role="button" data-inline="true"  href="tel:'+dato.MOVIL_CONTACTO.replace(/[-.]/gi,'')+'">'+dato.MOVIL_CONTACTO.replace(/[-.]/gi,'')+'</a>';
+						}
+						
+						cad = cad + '</td>'+
+						'<td class="'+clase+'">';
+						
+						if(dato.EMAIL_CONTACTO){
+							cad = cad + '<a data-role="button" data-inline="true"  href="mailto:'+dato.EMAIL_CONTACTO+'">'+dato.EMAIL_CONTACTO+'</a>';
+						}
+						
+						cad = cad + '</td>'+
+					'</tr>';	
+		});
+		
+			cad = cad +
+					'</table>';
+					
+			$('#contacto-empresa').append(cad);	
+	});
+}	

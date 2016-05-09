@@ -7,12 +7,9 @@
 
 #cabecera{background-color: #E9530D; color: #FFF; padding:20px;}
 
+.sub-menu {padding: 5px 22%;}
 .sub-menu img{width:50px; height:50px; margin:auto;}
-.sub-menu a{margin:5px 5% 5px 5%; padding: 0;
-    height: 50px;
-    width: 50px;
-    border-radius: 10px;
-    text-align: center;}
+.sub-menu a{margin:0px 5%; padding: 0; height: 50px; width: 50px;  border-radius: 10px; text-align: center;}
 
 #menu-pie { background-color:#E9530D; -webkit-background-size: 100%;  background-size: 100%; position:fixed; bottom:0; left:0;  width:100%; padding:10px; text-align:center; border:0;}
 #menu-pie a{ margin:0 3% 0 3%;}
@@ -41,7 +38,16 @@
  #list-empresas .empresa .enlace-empresa img{width: 50px; height: 50px;}
 #empresas-contenido.ui-content{padding:0;}
 
-#ficha-empresas .tabla_empresa{margin:auto;  background: #fff;  margin-top: 15px;}
+#ficha-empresas .tabla_empresa{margin:auto;  background: #fff;  margin-top: 15px; width:100%}
 #ficha-empresas .tabla_empresa tr th{padding: 10px 5px; color: #E9530D;}
 #ficha-empresas .tabla_empresa tr td{padding:5px; border: 1px solid #eee;}
 #ficha-empresas .tabla_empresa tr td.titulo{background:#ddd;}
+
+#contacto-empresa .contactos_empresa {margin: 15px auto; background: #fff; width:100%}
+#contacto-empresa .contactos_empresa tr th{font-size:20px; font-weight:bold; background-color:#DDD; padding:10px;}
+#contacto-empresa .contactos_empresa tr td{padding:3px 10px; font-size:14px;}
+#contacto-empresa .contactos_empresa tr td.titulo{font-size:16px; font-weight:bold; padding-top:8px;}
+#contacto-empresa .contactos_empresa tr td.titulo span.sub-dep{font-weight:normal; font-size:14px;}
+#contacto-empresa .contactos_empresa tr td a {color:#E9530D}
+#contacto-empresa .contactos_empresa tr td.l1{background-color:#F1F1F1;}
+#contacto-empresa .contactos_empresa tr td.l2{background-color:#FFF;}
