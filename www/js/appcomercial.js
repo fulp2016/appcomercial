@@ -350,7 +350,7 @@ function obt_contactos_empresa(a,b)
 }	
 
 function historial_ucefe_empresa(a,b)
-{ 
+{  
 	var cad = '';
 	var nombre_entidad = '';
 	var clase = 'l1';
