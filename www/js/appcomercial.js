@@ -348,3 +348,44 @@ function obt_contactos_empresa(a,b)
 			$('#contacto-empresa').append(cad);	
 	});
 }	
+
+function historial_ucefe_empresa(a,b)
+{ 
+	var cad = '';
+	var nombre_entidad = '';
+	var clase = 'l1';
+	$('#cabecera').empty();	
+	$('#ucefe-empresa').empty();	
+	var serviceURL = "http://www.fulp.es/servicesfulp/historial_ucefe_empresas.json?cod_entidad="+a+"&cod_unidad="+b;
+	$.getJSON(serviceURL, function(data) {
+		
+		cad = '<table class="historial_empresa">'+
+					'<tr>'+
+						'<td class="titulo"></td>'+
+						'<td class="titulo">BECAS</td>'+
+						'<td class="titulo">PRACT</td>'+
+						'<td class="titulo">P.CURRI.</td>'+
+						'<td class="titulo">CATALIZA</td>'+
+					'</tr>';	
+		
+		$.each(data, function(index, dato) {
+			
+			nombre_entidad = dato.NOMBRE_ENTIDAD;
+			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
+			cad = cad +
+					'<tr>'+
+						'<td class="'+clase+'">'+dato.EJERCICIO+'</td>'+
+						'<td class="'+clase+'">'+dato.BECAS+'</td>'+
+						'<td class="'+clase+'">'+dato.PRACTICAS+'</td>'+
+						'<td class="'+clase+'">'+dato.PCURRICULARES+'</td>'+
+						'<td class="'+clase+'">'+dato.BECAS_CATALIZA+'</td>'+
+					'<tr>';
+		});
+		
+		cad = cad +
+				'</table>';
+				
+		$('#cabecera').append(nombre_entidad);	
+		$('#ucefe-empresa').append(cad);			
+	});
+}

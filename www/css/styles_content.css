@@ -19,7 +19,6 @@
 #contenedorSesion {margin:2px;}
 #contenedorSesion a#iniciar {background-color:#e9530d; color:#fff;}
 
-
 .buscador {background-color: #fefefe; padding:5px; border-radius:3px; display: flex;}
 .buscador .ui-input-search{width:90%; border-radius: 10px; margin-right:5px;}
 .buscador .ui-input-btn {width:50px !important; border-radius: 20px !important; padding:5px; margin: 10px !important;}
@@ -34,7 +33,7 @@
 #list-empresas .empresa .nombre-empresa{margin:0 auto 0 0; width: 100%;}
 #list-empresas .empresa .nif-empresa{margin:0 auto 0 auto; width: 100%; }
 #list-empresas .empresa .enlace-empresa{margin:0 0 0 auto; width: 50px;  text-align: center;}
- #list-empresas .empresa .enlace-empresa img{width: 50px; height: 50px;}
+#list-empresas .empresa .enlace-empresa img{width: 50px; height: 50px;}
 #empresas-contenido.ui-content{padding:0;}
 
 #ficha-empresas .tabla_empresa{margin:auto;  background: #fff;  margin-top: 15px; width:100%}
@@ -50,3 +49,9 @@
 #contacto-empresa .contactos_empresa tr td a {color:#E9530D}
 #contacto-empresa .contactos_empresa tr td.l1{background-color:#F1F1F1;}
 #contacto-empresa .contactos_empresa tr td.l2{background-color:#FFF;}
+
+#ucefe-empresa .historial_empresa{margin:auto;  background: #fff;  margin-top: 15px; width:100%}
+#ucefe-empresa .historial_empresa tr td{text-align:center; padding:3px;}
+#ucefe-empresa .historial_empresa tr td.titulo{background:#ddd; font-weight:bold;}
+#ucefe-empresa .historial_empresa tr td.l1{background-color:#f1f1f1;}
+#ucefe-empresa .historial_empresa tr td.l2{background-color:#FFF;}
