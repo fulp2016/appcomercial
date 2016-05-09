@@ -24,6 +24,10 @@ eval(arrVariableActual[0]+"='"+unescape(arrVariableActual[1])+"';");
 else
 eval(arrVariableActual[0]+"="+arrVariableActual[1]+";");
 }
+
+window.localStorage.setItem("cod_entidad", cod_entidad);
+window.localStorage.setItem("cod_unidad", cod_unidad);
+
 </script>
 <body>
 
@@ -32,7 +36,7 @@ eval(arrVariableActual[0]+"="+arrVariableActual[1]+";");
 	<div data-role="header" data-position="fixed" class='naranja'>
 		<div id="cabecera"></div>
 		<div class="sub-menu">
-			<a onclick="window.location.href='ficha_empresa.html'" data-role="button" data-inline="true" id="mendest"><img src="img/bdestacado.png"></a>
+			<a onclick="window.location.href='datos_ucefe.html'" data-role="button" data-inline="true" id="mendest"><img src="img/bdestacado.png"></a>
 			<a onclick="window.location.href='datos_ucefe.html'" data-role="button" data-inline="true" id="mencita"><img src="img/bcita.png"></a>
 			<a onclick="getAvisosList();" data-role="button" data-inline="true" id="menaviso"><img src="img/baviso.png"></a>
 		</div>
@@ -61,12 +65,10 @@ eval(arrVariableActual[0]+"="+arrVariableActual[1]+";");
     
 </div>
 <script>
+
 	
 	datos_ficha_empresas(cod_entidad,cod_unidad);
 	obt_contactos_empresa(cod_entidad,cod_unidad);
-	
-window.localStorage.setItem("cod_entidad", cod_entidad);
-window.localStorage.setItem("cod_unidad", cod_unidad);
 
 </script>
 </body>
