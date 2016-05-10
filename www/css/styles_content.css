@@ -1,12 +1,21 @@
 @charset "utf-8";
 
+.ui-mobile .ui-page{margin-top: 120px; margin-bottom: 75px;}
+@media screen and (orientation: landscape)
+{
+	.ui-mobile .ui-page{margin-top: 120px; margin-bottom: 75px;}
+}
+
 #contenido { width:100%; min-height:300px; overflow:hidden; padding:0;}
 #contenido input{ width:90%; border-radius:10px;}
 #contenido #contenedorCita{ text-align:center;}
 #contenido #contenedorSesion{ text-align:center;}
+.ui-content{padding: 0 !important; margin:1px;}
+
+.cab-naranja{position:fixed; width:100%; z-index: 1000;}
 
 #cabecera{background-color: #E9530D; color: #FFF; padding:20px;}
-
+.sub-menu{padding: 10px; background-color: #fff; text-align:center;}
 .sub-menu img{width:50px; height:50px; margin:auto;}
 .sub-menu a{margin:0px 5%; padding: 0; height: 50px; width: 50px;  border-radius: 10px; text-align: center;}
 
@@ -18,6 +27,10 @@
 
 #contenedorSesion {margin:2px;}
 #contenedorSesion a#iniciar {background-color:#e9530d; color:#fff;}
+
+.l1{background-color:#f1f1f1;}
+.l2{background-color:#FFF;}
+.panel-body{padding: 15px 0;}
 
 .buscador {background-color: #fefefe; padding:5px; border-radius:3px; display: flex;}
 .buscador .ui-input-search{width:90%; border-radius: 10px; margin-right:5px;}
@@ -36,22 +49,24 @@
 #list-empresas .empresa .enlace-empresa img{width: 50px; height: 50px;}
 #empresas-contenido.ui-content{padding:0;}
 
-#ficha-empresas .tabla_empresa{margin:auto;  background: #fff;  margin-top: 15px; width:100%}
+#ficha-empresas{margin:1px; font-size: 14px;}
+#ficha-empresas .tabla_empresa{margin:auto;  background: #fff;  margin-top: 10px; width:100%}
 #ficha-empresas .tabla_empresa tr th{padding: 10px 5px; color: #E9530D;}
 #ficha-empresas .tabla_empresa tr td{padding:5px; border: 1px solid #eee;}
 #ficha-empresas .tabla_empresa tr td.titulo{background:#ddd;}
 
-#contacto-empresa .contactos_empresa {margin: 15px auto; background: #fff; width:100%}
-#contacto-empresa .contactos_empresa tr th{font-size:20px; font-weight:bold; background-color:#DDD; padding:10px;}
-#contacto-empresa .contactos_empresa tr td{padding:3px 10px; font-size:14px;}
-#contacto-empresa .contactos_empresa tr td.titulo{font-size:16px; font-weight:bold; padding-top:8px;}
-#contacto-empresa .contactos_empresa tr td.titulo span.sub-dep{font-weight:normal; font-size:14px;}
-#contacto-empresa .contactos_empresa tr td a {color:#E9530D}
+#contacto-empresa{margin:1px; font-size: 14px;}
+#contacto-empresa .contactos_empresa {margin: 5px auto; background: #fff; width:100%}
+#contacto-empresa .contactos_empresa tr th{font-size:16px; font-weight:bold; background-color:#DDD; padding:10px;}
+#contacto-empresa .contactos_empresa tr td{padding:3px 10px;}
+#contacto-empresa .contactos_empresa tr td.titulo{font-weight:bold; padding-top:8px;}
+#contacto-empresa .contactos_empresa tr td.titulo span.sub-dep{font-weight:normal;}
+#contacto-empresa .contactos_empresa tr td a {color:#E9530D; font-weight:300;}
 #contacto-empresa .contactos_empresa tr td.l1{background-color:#F1F1F1;}
 #contacto-empresa .contactos_empresa tr td.l2{background-color:#FFF;}
-
+/*
 #ucefe-empresa .historial_empresa{margin:auto;  background: #fff;  margin-top: 15px; width:100%}
 #ucefe-empresa .historial_empresa tr td{text-align:center; padding:3px;}
 #ucefe-empresa .historial_empresa tr td.titulo{background:#ddd; font-weight:bold;}
 #ucefe-empresa .historial_empresa tr td.l1{background-color:#f1f1f1;}
-#ucefe-empresa .historial_empresa tr td.l2{background-color:#FFF;}
+#ucefe-empresa .historial_empresa tr td.l2{background-color:#FFF;}*/

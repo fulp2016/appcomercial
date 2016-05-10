@@ -269,11 +269,11 @@ function datos_ficha_empresas(a,b)
 					'<td>'+data.NIF+'</td>'+
 				'</tr>'+
 				'<tr>'+	
-					'<td class="titulo"><b>Tipo de entidad: </b></td>'+
+					'<td class="titulo"><b>Tipo: </b></td>'+
 					'<td>'+data.DENOMINACION_TIPO_ENTIDAD+'</td>'+
 				'</tr>'+
 				'<tr>'+
-					'<td class="titulo"><b> Telefonos: </b></td>'+
+					'<td class="titulo"><b> Tel&eacute;fonos: </b></td>'+
 					'<td>'+data.TELEFONO1+' - '+data.TELEFONO2+'</td>'+
 				'</tr>'+
 				'<tr>'+
@@ -325,7 +325,7 @@ function obt_contactos_empresa(a,b)
 							cad = cad + '<a data-role="button" data-inline="true"  href="tel:'+dato.TELEFONO_CONTACTO.replace(/[-.]/gi,'')+'">'+dato.TELEFONO_CONTACTO.replace(/[-.]/gi,'')+'</a>';
 						}
 						
-						if((dato.TELEFONO_CONTACTO)&&(dato.MOVIL_CONTACTO)){cad = cad + ' - ';}
+						if((dato.TELEFONO_CONTACTO)&&(dato.MOVIL_CONTACTO)){cad = cad + '  &nbsp;&nbsp; ';}
 						
 						if(dato.MOVIL_CONTACTO){
 							cad = cad + '<a data-role="button" data-inline="true"  href="tel:'+dato.MOVIL_CONTACTO.replace(/[-.]/gi,'')+'">'+dato.MOVIL_CONTACTO.replace(/[-.]/gi,'')+'</a>';
@@ -352,25 +352,29 @@ function obt_contactos_empresa(a,b)
 function historial_ucefe_empresa(a,b)
 {  
 	var cad = '';
-	var nombre_entidad = '';
 	var clase = 'l1';
-	$('#cabecera').empty();	
+	var tbecas = 0; var tpractica = 0; var tpcurri = 0; var tcat = 0; var tsbeca = 0; var tspract = 0; var tsempleo = 0; 
 	$('#ucefe-empresa').empty();	
 	var serviceURL = "http://www.fulp.es/servicesfulp/historial_ucefe_empresas.json?cod_entidad="+a+"&cod_unidad="+b;
 	$.getJSON(serviceURL, function(data) {
 		
-		cad = '<table class="historial_empresa">'+
+		cad = '<table class="table table-hover" style="font-size:12px !important">'+
+					'<thead>'+ 
 					'<tr>'+
 						'<td class="titulo"></td>'+
 						'<td class="titulo">BECAS</td>'+
 						'<td class="titulo">PRACT</td>'+
 						'<td class="titulo">P.CURRI.</td>'+
 						'<td class="titulo">CATALIZA</td>'+
-					'</tr>';	
+						'<td class="titulo">S.BECAS</td>'+
+						'<td class="titulo">S.PR&Aacute;CT</td>'+
+						'<td class="titulo">S.EMPLEO</td>'+
+					'</tr>'+
+					'</thead>'+
+					'<tbody>';	
 		
 		$.each(data, function(index, dato) {
 			
-			nombre_entidad = dato.NOMBRE_ENTIDAD;
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
 			cad = cad +
 					'<tr>'+
@@ -379,13 +383,35 @@ function historial_ucefe_empresa(a,b)
 						'<td class="'+clase+'">'+dato.PRACTICAS+'</td>'+
 						'<td class="'+clase+'">'+dato.PCURRICULARES+'</td>'+
 						'<td class="'+clase+'">'+dato.BECAS_CATALIZA+'</td>'+
+						'<td class="'+clase+'">'+dato.SOLICITUDES_BECAS+'</td>'+
+						'<td class="'+clase+'">'+dato.SOLICITUDES_PRACTICAS+'</td>'+
+						'<td class="'+clase+'">'+dato.SOLICITUDES_EMPLEO+'</td>'+
 					'<tr>';
+					
+				tbecas = parseInt(tbecas) + parseInt(dato.BECAS);
+				tpractica = parseInt(tpractica) + parseInt(dato.PRACTICAS);
+				tpcurri = parseInt(tpcurri) + parseInt(dato.PCURRICULARES);
+				tcat = parseInt(tcat) + parseInt(dato.BECAS_CATALIZA);
+				tsbeca = parseInt(tsbeca) + parseInt(dato.SOLICITUDES_BECAS);
+				tspract = parseInt(tspract) + parseInt(dato.SOLICITUDES_PRACTICAS);
+				tsempleo = parseInt(tsempleo) + parseInt(dato.SOLICITUDES_EMPLEO);
 		});
 		
 		cad = cad +
+				'<tr>'+
+					'<td><strong>TOTAL</strong></td>'+
+					'<td><strong>'+tbecas+'</strong></td>'+
+					'<td><strong>'+tpractica+'</strong></td>'+
+					'<td><strong>'+tpcurri+'</strong></td>'+
+					'<td><strong>'+tcat+'</strong></td>'+
+					'<td><strong>'+tsbeca+'</strong></td>'+
+					'<td><strong>'+tspract+'</strong></td>'+
+					'<td><strong>'+tsempleo+'</strong></td>'+
+				'<tr>';
+		
+		cad = cad + '<tbody>'+
 				'</table>';
 				
-		$('#cabecera').append(nombre_entidad);	
 		$('#ucefe-empresa').append(cad);			
 	});
 }
