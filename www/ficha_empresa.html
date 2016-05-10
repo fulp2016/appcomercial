@@ -9,8 +9,6 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="js/jquery.js"></script>
-	
 	<script src="js/appcomercial.js" type="text/javascript"></script>
 
 <script>
@@ -27,22 +25,42 @@ eval(arrVariableActual[0]+"="+arrVariableActual[1]+";");
 window.localStorage.setItem("cod_entidad", cod_entidad);
 window.localStorage.setItem("cod_unidad", cod_unidad);
 
-$(document).on("swipeleft", "#ficha", function() {
-	$.mobile.changePage("#grafica",{ transition: "flip", changeHash: false });
-});
-			
-$(document).on("swiperight", "#grafica", function() {
-	$.mobile.changePage("#ficha",{ transition: "flip", changeHash: false, reverse: true });
-});
+$(document).ready(function() {
+	
+	$(document).on("click","#mengrafica", function() { 
+		$.mobile.changePage("#grafica",{ transition: "slidefade", changeHash: false });
+	});
+	
+	$(document).on("click","#menficha", function() { 
+		$.mobile.changePage("#ficha",{ transition: "slidefade", changeHash: false });
+	});
 
+	$(document).on("swipeleft", "#ficha", function() {
+		$.mobile.changePage("#grafica",{ transition: "slidefade", changeHash: false });
+		$("#menficha img").attr("src","img/INFOgris.png");
+		$("#menficha").attr("class","");
+		$("#mengrafica img").attr("src","img/ESTADISTnaranja.png");
+		$("#mengrafica").attr("class","active");
+	});
+			
+	$(document).on("swiperight", "#grafica", function() {
+		$.mobile.changePage("#ficha",{ transition: "slidefade", changeHash: false, reverse: true });
+		$("#menficha img").attr("src","img/INFOnaranja.png");
+		$("#menficha").attr("class","active");
+		$("#mengrafica img").attr("src","img/ESTADISTgris.png");
+		$("#mengrafica").attr("class","");
+	});
+
+});
 </script>
 </head>
 <body>
+<div>
 <div data-role="header" data-position="fixed" class='cab-naranja'>
 		<div id="cabecera"></div>
 		<div class="sub-menu">
-			<a onclick="window.location.href='datos_ucefe.html'" data-role="button" data-inline="true" id="mendest"><img src="img/bdestacado.png"></a>
-			<a onclick="window.location.href='datos_ucefe.html'" data-role="button" data-inline="true" id="mencita"><img src="img/bcita.png"></a>
+			<a data-role="button" data-inline="true" class="active" id="menficha"><img src="img/INFOnaranja.png"></a>
+			<a data-role="button" data-inline="true" id="mengrafica"><img src="img/ESTADISTgris.png"></a>
 			<a onclick="getAvisosList();" data-role="button" data-inline="true" id="menaviso"><img src="img/baviso.png"></a>
 		</div>
 	</div>	 
@@ -58,9 +76,11 @@ $(document).on("swiperight", "#grafica", function() {
 			
 			</div>
 		</div>
-</div>	 
+	</div>	 
+</div>
 
 <div class="skin-black" data-role="page" id="grafica">		
+	<div class="wrapper row-offcanvas row-offcanvas-left" data-role="content">	
 		<div class="panel">
 			<div id="ucefe-empresa" class="panel-body table-responsive" ></div>
 		</div>
@@ -76,9 +96,8 @@ $(document).on("swiperight", "#grafica", function() {
         <a onclick="getAvisosList();" data-role="button" data-inline="true" id="menaviso"><img src="img/baviso.png"></a>
 		<a onclick="getFavoritosList();" data-role="button" data-inline="true" id="menfav"><img src="img/bfavorito.png"></a>
 	</div>
+</div>	
 <script>
-
-	
 	datos_ficha_empresas(cod_entidad,cod_unidad);
 	obt_contactos_empresa(cod_entidad,cod_unidad);
 	historial_ucefe_empresa(cod_entidad,cod_unidad);

@@ -15,12 +15,11 @@
 	<script src="js/appcomercial.js" type="text/javascript"></script>
 </head>
 <body>
-
-<div class="skin-black" data-role="page">
-	<div data-role="header" data-position="fixed" class='naranja'>
+	<div data-role="header" data-position="fixed" class='cab-naranja'>
 		<div id="cabecera">BUSQUEDA</div>
 	</div>
-    
+<div class="skin-black" data-role="page" id="pbuscador">
+   
 	<div id="empresas-contenido" class="wrapper row-offcanvas row-offcanvas-left" data-role="content">
 		<div class="buscador">
 			<input placeholder="CIF O NOMBRE DE ENTIDAD" type="search" id="buscador" autocomplete="on" autofocus="autofocus">
@@ -31,7 +30,8 @@
 		</div>
 		
 	</div>
-	
+	   
+</div>
     <!-- /Pie -->
     <div id="menu-pie" data-role="footer" data-position="fixed">
     	<a onclick="window.location.href='dashboard.html'" data-role="button" data-inline="true" id="mendest"><img src="img/bdestacado.png"></a>
@@ -39,8 +39,6 @@
         <a onclick="getAvisosList();" data-role="button" data-inline="true" id="menaviso"><img src="img/baviso.png"></a>
 		<a onclick="getFavoritosList();" data-role="button" data-inline="true" id="menfav"><img src="img/bfavorito.png"></a>
 	</div>
-    
-</div>
 <script>
 /*var uuid = window.localStorage.getItem("uuid");
 var regId = window.localStorage.getItem("regId");

@@ -1,6 +1,8 @@
 @charset "utf-8";
 
 .ui-mobile .ui-page{margin-top: 120px; margin-bottom: 75px;}
+#pdashboard{margin-top: 60px !important; margin-bottom: 40px !important;}
+#pbuscador{margin-top: 60px !important; margin-bottom: 40px !important;}
 @media screen and (orientation: landscape)
 {
 	.ui-mobile .ui-page{margin-top: 120px; margin-bottom: 75px;}
@@ -16,8 +18,9 @@
 
 #cabecera{background-color: #E9530D; color: #FFF; padding:20px;}
 .sub-menu{padding: 10px; background-color: #fff; text-align:center;}
-.sub-menu img{width:50px; height:50px; margin:auto;}
-.sub-menu a{margin:0px 5%; padding: 0; height: 50px; width: 50px;  border-radius: 10px; text-align: center;}
+.sub-menu img{width:30px; height:30px; margin:auto;}
+.sub-menu a{margin:0px 5%; padding: 0; height: 30px; width: 30px; text-align: center;}
+.sub-menu a.active{border-bottom:3px solid #E9530D; padding-bottom: 15px;}
 
 #menu-pie { background-color:#E9530D; -webkit-background-size: 100%;  background-size: 100%; position:fixed; bottom:0; left:0;  width:100%; padding:10px; text-align:center; border:0;}
 #menu-pie a{ margin:0 3% 0 3%;}
@@ -32,11 +35,13 @@
 .l2{background-color:#FFF;}
 .panel-body{padding: 15px 0;}
 
-.buscador {background-color: #fefefe; padding:5px; border-radius:3px; display: flex;}
+#empresas-contenido{margin:0 !important}
+
+.buscador {background-color: #fefefe; padding:5px; border-radius:3px; display: flex; position:fixed; width:100%; z-index:1000}
 .buscador .ui-input-search{width:90%; border-radius: 10px; margin-right:5px;}
 .buscador .ui-input-btn {width:50px !important; border-radius: 20px !important; padding:5px; margin: 10px !important;}
 
-#list-empresas {padding:5px; background-color:#f0f3f4;}
+#list-empresas {padding:5px; background-color:#f0f3f4; margin-top: 60px;  margin-bottom: 40px;}
 #list-empresas .empresa{display:flex;border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px;}
 #list-empresas .empresa .grupo{ margin-top: 3px;}
 #list-empresas .empresa a{color:#E9530D}
