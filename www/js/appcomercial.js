@@ -322,20 +322,20 @@ function obt_contactos_empresa(a,b)
 						'<td class="'+clase+'">';
 						
 						if(dato.TELEFONO_CONTACTO){
-							cad = cad + '<a data-role="button" data-inline="true"  href="tel:'+dato.TELEFONO_CONTACTO.replace(/[-.]/gi,'')+'">'+dato.TELEFONO_CONTACTO.replace(/[-.]/gi,'')+'</a>';
+							cad = cad + '<a data-inline="true"  href="tel:'+dato.TELEFONO_CONTACTO.replace(/[-.]/gi,'')+'">'+dato.TELEFONO_CONTACTO.replace(/[-.]/gi,'')+'</a>';
 						}
 						
 						if((dato.TELEFONO_CONTACTO)&&(dato.MOVIL_CONTACTO)){cad = cad + '  &nbsp;&nbsp; ';}
 						
 						if(dato.MOVIL_CONTACTO){
-							cad = cad + '<a data-role="button" data-inline="true"  href="tel:'+dato.MOVIL_CONTACTO.replace(/[-.]/gi,'')+'">'+dato.MOVIL_CONTACTO.replace(/[-.]/gi,'')+'</a>';
+							cad = cad + '<a data-inline="true"  href="tel:'+dato.MOVIL_CONTACTO.replace(/[-.]/gi,'')+'">'+dato.MOVIL_CONTACTO.replace(/[-.]/gi,'')+'</a>';
 						}
 						
 						cad = cad + '</td>'+
 						'<td class="'+clase+'">';
 						
 						if(dato.EMAIL_CONTACTO){
-							cad = cad + '<a data-role="button" data-inline="true"  href="mailto:'+dato.EMAIL_CONTACTO+'">'+dato.EMAIL_CONTACTO+'</a>';
+							cad = cad + '<a data-inline="true"  href="mailto:'+dato.EMAIL_CONTACTO+'">'+dato.EMAIL_CONTACTO+'</a>';
 						}
 						
 						cad = cad + '</td>'+
@@ -413,5 +413,28 @@ function historial_ucefe_empresa(a,b)
 				'</table>';
 				
 		$('#ucefe-empresa').append(cad);			
+	});
+}
+
+function obtener_acciones_entidad(a,b)
+{
+	$('#acciones-empresa').empty();
+	var cad = '';
+	var clase = 'l1';
+	var i = 0;
+	var serviceURL = "http://www.fulp.es/servicesfulp/obt_acciones_entidad.json?cod_entidad="+a+"&cod_unidad="+b;
+	$.getJSON(serviceURL, function(data) {
+		cad = '<div data-role="collapsibleset" data-theme="a" data-content-theme="a">';
+		$.each(data, function(index, dato) {
+			
+			cad = cad +
+					'<div data-role="collapsible">'+
+						'<h3>Section 1</h3>'+
+						'<p>Im the collapsible content for section 1</p>'+
+					'</div>';
+			i = i + 1;
+		});
+		cad = cad + '</div>';
+		$('#acciones-empresa').append(cad);	
 	});
 }
