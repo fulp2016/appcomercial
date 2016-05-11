@@ -448,3 +448,46 @@ function obtener_acciones_entidad(a,b)
 		$('#acciones-empresa').append(cad);	
 	});
 }
+
+function opciones_acciones()
+{
+	var cad = '';
+	var serviceURL = "http://www.fulp.es/servicesfulp/listado_tipo_acciones.json";
+	$.getJSON(serviceURL, function(data) {
+		cad = '<option value="">TIPO ACCIÓN</option>';
+		$.each(data, function(index, dato) {
+
+			cad = cad +
+				'<option value="'+dato.ID_ACCION+'">'+dato.DESCRIPCION+'</option>';
+
+		});
+		$('#tipo_accion').append(cad);	
+	});
+}
+
+function opciones_personal()
+{
+	var cad = '';
+	var selected = '';
+	var serviceURL = "http://www.fulp.es/servicesfulp/listado_personal.json";
+	$.getJSON(serviceURL, function(data) {
+		cad = '<option value="">RESPONSABLE</option>';
+		$.each(data, function(index, dato) {
+			if(dato.COD_PERSONAL==cod_personal){selected='selected';}else {selected='';}
+			cad = cad +
+				'<option '+selected+' value="'+dato.COD_PERSONAL+'">'+dato.NOMBRE_PERSONAL+'</option>';
+
+		});
+		$('#cod_responsable').append(cad);	
+	});
+}
+
+function crear_nueva_accion()
+{alert(document.getElementById('fecha_ini').value);
+	 /*var xmlhttp =new XMLHttpRequest();
+	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?anadir_accion=S&cod_entidad="+cod_entidad+"&cod_unidad="+cod_unidad+"&tipo="+document.getElementById('tipo_accion').value+"&fecha_ini="+document.getElementById('fecha_ini').value+"&hora_ini="+document.getElementById('hora_ini').value+"&asunto="+document.getElementById('asunto').value+"&descripcion="+document.getElementById('descripcion').value+"&cod_responsable="+document.getElementById('cod_responsable').value+"&cod_personal="+cod_personal,false);
+	 xmlhttp.send(null);
+	 alert('ok');*/
+}
+
+
