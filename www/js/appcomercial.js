@@ -422,15 +422,25 @@ function obtener_acciones_entidad(a,b)
 	var cad = '';
 	var clase = 'l1';
 	var i = 0;
+	var estado = '';
 	var serviceURL = "http://www.fulp.es/servicesfulp/obt_acciones_entidad.json?cod_entidad="+a+"&cod_unidad="+b;
 	$.getJSON(serviceURL, function(data) {
 		cad = '<div data-role="collapsibleset" data-theme="a" data-content-theme="a">';
 		$.each(data, function(index, dato) {
-			
+			if(dato.CERRADA == 'S'){estado = '<span style="float:right; font-size:11px; color:#65B0E6;">CERRADA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>';}
+			else{estado = '<span style="float:right; font-size:11px; color:#63E23B;">ABIERTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>';}
 			cad = cad +
 					'<div data-role="collapsible">'+
-						'<h3>Section 1</h3>'+
-						'<p>Im the collapsible content for section 1</p>'+
+						'<h3 style="font-size:14px">'+dato.DESCRIPCION_TIPO_ACCION+'  <span style="float:right">'+dato.FECHA_INI+'</span> <br> <span style="font-size:11px; font-weight:normal;">'+ dato.RESPONSABLE_FULP+'</span> '+estado+'</h3>'+
+						'<p><table>'+
+
+							'<tr>'+
+								'<td style="color:#E9530D">'+dato.ASUNTO+'</td>'+
+							'</tr>'+
+							'<tr>'+
+								'<td>'+dato.DESCRIPCION+'</td>'+
+							'</tr>'+
+						'</table></p>'+
 					'</div>';
 			i = i + 1;
 		});

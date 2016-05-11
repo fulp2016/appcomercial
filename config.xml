@@ -1,10 +1,10 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.comercial.fulp" version="1.0.0">
+﻿<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.comercial.fulp" version="1.0.0">
   <name>Gestion Comercial FULP</name>
   <description>Aplicación para la gestión de los Comerciales de la FULP</description>
   <author href="http://fulp.es" email="webmaster@fulp.es">Fundación Universitaria de Las Palmas</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
-  <preference name="orientation" value="portrait"/>
+  <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>
   <preference name="fullscreen" value="true"/>
   <preference name="webviewbounce" value="true"/>
