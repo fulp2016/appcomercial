@@ -60,6 +60,11 @@
 #ficha-empresas .tabla_empresa tr td{padding:5px; border: 1px solid #eee;}
 #ficha-empresas .tabla_empresa tr td.titulo{background:#ddd;}
 
+#acuerdo_convenio .col-md-3{margin-top:20px; width:50%;}
+#acuerdo_convenio .col-md-3 .sm-st{-webkit-box-shadow: none; box-shadow: none;}
+#servicios_actuales .col-md-3{ width:33.33%;}
+#acuerdo_convenio .col-md-3 .sm-st-info{line-height: 1.5em;}
+#servicios_actuales .col-md-3 .sm-st-info{background-color: #f9f9f9 !important; padding-bottom: 15px !important; padding-top: 15px !important; line-height: 1.5em; }
 #contacto-empresa{margin:1px; font-size: 14px;}
 #contacto-empresa .contactos_empresa {margin: 5px auto; background: #fff; width:100%}
 #contacto-empresa .contactos_empresa tr th{font-size:16px; font-weight:bold; background-color:#F1F1F1; padding:10px;}
@@ -75,4 +80,5 @@
 {
 	#anadir-accion .new_accion{margin: 5px auto; background: #fff; width:50%}
 }
+#anadir-accion .new_accion tr td {width:50%;}
 #anadir-accion .new_accion tr td input#boton{width:100%; background-color:#E9530D;}

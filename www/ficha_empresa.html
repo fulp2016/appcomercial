@@ -86,7 +86,7 @@ $(document).ready(function() {
 	});
 	
 	$(document).on("swipeleft", "#grafica", function() {
-		$.mobile.changePage("#acciones",{ transition: "slidefade", changeHash: true, });
+		$.mobile.changePage("#acciones",{ transition: "slidefade", changeHash: false, });
 		$("#menacciones img").attr("src","img/COMnaranja.png");
 		$("#menacciones").attr("class","active");
 		$("#mengrafica img").attr("src","img/ESTADISTgris.png");
@@ -94,7 +94,7 @@ $(document).ready(function() {
 	});
 	
 	$(document).on("swipeleft", "#acciones", function() {
-		$.mobile.changePage("#anadir",{ transition: "slidefade", changeHash: true, });
+		$.mobile.changePage("#anadir",{ transition: "slidefade", changeHash: false, });
 		$("#menanadir img").attr("src","img/MASnaranja.png");
 		$("#menanadir").attr("class","active");
 		$("#menacciones img").attr("src","img/COMgris.png");
@@ -102,7 +102,7 @@ $(document).ready(function() {
 	});
 			
 	$(document).on("swiperight", "#grafica", function() {
-		$.mobile.changePage("#ficha",{ transition: "slidefade", changeHash: true, reverse: true });
+		$.mobile.changePage("#ficha",{ transition: "slidefade", changeHash: false, reverse: true });
 		$("#menficha img").attr("src","img/INFOnaranja.png");
 		$("#menficha").attr("class","active");
 		$("#mengrafica img").attr("src","img/ESTADISTgris.png");
@@ -110,7 +110,7 @@ $(document).ready(function() {
 	});
 	
 	$(document).on("swiperight", "#acciones", function() {
-		$.mobile.changePage("#grafica",{ transition: "slidefade", changeHash: true, reverse: true });
+		$.mobile.changePage("#grafica",{ transition: "slidefade", changeHash: false, reverse: true });
 		$("#mengrafica img").attr("src","img/ESTADISTnaranja.png");
 		$("#mengrafica").attr("class","active");
 		$("#menacciones img").attr("src","img/COMgris.png");
@@ -118,7 +118,7 @@ $(document).ready(function() {
 	});
 	
 	$(document).on("swiperight", "#anadir", function() {
-		$.mobile.changePage("#acciones",{ transition: "slidefade", changeHash: true, reverse: true });
+		$.mobile.changePage("#acciones",{ transition: "slidefade", changeHash: false, reverse: true });
 		$("#menacciones img").attr("src","img/COMnaranja.png");
 		$("#menacciones").attr("class","active");
 		$("#menanadir img").attr("src","img/MASgris.png");
@@ -144,13 +144,25 @@ $(document).ready(function() {
 	  
 		<div class="wrapper row-offcanvas row-offcanvas-left" data-role="content">
 			<div class="panel">
-				<div id="ficha-empresas">
-
-				</div>
+				<div id="ficha-empresas"></div>
 				
-				<div id="contacto-empresa">
-				
+				<div id="acuerdo_convenio">
+				<div class="row" style="margin-bottom:5px;">
+					<div class="col-md-3">
+						<div class="sm-st clearfix">
+							<div class="sm-st-info">Acuerdo Inserta</span><br>No solicitado<br><img style="margin-top:5px" src="img/BECAnotiene.png" width="30"></div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="sm-st clearfix">
+							<div class="sm-st-info">Convenio Prácticas <br>Vigente<br><img style="margin-top:5px" src="img/BECAconvenio.png" width="30"></div>
+						</div>
+					</div>
 				</div>
+				</div>
+				<div id="servicios_actuales"></div>
+				
+				<div id="contacto-empresa"></div>
 			</div>
 		</div>	 
 	</div>
@@ -210,11 +222,13 @@ $(document).ready(function() {
 <script>
 	var cod_personal = '63273';
 	datos_ficha_empresas(cod_entidad,cod_unidad);
+	servicios_act_empresa(cod_entidad,cod_unidad);
 	obt_contactos_empresa(cod_entidad,cod_unidad);
 	historial_ucefe_empresa(cod_entidad,cod_unidad);
 	obtener_acciones_entidad(cod_entidad,cod_unidad);
 	opciones_acciones();
-	opciones_personal()
+	opciones_personal();
+
 </script>
 </body>
 

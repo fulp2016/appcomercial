@@ -10,7 +10,7 @@ function numero_perfiles_solicitantes()
 
 			$('#inserta').append('<span>'+data.PERFILES_INSERTA+'</span>Inserta');
 			$('#empleo').append('<span>'+data.PERFILES_EMPLEO+'</span>Empleo');
-			$('#practica').append('<span>'+data.PERFILES_PRACTICA+'</span>Prácticas');
+			$('#practica').append('<span>'+data.PERFILES_PRACTICA+'</span>Pr&aacute;cticas');
 
 	});
 	
@@ -281,7 +281,7 @@ function datos_ficha_empresas(a,b)
 					'<td>'+data.EMAIL_NOTIFICACION+'</td>'+
 				'</tr>'+
 				'<tr>'+
-					'<td class="titulo"> <b> Dirección: </b></td>'+
+					'<td class="titulo"> <b> Direcci&oacute;n: </b></td>'+
 					'<td>'+data.DOMICILIO+'</td>'+
 				'</tr>'+
 				'<tr>'+
@@ -362,11 +362,11 @@ function historial_ucefe_empresa(a,b)
 					'<thead>'+ 
 					'<tr>'+
 						'<td class="titulo"></td>'+
-						'<td class="titulo">BECAS</td>'+
+						'<td class="titulo">INSERTA</td>'+
 						'<td class="titulo">PRACT</td>'+
 						'<td class="titulo">P.CURRI.</td>'+
 						'<td class="titulo">CATALIZA</td>'+
-						'<td class="titulo">S.BECAS</td>'+
+						'<td class="titulo">S.INSERTA</td>'+
 						'<td class="titulo">S.PR&Aacute;CT</td>'+
 						'<td class="titulo">S.EMPLEO</td>'+
 					'</tr>'+
@@ -427,8 +427,12 @@ function obtener_acciones_entidad(a,b)
 	$.getJSON(serviceURL, function(data) {
 		cad = '<div data-role="collapsibleset" data-theme="a" data-content-theme="a">';
 		$.each(data, function(index, dato) {
+			var cad_tratado=''; 	var cad_participantes='';
 			if(dato.CERRADA == 'S'){estado = '<span style="float:right; font-size:11px; color:#65B0E6;">CERRADA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>';}
 			else{estado = '<span style="float:right; font-size:11px; color:#63E23B;">ABIERTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>';}
+			
+			if(dato.ASUNTO_TRATADO != '') {cad_tratado='. <br>'+dato.ASUNTO_TRATADO;}
+			if(dato.PARTICIPANTES_EMPRESA != '') {cad_participantes='. <br>'+dato.PARTICIPANTES_EMPRESA;}
 			cad = cad +
 					'<div data-role="collapsible">'+
 						'<h3 style="font-size:14px">'+dato.DESCRIPCION_TIPO_ACCION+'  <span style="float:right">'+dato.FECHA_INI+'</span> <br> <span style="font-size:11px; font-weight:normal;">'+ dato.RESPONSABLE_FULP+'</span> '+estado+'</h3>'+
@@ -438,7 +442,7 @@ function obtener_acciones_entidad(a,b)
 								'<td style="color:#E9530D">'+dato.ASUNTO+'</td>'+
 							'</tr>'+
 							'<tr>'+
-								'<td>'+dato.DESCRIPCION+'</td>'+
+								'<td>'+ dato.DESCRIPCION + cad_tratado + cad_participantes +'</td>'+
 							'</tr>'+
 						'</table></p>'+
 					'</div>';
@@ -483,11 +487,39 @@ function opciones_personal()
 }
 
 function crear_nueva_accion()
-{alert(document.getElementById('fecha_ini').value);
-	 /*var xmlhttp =new XMLHttpRequest();
+{
+	 var xmlhttp =new XMLHttpRequest();
 	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?anadir_accion=S&cod_entidad="+cod_entidad+"&cod_unidad="+cod_unidad+"&tipo="+document.getElementById('tipo_accion').value+"&fecha_ini="+document.getElementById('fecha_ini').value+"&hora_ini="+document.getElementById('hora_ini').value+"&asunto="+document.getElementById('asunto').value+"&descripcion="+document.getElementById('descripcion').value+"&cod_responsable="+document.getElementById('cod_responsable').value+"&cod_personal="+cod_personal,false);
 	 xmlhttp.send(null);
-	 alert('ok');*/
+	 
+	 location.reload(true);
+}
+
+function servicios_act_empresa(a,b)
+{ 
+	var cad = '';
+	var serviceURL = "http://www.fulp.es/servicesfulp/servicios_empresa_actuales.json?cod_entidad="+a+"&cod_unidad="+b+"";
+	$.getJSON(serviceURL, function(data) {
+		cad = '<div class="row" style="margin-bottom:5px;">'+
+					'<div class="col-md-3">'+
+						'<div class="sm-st clearfix">'+
+							'<div class="sm-st-info" id="inserta">'+data.OFERTAS_PUBLICADAS+'<br>Ofertas<br>Publicadas</div>'+
+						'</div>'+
+					'</div>'+
+					'<div class="col-md-3">'+
+						'<div class="sm-st clearfix">'+
+							'<div class="sm-st-info"  id="empleo">'+data.BECAS_ACTUAL+'<br>Inserta<br>Actuales</div>'+
+						'</div>'+
+					'</div>'+
+					'<div class="col-md-3">'+
+						'<div class="sm-st clearfix">'+
+							'<div class="sm-st-info" id="practica">'+data.PRACTICAS_ACTUAL+'<br>Pr&aacute;cticas<br>Actuales</div>'+
+						'</div>'+
+					'</div>'+
+				'</div>';
+
+		$('#servicios_actuales').append(cad);	
+	});
 }
 
 
