@@ -146,20 +146,8 @@ $(document).ready(function() {
 			<div class="panel">
 				<div id="ficha-empresas"></div>
 				
-				<div id="acuerdo_convenio">
-				<div class="row" style="margin-bottom:5px;">
-					<div class="col-md-3">
-						<div class="sm-st clearfix">
-							<div class="sm-st-info">Acuerdo Inserta</span><br>No solicitado<br><img style="margin-top:5px" src="img/BECAnotiene.png" width="30"></div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="sm-st clearfix">
-							<div class="sm-st-info">Convenio Prácticas <br>Vigente<br><img style="margin-top:5px" src="img/BECAconvenio.png" width="30"></div>
-						</div>
-					</div>
-				</div>
-				</div>
+				<div id="acuerdo_convenio"></div>
+				
 				<div id="servicios_actuales"></div>
 				
 				<div id="contacto-empresa"></div>
@@ -199,7 +187,7 @@ $(document).ready(function() {
 						<td colspan="2"><input type="text" id="asunto" placeholder="ASUNTO"></td>
 					</tr>
 					<tr>
-						<td colspan="2"><textarea id="descripcion" placeholder="DESCRIPCIÓN"></textarea></td>
+						<td colspan="2"><textarea id="descripcion" style="height:200px !important" maxlength="250" placeholder="DESCRIPCIÓN"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -223,6 +211,7 @@ $(document).ready(function() {
 	var cod_personal = '63273';
 	datos_ficha_empresas(cod_entidad,cod_unidad);
 	servicios_act_empresa(cod_entidad,cod_unidad);
+	estados_conv_acuerdo(cod_entidad,cod_unidad);
 	obt_contactos_empresa(cod_entidad,cod_unidad);
 	historial_ucefe_empresa(cod_entidad,cod_unidad);
 	obtener_acciones_entidad(cod_entidad,cod_unidad);

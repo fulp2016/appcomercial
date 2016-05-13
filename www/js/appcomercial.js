@@ -522,4 +522,36 @@ function servicios_act_empresa(a,b)
 	});
 }
 
+function estados_conv_acuerdo(a,b)
+{ 
+	var cad = '';
+	var txtbeca= '';
+	var txtpract='';
+	var serviceURL = "http://www.fulp.es/servicesfulp/estado_acuerdo_convenio.json?cod_entidad="+a+"&cod_unidad="+b+"";
+	$.getJSON(serviceURL, function(data) {
+		if(data.ESTADO_BECA=='S'){txtbeca='Vigente<br><img style="margin-top:5px" src="img/BECAconvenio.png" width="30">'}
+		else if(data.ESTADO_BECA=='N'){txtbeca='No solicitado<br><img style="margin-top:5px" src="img/BECAnotiene.png" width="30">'}
+		else if(data.ESTADO_BECA=='T'){txtbeca='En tramite<br><img style="margin-top:5px" src="img/BECAsolicitado.png" width="30">'}
+		else if(data.ESTADO_BECA=='R'){txtbeca='Caducado<br><img style="margin-top:5px" src="img/BECAcaducada.png" width="30">'}
+		
+		if(data.ESTADO_PRACTICA=='S'){txtpract='Vigente<br><img style="margin-top:5px" src="img/BECAconvenio.png" width="30">'}
+		else if(data.ESTADO_PRACTICA=='N'){txtpract='No solicitado<br><img style="margin-top:5px" src="img/BECAnotiene.png" width="30">'}
+		else if(data.ESTADO_PRACTICA=='T'){txtpract='En tramite<br><img style="margin-top:5px" src="img/BECAsolicitado.png" width="30">'}
+		else if(data.ESTADO_PRACTICA=='R'){txtpract='Caducado<br><img style="margin-top:5px" src="img/BECAcaducada.png" width="30">'}
+		
+		cad = '<div class="row" style="margin-bottom:5px;">'+
+					'<div class="col-md-3">'+
+						'<div class="sm-st clearfix">'+
+							'<div class="sm-st-info">Acuerdo Inserta</span><br>'+txtbeca+'</div>'+
+						'</div>'+
+					'</div>'+
+					'<div class="col-md-3">'+
+						'<div class="sm-st clearfix">'+
+							'<div class="sm-st-info">Convenio Pr&aacute;cticas</span><br>'+txtpract+'</div>'+
+						'</div>'+
+					'</div>'+
+				'</div>';
 
+		$('#acuerdo_convenio').append(cad);	
+	});
+}

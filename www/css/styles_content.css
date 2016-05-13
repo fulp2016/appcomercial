@@ -13,6 +13,8 @@
 #contenido #contenedorCita{ text-align:center;}
 #contenido #contenedorSesion{ text-align:center;}
 .ui-content{padding: 0 !important; margin:1px;}
+.ui-btn-active{background-color:#E9530D !important; color:#fff !important;}
+.ui-focus{-webkit-box-shadow: 0 0 12px #E9530D !important; -moz-box-shadow: 0 0 12px #E9530D !important;  box-shadow: 0 0 12px #E9530D !important;}
 
 .cab-naranja{position:fixed; width:100%; z-index: 1000;}
 
