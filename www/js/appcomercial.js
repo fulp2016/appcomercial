@@ -309,14 +309,18 @@ function obt_contactos_empresa(a,b)
 				
 			cad = '<table class="contactos_empresa">'+
 					'<tr>'+
-						'<th colspan="2">Personas de contacto</th>'+
+						'<th colspan="3"><a data-role="button" onclick="editar_contacto_empresa(\'\',\'\',\'\',\'\',\'\',\'\')" data-inline="true" id="edit-contac"><img width="20" src="img/anadir.png"></a>'+
+						'Personas de contacto</th>'+
 					'<tr>';
 					
 		$.each(data, function(index, dato) {
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
 			cad = cad + 
 					'<tr>'+
-						'<td colspan="2" class="titulo '+clase+'">'+dato.NOMBRE_CONTACTO+' <br> <span class="sub-dep">'+dato.DESCRIPCION_CONTACTO+'</span></td>'+
+						'<td colspan="2" class="titulo '+clase+'">'+
+						'<a data-role="button" onclick="eliminar_contacto_entidad(\''+dato.ID_CONTACTO+'\')" data-inline="true" class="active" id="eliminar-cntc">X</a>'+
+						'<a data-role="button" onclick="editar_contacto_empresa(\''+dato.ID_CONTACTO+'\',\''+dato.NOMBRE_CONTACTO+'\',\''+dato.DESCRIPCION_CONTACTO+'\',\''+dato.TELEFONO_CONTACTO.replace(/[-.]/gi,'')+'\',\''+dato.MOVIL_CONTACTO.replace(/[-.]/gi,'')+'\',\''+dato.EMAIL_CONTACTO+'\')" data-inline="true" id="edit-contac"><img width="20" src="img/ico-Editar.png"></a>'+
+						dato.NOMBRE_CONTACTO+' <br> <span class="sub-dep">'+dato.DESCRIPCION_CONTACTO+'</span></td>'+
 					'</tr>'+
 					'<tr>'+
 						'<td class="'+clase+'">';
@@ -339,6 +343,7 @@ function obt_contactos_empresa(a,b)
 						}
 						
 						cad = cad + '</td>'+
+						
 					'</tr>';	
 		});
 		
@@ -348,6 +353,122 @@ function obt_contactos_empresa(a,b)
 			$('#contacto-empresa').append(cad);	
 	});
 }	
+
+function editar_contacto_empresa(id,nombre,descrip,telef,movil,email)
+{
+	$('#editar-contacto-empresa').empty();
+	if(id!='')
+	{
+		var cad = '<div>'+
+					'<a data-role="button" onclick="document.getElementById(\'editar-contacto-empresa\').style.display=\'none\';" data-inline="true" class="active" id="cerrar-contc">X</a>'+
+					'<table>'+
+						'<tr>'+
+							'<td>'+
+								'<input type="hidden" value="'+id+'" id="id_contacto">'+
+								'<input type="text" value="'+nombre+'" id="nombre_contacto" placeholder="NOMBRE">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+						
+								'<input type="text" value="'+descrip+'" id="puesto_contacto" placeholder="PUESTO">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+	
+								'<input type="tel" value="'+telef+'" id="telefono_contacto" placeholder="TEL&Eacute;FONO">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+	
+								'<input type="tel" value="'+movil+'" id="movil_contacto" placeholder="MOVIL">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+	
+								'<input type="email" value="'+email+'" id="email_contacto" placeholder="EMAIL">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+	
+								'<input type="button" onclick="modificar_contacto_entidad()" value="GUARDAR" id="enviar_contacto">'+
+							'</td>'+
+						'</tr>'+
+					'</table>'+	
+				  '</div>';
+	}
+	else
+	{
+		var cad = '<div>'+
+						'<a data-role="button" onclick="document.getElementById(\'editar-contacto-empresa\').style.display=\'none\';" data-inline="true" class="active" id="cerrar-contc">X</a>'+
+					'<table>'+
+						'<tr>'+
+							'<td>'+
+								'<input type="hidden" value="'+id+'" id="id_contacto">'+
+								'<input type="text" id="nombre_contacto" placeholder="NOMBRE">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+						
+								'<input type="text" id="puesto_contacto" placeholder="PUESTO">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+	
+								'<input type="tel" id="telefono_contacto" placeholder="TEL&Eacute;FONO">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+	
+								'<input type="tel" id="movil_contacto" placeholder="MOVIL">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+	
+								'<input type="email" id="email_contacto" placeholder="EMAIL">'+
+							'</td>'+
+						'</tr>'+
+						'<tr>'+
+							'<td>'+	
+								'<input type="button" onclick="anadir_contacto_entidad()" value="GUARDAR" id="enviar_contacto">'+
+							'</td>'+
+						'</tr>'+
+					'</table>'+	
+				  '</div>';
+	}
+	
+	$('#editar-contacto-empresa').append(cad);	
+		document.getElementById('editar-contacto-empresa').style.display='block';
+}
+
+function anadir_contacto_entidad()
+{
+	 var xmlhttp =new XMLHttpRequest();
+	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?anadir_contacto=S&cod_entidad="+cod_entidad+"&cod_unidad="+cod_unidad+"&nombre="+document.getElementById('nombre_contacto').value+"&puesto="+document.getElementById('puesto_contacto').value+"&telef="+document.getElementById('telefono_contacto').value+"&movil="+document.getElementById('movil_contacto').value+"&email="+document.getElementById('email_contacto').value,false);
+	 xmlhttp.send(null);
+	 
+	 location.reload(true);
+}
+
+function modificar_contacto_entidad()
+{
+	 var xmlhttp =new XMLHttpRequest();
+	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?modificar_contacto=S&id="+document.getElementById('id_contacto').value+"&nombre="+document.getElementById('nombre_contacto').value+"&puesto="+document.getElementById('puesto_contacto').value+"&telef="+document.getElementById('telefono_contacto').value+"&movil="+document.getElementById('movil_contacto').value+"&email="+document.getElementById('email_contacto').value,false);
+	 xmlhttp.send(null);
+	 
+	 location.reload(true);
+}
+
+function eliminar_contacto_entidad(id)
+{
+	var r = confirm("Seguro que deseas eliminarlo!!");
+	if(r == true) {
+	 var xmlhttp =new XMLHttpRequest();
+	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?eliminar_contacto=S&id="+id,false);
+	 xmlhttp.send(null);
+	 
+	 location.reload(true);
+	}
+}
 
 function historial_ucefe_empresa(a,b)
 {  
@@ -423,6 +544,7 @@ function obtener_acciones_entidad(a,b)
 	var clase = 'l1';
 	var i = 0;
 	var estado = '';
+	var bestado = '';
 	var serviceURL = "http://www.fulp.es/servicesfulp/obt_acciones_entidad.json?cod_entidad="+a+"&cod_unidad="+b;
 	$.getJSON(serviceURL, function(data) {
 		cad = '<div data-role="collapsibleset" data-theme="a" data-content-theme="a">';
@@ -433,18 +555,21 @@ function obtener_acciones_entidad(a,b)
 			
 			if(dato.ASUNTO_TRATADO != '') {cad_tratado='. <br>'+dato.ASUNTO_TRATADO;}
 			if(dato.PARTICIPANTES_EMPRESA != '') {cad_participantes='. <br>'+dato.PARTICIPANTES_EMPRESA;}
+			
+			if(dato.CERRADA == 'S'){bestado='<a data-role="button" data-inline="true" class="candado"><img src="img/lock.png"></a>'}
+			else if(dato.CERRADA == 'N'){bestado='<a data-role="button" data-inline="true" class="candado"><img src="img/open.png"></a>'}
 			cad = cad +
 					'<div data-role="collapsible">'+
 						'<h3 style="font-size:14px">'+dato.DESCRIPCION_TIPO_ACCION+'  <span style="float:right">'+dato.FECHA_INI+'</span> <br> <span style="font-size:11px; font-weight:normal;">'+ dato.RESPONSABLE_FULP+'</span> '+estado+'</h3>'+
-						'<p><table>'+
+						'<table>'+
 
 							'<tr>'+
 								'<td style="color:#E9530D">'+dato.ASUNTO+'</td>'+
 							'</tr>'+
 							'<tr>'+
-								'<td>'+ dato.DESCRIPCION + cad_tratado + cad_participantes +'</td>'+
+								'<td>'+ dato.DESCRIPCION + cad_tratado + cad_participantes +'<br>'+bestado+'</td>'+
 							'</tr>'+
-						'</table></p>'+
+						'</table>'+
 					'</div>';
 			i = i + 1;
 		});
@@ -534,10 +659,10 @@ function estados_conv_acuerdo(a,b)
 		else if(data.ESTADO_BECA=='T'){txtbeca='En tramite<br><img style="margin-top:5px" src="img/BECAsolicitado.png" width="30">'}
 		else if(data.ESTADO_BECA=='R'){txtbeca='Caducado<br><img style="margin-top:5px" src="img/BECAcaducada.png" width="30">'}
 		
-		if(data.ESTADO_PRACTICA=='S'){txtpract='Vigente<br><img style="margin-top:5px" src="img/BECAconvenio.png" width="30">'}
-		else if(data.ESTADO_PRACTICA=='N'){txtpract='No solicitado<br><img style="margin-top:5px" src="img/BECAnotiene.png" width="30">'}
-		else if(data.ESTADO_PRACTICA=='T'){txtpract='En tramite<br><img style="margin-top:5px" src="img/BECAsolicitado.png" width="30">'}
-		else if(data.ESTADO_PRACTICA=='R'){txtpract='Caducado<br><img style="margin-top:5px" src="img/BECAcaducada.png" width="30">'}
+		if(data.ESTADO_PRACTICA=='S'){txtpract='Vigente<br><img style="margin-top:5px" src="img/PRACTconvenio.png" width="30">'}
+		else if(data.ESTADO_PRACTICA=='N'){txtpract='No solicitado<br><img style="margin-top:5px" src="img/PRACTnotiene.png" width="30">'}
+		else if(data.ESTADO_PRACTICA=='T'){txtpract='En tramite<br><img style="margin-top:5px" src="img/PRACTsolicitado.png" width="30">'}
+		else if(data.ESTADO_PRACTICA=='R'){txtpract='Caducado<br><img style="margin-top:5px" src="img/PRACTcaducada.png" width="30">'}
 		
 		cad = '<div class="row" style="margin-bottom:5px;">'+
 					'<div class="col-md-3">'+

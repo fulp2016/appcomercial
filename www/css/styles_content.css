@@ -76,6 +76,19 @@
 #contacto-empresa .contactos_empresa tr td a {color:#E9530D; font-weight:300;}
 #contacto-empresa .contactos_empresa tr td.l1{background-color:#F1F1F1;}
 #contacto-empresa .contactos_empresa tr td.l2{background-color:#FFF;}
+#contacto-empresa .contactos_empresa tr td img{float:right;}
+#contacto-empresa .contactos_empresa tr th img{float:right;}
+#contacto-empresa .contactos_empresa tr td a#eliminar-cntc{ float: right; margin-left: 15px; font-size: 19px;}
+
+.flotante{position: fixed; z-index: 9999; top: 25%; background-color: #fff; padding: 20px;  border-radius: 20px; -webkit-box-shadow: 10px 10px 17px 2px rgba(0,0,0,0.49); -moz-box-shadow: 10px 10px 17px 2px rgba(0,0,0,0.49);   box-shadow: 10px 10px 17px 2px rgba(0,0,0,0.49);   width: 95%;    left: 2%;}
+.flotante table{width:100%}
+.flotante table tr td{padding: 5px;}
+.flotante table tr td input{width:100%; border-radius: 5px;}
+.flotante table tr td input#enviar_contacto{background-color:#E45635; color:#fff; padding:5px;}
+.flotante  #cerrar-contc{color:#E45635; font-size:20px; font-weight:bold;    float: right;  margin-bottom: 10px;}
+#acciones-empresa table{width:100%}
+#acciones-empresa .candado {float: right; height: 30px; width: 30px; padding: 0; margin: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; background-color:transparent; border:0;}
+#acciones-empresa .candado img{height: 30px; width: 30px;}
 
 #anadir-accion .new_accion{margin: 5px auto; background: #fff; width:100%}
 @media screen and (orientation: landscape)
