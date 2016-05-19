@@ -725,3 +725,25 @@ function estados_conv_acuerdo(a,b)
 		$('#acuerdo_convenio').append(cad);	
 	});
 }
+
+function listado_ofertas_web()
+{
+	var cad = '';
+	var clase = 'l1';
+	$('#list-ofertas-web').empty();
+	var serviceURL = "http://www.fulp.es/servicesfulp/listado_ofertas_publicadas.json?tipo=%";
+	$.getJSON(serviceURL, function(data) {
+		cad = '<table id="tab-ofertas">';	
+		$.each(data, function(index, dato) {
+			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
+			cad = cad + 
+					'<tr>'+
+						'<td style="padding: 10px; line-height: 1.5em;" nowrap colspan="2" class="'+clase+'"><b>'+dato.EMPRESA+'</b><br>['+dato.TIPO_RELACION+']<br>'+dato.ASUNTO+'<br>'+dato.FECHA_INI_PUBLICACION+' / '+dato.FECHA_FIN_PUBLICACION+'</td>'+
+					'</tr>';
+		});
+		cad = cad +
+				'</table>';
+		
+		$('#list-ofertas-web').append(cad);			
+	});
+}

@@ -1,0 +1,47 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1; text/html; charset=UTF-8;">
+	 <link href="FULP/dashboard/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/styles_content.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="phonegap.js"></script>
+	
+	<script src="js/appcomercial.js" type="text/javascript"></script>
+</head>
+<div data-role="header" data-position="fixed" class='cab-naranja'>
+		<div id="cabecera">OFERTAS WEB</div>
+</div>
+<div class="skin-black" data-role="page" id="pdashboard">
+	<div data-role="content" style="padding: 20px !important;" class="wrapper row-offcanvas row-offcanvas-left">
+				<div class="row">
+					<div>
+						<!--earning graph start-->
+						<section class="panel">
+							<header class="panel-heading">LISTADO OFERTAS WEB</header>
+                            <div id="list-ofertas-web" class="panel-body table-responsive" ></div>
+						</section>
+
+					</div>
+				</div>
+	</div><!-- ./wrapper -->
+	
+</div>
+<!-- /Pie -->
+    <div id="menu-pie" data-role="footer" data-position="fixed">
+    	<a onclick="window.location.href='dashboard.html'" data-role="button" data-inline="true" id="mendest"><img src="img/bdestacado.png"></a>
+        <a onclick="window.location.href='busq_empresas.html'" data-role="button" data-inline="true" id="mencita"><img src="img/bcita.png"></a>
+        <a onclick="getAvisosList();" data-role="button" data-inline="true" id="menaviso"><img src="img/baviso.png"></a>
+		<a onclick="getFavoritosList();" data-role="button" data-inline="true" id="menfav"><img src="img/bfavorito.png"></a>
+	</div>
+<script>
+	listado_ofertas_web();
+</script>
+
+</body>
+
+</html>
