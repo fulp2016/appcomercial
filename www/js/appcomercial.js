@@ -231,6 +231,51 @@ function evolucion_alta_empresas()
 	});
 }
 
+function resumen_ofertas_publicadas()
+{
+	var cad = '';
+	var p = '';	var c = ''; var b = ''; var f = ''; var total = 0;
+	$('#res-ofertas-pub').empty();
+	var serviceURL = "http://www.fulp.es/servicesfulp/resumen_ofertas_publicadas.json";
+	$.getJSON(serviceURL, function(data) {
+		
+		cad = '<table class="table table-hover" style="font-size:12px !important">'+
+				'<thead>'+                              
+					'<tr>'+                                      
+						'<th>PR&Aacute;CTICAS</th>'+
+						'<th>EMPLEO</th>'+
+						'<th>INSERTA FP</th>'+                                   
+						'<th>INSERTA UNIVERSITARIOS</th>'+ 
+						'<th>TOTAL</th>'+ 						
+					'</tr>'+
+				'</thead>'+
+				'<tbody>';
+	
+		$.each(data, function(index, dato) {
+			if(dato.ID_TIPO_RELACION=='P'){p = dato.NUM;}
+			else if(dato.ID_TIPO_RELACION=='C'){c = dato.NUM;}
+			else if(dato.ID_TIPO_RELACION=='B'){b = dato.NUM;}
+			else if(dato.ID_TIPO_RELACION=='F'){f = dato.NUM;}
+			
+			total = parseInt(total) + parseInt(dato.NUM);
+
+		});
+		
+		cad = cad +
+					'<tr>'+
+						'<td>'+p+'</td>'+
+						'<td>'+c+'</td>'+
+						'<td>'+f+'</td>'+
+						'<td>'+b+'</td>'+
+						'<td>'+total+'</td>'+
+					'<tr>'+
+				'</tbody>'+
+			'</table>';
+			
+		$('#res-ofertas-pub').append(cad);		
+	});
+}
+
 function listado_empresas(a)
 { 
 	$('#list-empresas').empty();
