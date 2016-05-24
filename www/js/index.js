@@ -59,7 +59,7 @@ var app = {
     // funcion aviso si todo es correcto en ANDROID // 
 				successAndroid: function(result) { 
 					// se muestra si la obtención del regId ha sido correcta //
-					/*alert('Callback Success! Result = '+result);*/
+					alert('Callback Success! Result = '+result);
 				}, 
 				
 				// funcion aviso si todo es correcto en IOS // 
@@ -86,7 +86,7 @@ var app = {
                     //alert('registration id = '+e.regid); 
                     //Cuando se registre le pasamos el regid al input 
 					regId = e.regid;
-               			
+               			alert("Regid " + e.regid); 
 					//setTimeout(app.registrarDispositivo(),10000);
                 } 
             break; 
