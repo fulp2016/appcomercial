@@ -8,7 +8,6 @@
   <preference name="target-device" value="universal"/>
   <preference name="fullscreen" value="false" />
   <preference name="android-windowSoftInputMode" value="stateVisible" />
-  <preference name="StatusBarBackgroundColor" value="#E9530D" />
   <preference name="webviewbounce" value="true"/>
   <preference name="prerendered-icon" value="true"/>
   <preference name="stay-in-webview" value="false"/>
@@ -21,7 +20,7 @@
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-installLocation" value="auto"/>
   <preference name="StatusBarOverlaysWebView" value="false" />
-  <preference name="StatusBarBackgroundColor" value="#000000" />
+  <preference name="StatusBarBackgroundColor" value="#E9530D" />
   <!--Plugin de notificaciones -->
   <gap:plugin name="com.phonegap.plugins.pushplugin"/>
   <gap:plugin name="com.phonegap.plugin.statusbar" />
