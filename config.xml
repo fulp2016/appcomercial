@@ -19,8 +19,11 @@
   <preference name="disable-cursor" value="false"/>
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-installLocation" value="auto"/>
-  <preference name="StatusBarOverlaysWebView" value="false" />
-  <preference name="StatusBarBackgroundColor" value="#E9530D" />
+  <!--<preference name="StatusBarOverlaysWebView" value="false" />
+  <preference name="StatusBarBackgroundColor" value="#E9530D" />-->
+  <preference name="StatusBarOverlaysWebView" value="true" /> 
+	<preference name="StatusBarBackgroundColor" value="#E9530D" />
+	<preference name="StatusBarStyle" value="lightcontent" />
   <!--Plugin de notificaciones -->
   <gap:plugin name="com.phonegap.plugins.pushplugin"/>
   <gap:plugin name="com.phonegap.plugin.statusbar" />
