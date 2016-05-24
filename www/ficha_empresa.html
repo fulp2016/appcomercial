@@ -210,7 +210,9 @@ $(document).ready(function() {
 	</div>
 </div>	
 <script>
-	var cod_personal = '63273';
+var uuid = window.localStorage.getItem("uuid");
+var regId = window.localStorage.getItem("regId");
+var cod_personal = window.localStorage.getItem("cod_personal");
 	datos_ficha_empresas(cod_entidad,cod_unidad);
 	servicios_act_empresa(cod_entidad,cod_unidad);
 	estados_conv_acuerdo(cod_entidad,cod_unidad);

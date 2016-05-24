@@ -47,7 +47,7 @@ var app = {
             //tu Project ID aca!! 
 	if((so=="Android")||(so=="android")||(so=="ANDROID"))
 	{
-		pushNotification.register(this.successAndroid, this.errorHandler,{"senderID":"112340636347","ecb":"app.onNotificationGCM"});  
+		pushNotification.register(this.successAndroid, this.errorHandler,{"senderID":"694496316425","ecb":"app.onNotificationGCM"});  
     }
 	else if(so=="iOS")
 	{ 
@@ -137,13 +137,13 @@ var app = {
 
 function registrar_dispositivo(){	 
 	var xmlhttp =new XMLHttpRequest();
-	xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?regId="+regId+"&sist="+so+"&uuid="+uuid+"&new=S",false);
+	xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?regId="+regId+"&sist="+so+"&uuid="+uuid+"&newComercial=S",false);
 	xmlhttp.send(null);	
 }
 
 function comprobar_sesion()
 {	
-	var dataString = "uuid="+uuid+"&comprobarses=S";
+	var dataString = "uuid="+uuid+"&comprobarsesComercial=S";
 		$.ajax({ 
             type: "POST",
             url: "http://www.fulp.es/FULP/mensajesapp/registro_app.php",

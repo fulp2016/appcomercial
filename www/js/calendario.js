@@ -46,8 +46,8 @@ function cabecera() {
          mespos=mescal+1; //mes posterior
          if (mesant<0) {mesant=11;}
          if (mespos>11) {mespos=0;}
-         ant.innerHTML=meses[mesant]
-         pos.innerHTML=meses[mespos]
+         //ant.innerHTML=meses[mesant]
+         //pos.innerHTML=meses[mespos]
          } 
 //primera línea de tabla: días de la semana.
 function primeralinea() {

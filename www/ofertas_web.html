@@ -39,7 +39,9 @@
 		<a onclick="window.location.href='agenda.html'" data-role="button" data-inline="true" id="menfav"><img src="img/bcita.png"></a>
 	</div>
 <script>
-	var cod_personal = '63273';
+var uuid = window.localStorage.getItem("uuid");
+var regId = window.localStorage.getItem("regId");
+var cod_personal = window.localStorage.getItem("cod_personal");
 	listado_ofertas_web();
 </script>
 

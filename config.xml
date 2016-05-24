@@ -8,6 +8,7 @@
   <preference name="target-device" value="universal"/>
   <preference name="fullscreen" value="false" />
   <preference name="android-windowSoftInputMode" value="stateVisible" />
+  <preference name="StatusBarBackgroundColor" value="#E9530D" />
   <preference name="webviewbounce" value="true"/>
   <preference name="prerendered-icon" value="true"/>
   <preference name="stay-in-webview" value="false"/>

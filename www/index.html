@@ -18,11 +18,7 @@
     <br>
         <div class="app">
         <img src="img/loading.gif" width="50%">
-            <form id="resgistro" name="resgistro" method="get" action="dashboard.html"> 
-               <!-- <input type="hidden" id="cod_personal" name="cod_personal" >
-                <input type="hidden" name="regId" id="regId" >
-				<input type="hidden" name="pagina" id="pagina" > 		-->		
-				<input type="submit" value="entrar">
+            <form id="resgistro" name="resgistro" method="get" action="inicio_ses.html"> 
             </form>   
         <div id="deviceready" class="blink"> 
                 <p class="event listening">CONECTANDO</p> 
@@ -31,8 +27,8 @@
        </div>  
         <script type="text/javascript"> 
         //El registro al servicio de google lo hacemos automáticamente 
-        	/*app.initialize(); 		
-			setTimeout('app.registrarDispositivo()',5000);*/
+        	app.initialize(); 		
+			setTimeout('app.registrarDispositivo()',5000);
         </script>  	   
 	</body>
 </html>

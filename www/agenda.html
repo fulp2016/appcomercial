@@ -22,8 +22,8 @@
 </div>
 <div class="skin-black" data-role="page" id="pagenda">
 <div data-role="content" id="calendario">
-  <div id="anterior" onclick="mesantes()"></div>
-  <div id="posterior" onclick="mesdespues()"></div>
+  <div id="anterior" onclick="mesantes()"> < </div>
+  <div id="posterior" onclick="mesdespues()"> > </div>
   <h2 id="titulos"></h2>
   <table id="diasc">
 	<thead>
@@ -52,7 +52,9 @@
 		<a onclick="window.location.href='agenda.html'" data-role="button" data-inline="true" id="menfav"><img src="img/bcita.png"></a>
 	</div>
 <script>
-	var cod_personal = '63273';
+var uuid = window.localStorage.getItem("uuid");
+var regId = window.localStorage.getItem("regId");
+var cod_personal = window.localStorage.getItem("cod_personal");
 </script>
 </body>	
 </html>

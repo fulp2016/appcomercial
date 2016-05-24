@@ -3,7 +3,7 @@
 /*cabecera de la página*/
 h1 { text-align: center; padding: 0.5em; }
 /*div principal del calendario*/
-#calendario {  width: 100%; background-color:#fff; text-align: center; padding: 5px !important; }
+#calendario {    overflow-x: scroll;  width: 100%; background-color:#fff; text-align: center; padding: 5px !important; }
 /*tabla del calendario*/
 #diasc {border-collapse:separate; border-spacing: 4px; width: 100%;  min-height: 350px; }
 #diasc th,#diasc td { font-size:12px; font-weight: bold; width:14.5%; min-height: 30px; }
@@ -17,9 +17,9 @@ h1 { text-align: center; padding: 0.5em; }
 /*#fechaactual i:hover { color: blue; text-decoration: underline; }*/
 
 /*cabecera del calendario*/ 
-#anterior { float: left; width: 100px; font-size: 15px;  font-weight: bold;  padding: 0.5em 0.1em; cursor: pointer ; }
-#posterior { float: right; width: 100px; font-size: 15px; font-weight: bold; padding: 0.5em 0.1em; cursor: pointer ;}
-#anterior:hover {color: blue;text-decoration: underline;}
-#posterior:hover {color: blue; text-decoration: underline;}
+#anterior { float: left; width: 100px; font-size: 20px;  font-weight: bold;  padding: 0.5em 0.1em; cursor: pointer ; }
+#posterior { float: right; width: 100px; font-size: 20px; font-weight: bold; padding: 0.5em 0.1em; cursor: pointer ;}
+#anterior:hover {color: #E9530D;text-decoration: underline;}
+#posterior:hover {color: #E9530D; text-decoration: underline;}
 #titulos { font-size: 16px;  font-weight: bold; }
 #diasc td div#diacal cite{background-color: #E9530D; color: #fff; padding: 5px; border-radius: 15px; font-weight: normal;}
