@@ -95,8 +95,8 @@ function escribirdias() {
                     }
                  //destacar la fecha actual
                  if (mimes==meshoy && midia==diahoy && mianno==annohoy ) { 
-                    celda.style.backgroundColor="#E9530D";
-					celda.style.color="#fff";
+                    /*celda.style.backgroundColor="#E9530D";
+					celda.style.color="#fff";*/
                     celda.innerHTML="<div id='diacal'><cite title='Fecha Actual'>"+midia+"</cite></div><div id='evcal'>"+txt_evn+"</div>";
                     }
                  //pasar al siguiente día

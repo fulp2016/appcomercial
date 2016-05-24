@@ -5,7 +5,7 @@ h1 { text-align: center; padding: 0.5em; }
 /*div principal del calendario*/
 #calendario {  width: 100%; background-color:#fff; text-align: center; padding: 5px !important; }
 /*tabla del calendario*/
-#diasc { border: 1px solid black; border-collapse:separate; border-spacing: 4px; width: 100%;  min-height: 350px; }
+#diasc {border-collapse:separate; border-spacing: 4px; width: 100%;  min-height: 350px; }
 #diasc th,#diasc td { font-size:12px; font-weight: bold; width:14.5%; min-height: 30px; }
 #diasc th { text-align:center; color: #E9530D; background-color: #fff }
 #diasc td { color: #492736; background-color: #fff;     border: 1px solid; vertical-align: top;}
@@ -22,3 +22,4 @@ h1 { text-align: center; padding: 0.5em; }
 #anterior:hover {color: blue;text-decoration: underline;}
 #posterior:hover {color: blue; text-decoration: underline;}
 #titulos { font-size: 16px;  font-weight: bold; }
+#diasc td div#diacal cite{background-color: #E9530D; color: #fff; padding: 5px; border-radius: 15px; font-weight: normal;}
