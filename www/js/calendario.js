@@ -78,7 +78,6 @@ function escribirdias() {
                  mianno=diames.getFullYear()
 
 				 cad_fecha = '"'+midia+'/'+(mimes+1)+'/'+mianno+'"';
-				 console.log(cad_fecha);
 				 if(evn[cad_fecha] !=null){txt_evn = '<a onclick="detalle_accion('+evn[cad_fecha].ID_ACCION_ENTIDAD+')" data-role="button" data-inline="true"><div>'+evn[cad_fecha].DESCRIPCION+'</div></a>';} else {txt_evn = '';}
 
                  celda=fila.getElementsByTagName("td")[j];
