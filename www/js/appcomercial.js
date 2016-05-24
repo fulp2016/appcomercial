@@ -290,7 +290,7 @@ function listado_empresas(a)
 					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'+
 					'<div class="nif-empresa"><b>CIF:</b> '+dato.NIF+'</div>'+
 					'</div>'+
-					'<div class="enlace-empresa"><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'"><img src="img/bdestacado.png"></a></div>'+
+					'<div class="enlace-empresa"><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'"><img src="img/bojo.png"></a></div>'+
 					'</div>';
 		});
 		
@@ -733,7 +733,7 @@ function listado_ofertas_web()
 	$('#list-ofertas-web').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/listado_ofertas_publicadas.json?tipo=%";
 	$.getJSON(serviceURL, function(data) {
-		cad = '<table id="tab-ofertas">';	
+		cad = '<table style="width:100%" id="tab-ofertas">';	
 		$.each(data, function(index, dato) {
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
 			cad = cad + 
@@ -746,4 +746,39 @@ function listado_ofertas_web()
 		
 		$('#list-ofertas-web').append(cad);			
 	});
+}
+
+function obtener_evento_agenta()
+{
+	var cad = new Array(5);
+	var vector =[];
+	var i = 0;
+	var serviceURL = "http://www.fulp.es/servicesfulp/acciones_agenda.json?cod_personal="+cod_personal;
+	$.getJSON(serviceURL, function(data) {
+		localStorage.setItem("vector_acciones", JSON.stringify(data));
+		/*$.each(data, function(index, dato) {
+				cad['ID_ACCION_ENTIDAD']=dato.ID_ACCION_ENTIDAD;
+				cad['DESCRIPCION']=dato.DESCRIPCION;
+				cad['DIA']=parseFloat(dato.DIA);
+				cad['MES']=parseFloat(dato.MES);
+				cad['ANO']=dato.ANO;
+			vector['"'+cad['DIA']+'/'+cad['MES']+'/'+cad['ANO']+'"']=cad;
+		});*/
+	});
+}
+
+function detalle_accion(id)
+{ 
+	var cad = '';
+	$('#contenido-detalle').empty();
+	var serviceURL = "http://www.fulp.es/servicesfulp/obt_dato_acciones.json?id_accion="+id;
+	$.getJSON(serviceURL, function(data) {
+		cad = '<a data-role="button" onclick="document.getElementById(\'detalle-accion\').style.display=\'none\';" data-inline="true" class="active" id="cerrar-contc">X</a>'+
+				'<div class="titulo">'+data.EMPRESA+'</div>'+
+				'<div>'+data.FECHA_INI+' '+data.HORA_INI+'</div>'+
+				'<div>'+data.DESCRIPCION+'</div>';
+
+		$('#contenido-detalle').append(cad);	
+	});
+	document.getElementById('detalle-accion').style.display='block';
 }

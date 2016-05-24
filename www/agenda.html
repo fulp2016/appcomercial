@@ -1,37 +1,50 @@
+<!DOCTYPE HTML>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1; text/html; charset=UTF-8;">
-	 <link href="FULP/dashboard/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="FULP/dashboard/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="css/styles_content.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/calendario.css" media="all" />
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="phonegap.js"></script>
 	
+	<script type="text/javascript" src="js/calendario.js"></script>
 	<script src="js/appcomercial.js" type="text/javascript"></script>
 </head>
+<body>
 <div data-role="header" data-position="fixed" class='cab-naranja'>
-		<div id="cabecera">OFERTAS WEB</div>
+		<div id="cabecera">AGENDA</div>
 </div>
-<div class="skin-black" data-role="page" id="pdashboard">
-	<div data-role="content" style="padding: 20px !important;" class="wrapper row-offcanvas row-offcanvas-left">
-				<div class="row">
-					<div>
-						<!--earning graph start-->
-						<section class="panel">
-							<header class="panel-heading">LISTADO OFERTAS WEB</header>
-                            <div id="list-ofertas-web" class="panel-body table-responsive" ></div>
-						</section>
+<div class="skin-black" data-role="page" id="pagenda">
+<div data-role="content" id="calendario">
+  <div id="anterior" onclick="mesantes()"></div>
+  <div id="posterior" onclick="mesdespues()"></div>
+  <h2 id="titulos"></h2>
+  <table id="diasc">
+	<thead>
+		<tr id="fila0"><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+	</thead>	
+	<tbody>
+		<tr id="fila1"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr id="fila2"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr id="fila3"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr id="fila4"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr id="fila5"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr id="fila6"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	</tbody>	
+  </table>
+  
+</div>
+<div style="display:none;" data-role="content" id="detalle-accion">
+	<div id="contenido-detalle" class="flotante"></div>
+</div>
 
-					</div>
-				</div>
-	</div><!-- ./wrapper -->
-	
 </div>
-<!-- /Pie -->
     <div id="menu-pie" data-role="footer" data-position="fixed">
     	<a onclick="window.location.href='dashboard.html'" data-role="button" data-inline="true" id="mendest"><img src="img/binformes.png"></a>
         <a onclick="window.location.href='busq_empresas.html'" data-role="button" data-inline="true" id="mencita"><img src="img/bdestacado.png"></a>
@@ -40,9 +53,7 @@
 	</div>
 <script>
 	var cod_personal = '63273';
-	listado_ofertas_web();
 </script>
-
-</body>
-
+</body>	
 </html>
+

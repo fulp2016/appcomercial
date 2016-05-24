@@ -86,6 +86,7 @@
 .flotante table tr td input{width:100%; border-radius: 5px;}
 .flotante table tr td input#enviar_contacto{background-color:#E45635; color:#fff; padding:5px;}
 .flotante  #cerrar-contc{color:#E45635; font-size:20px; font-weight:bold;    float: right;  margin-bottom: 10px;}
+.flotante .titulo{font-weight:bold;}
 #acciones-empresa table{width:100%}
 #acciones-empresa .candado {float: right; height: 30px; width: 30px; padding: 0; margin: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; background-color:transparent; border:0;}
 #acciones-empresa .candado img{height: 30px; width: 30px;}
@@ -97,3 +98,6 @@
 }
 #anadir-accion .new_accion tr td {width:50%;}
 #anadir-accion .new_accion tr td input#boton{width:100%; background-color:#E9530D;}
+
+#pagenda{padding:5px; background-color:#f0f3f4; margin-top: 60px;  margin-bottom: 40px;}
+#evcal div{ background-color: #15A5D0; color: #fff;  padding: 5px; font-size: 10px; margin: 0 5px;  border-radius: 15px; font-weight: normal;}
