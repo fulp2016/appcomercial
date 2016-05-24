@@ -136,10 +136,6 @@ var app = {
 
 
 function registrar_dispositivo(){	 
-alert('entra');
-alert(regId);
-alert(so);
-alert(uuid);
 	var xmlhttp =new XMLHttpRequest();
 	xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?regId="+regId+"&sist="+so+"&uuid="+uuid+"&newComercial=S",false);
 	xmlhttp.send(null);	
