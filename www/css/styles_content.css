@@ -51,8 +51,7 @@
 #list-empresas .empresa.l1{background-color:#E0E0E0;}
 #list-empresas .empresa.l2{background-color:#FFF;}
 #list-empresas .empresa .nombre-empresa{margin:0 auto 0 0; width: 100%;}
-#list-empresas .empresa .nif-empresa{margin:0 auto 0 auto; width: 100%; }
-#list-empresas .empresa .enlace-empresa{margin:0 0 0 auto; width: 50px;  text-align: center;}
+#list-empresas .empresa .enlace-empresa{margin:0 0 0 auto; width: 50px !important;  text-align: center;}
 #list-empresas .empresa .enlace-empresa img{width: 50px; height: 50px;}
 #empresas-contenido.ui-content{padding:0;}
 

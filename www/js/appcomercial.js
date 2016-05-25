@@ -529,8 +529,6 @@ function nueva_busqueda_empresa(cod_personal,cod_entidad,cod_unidad)
 	 var xmlhttp =new XMLHttpRequest();
 	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?cod_personal="+cod_personal+"&cod_entidad="+cod_entidad+"&cod_unidad="+cod_unidad+"&busquedaComercial=S",false);
 	 xmlhttp.send(null);
-	 
-	 location.reload(true);
 }
 
 function eliminar_contacto_entidad(id)
