@@ -287,8 +287,29 @@ function listado_empresas(a)
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
 			cad = cad + '<div class="empresa '+ clase +'">'+
 					'<div class="grupo">'+
-					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+'</div>'+
-					'<div class="nif-empresa"><b>CIF:</b> '+dato.NIF+'</div>'+
+					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+' ['+dato.NIF+']</div>'+
+					'</div>'+
+					'<div class="enlace-empresa"><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'"><img src="img/bojo.png"></a></div>'+
+					'</div>';
+		});
+		
+		$('#list-empresas').append(cad);
+	});
+		
+}
+
+function listado_busqueda_anterior_empresas(cod_personal)
+{ 
+	$('#list-empresas').empty();
+	var cad = '';
+	var clase = 'l1';
+	var serviceURL = "http://www.fulp.es/servicesfulp/listado_busqueda_anterior_empresas.json?cod_personal="+cod_personal;
+	$.getJSON(serviceURL, function(data) {
+		$.each(data, function(index, dato) {
+			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
+			cad = cad + '<div class="empresa '+ clase +'">'+
+					'<div class="grupo">'+
+					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+' ['+dato.NIF+']</div>'+
 					'</div>'+
 					'<div class="enlace-empresa"><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'"><img src="img/bojo.png"></a></div>'+
 					'</div>';
@@ -498,6 +519,15 @@ function modificar_contacto_entidad()
 {
 	 var xmlhttp =new XMLHttpRequest();
 	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?modificar_contacto=S&id="+document.getElementById('id_contacto').value+"&nombre="+document.getElementById('nombre_contacto').value+"&puesto="+document.getElementById('puesto_contacto').value+"&telef="+document.getElementById('telefono_contacto').value+"&movil="+document.getElementById('movil_contacto').value+"&email="+document.getElementById('email_contacto').value,false);
+	 xmlhttp.send(null);
+	 
+	 location.reload(true);
+}
+
+function nueva_busqueda_empresa(cod_personal,cod_entidad,cod_unidad)
+{
+	 var xmlhttp =new XMLHttpRequest();
+	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?cod_personal="+cod_personal+"&cod_entidad="+cod_entidad+"&cod_unidad="+cod_unidad+"&busquedaComercial=S",false);
 	 xmlhttp.send(null);
 	 
 	 location.reload(true);
@@ -738,7 +768,9 @@ function listado_ofertas_web()
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
 			cad = cad + 
 					'<tr>'+
-						'<td style="padding: 10px; line-height: 1.5em;" nowrap colspan="2" class="'+clase+'"><b>'+dato.EMPRESA+'</b><br>['+dato.TIPO_RELACION+']<br>'+dato.ASUNTO+'<br>'+dato.FECHA_INI_PUBLICACION+' / '+dato.FECHA_FIN_PUBLICACION+'</td>'+
+						'<td style="padding: 10px; line-height: 1.5em;" nowrap colspan="2" class="'+clase+'"><b>'+dato.EMPRESA+'</b><br>'+
+						'<span style="font-size:10px;">['+dato.TIPO_RELACION+']</span>'+
+						'<br>'+dato.ASUNTO+'<br>'+dato.FECHA_INI_PUBLICACION+' / '+dato.FECHA_FIN_PUBLICACION+'</td>'+
 					'</tr>';
 		});
 		cad = cad +
@@ -756,14 +788,7 @@ function obtener_evento_agenta()
 	var serviceURL = "http://www.fulp.es/servicesfulp/acciones_agenda.json?cod_personal="+cod_personal;
 	$.getJSON(serviceURL, function(data) {
 		localStorage.setItem("vector_acciones", JSON.stringify(data));
-		/*$.each(data, function(index, dato) {
-				cad['ID_ACCION_ENTIDAD']=dato.ID_ACCION_ENTIDAD;
-				cad['DESCRIPCION']=dato.DESCRIPCION;
-				cad['DIA']=parseFloat(dato.DIA);
-				cad['MES']=parseFloat(dato.MES);
-				cad['ANO']=dato.ANO;
-			vector['"'+cad['DIA']+'/'+cad['MES']+'/'+cad['ANO']+'"']=cad;
-		});*/
+
 	});
 }
 
