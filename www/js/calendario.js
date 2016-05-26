@@ -78,7 +78,7 @@ function escribirdias() {
                  mianno=diames.getFullYear()
 
 				 cad_fecha = '"'+midia+'/'+(mimes+1)+'/'+mianno+'"';
-				 if(evn[cad_fecha] !=null){txt_evn = '<a onclick="detalle_accion('+evn[cad_fecha].ID_ACCION_ENTIDAD+')" data-role="button" data-inline="true"><div>'+evn[cad_fecha].DESCRIPCION+'</div></a>';} else {txt_evn = '';}
+				 if(evn[cad_fecha] !=null){txt_evn = '<a onclick="detalle_accion('+evn[cad_fecha].ID_ACCION_ENTIDAD+')" data-role="button" data-inline="true"><div>'+evn[cad_fecha].TIPO_ACCION+'</div></a>';} else {txt_evn = '';}
 
                  celda=fila.getElementsByTagName("td")[j];
                  celda.innerHTML='<div id="diacal">'+midia+'</div><div id="evcal">'+txt_evn+'</div>';

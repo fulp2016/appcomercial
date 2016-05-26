@@ -848,6 +848,7 @@ function detalle_accion(id)
 	$.getJSON(serviceURL, function(data) {
 		cad = '<a data-role="button" onclick="document.getElementById(\'detalle-accion\').style.display=\'none\';" data-inline="true" class="active" id="cerrar-contc">X</a>'+
 				'<div class="titulo">'+data.EMPRESA+'</div>'+
+				'<div>'+data.DESCRIPCION_TIPO_ACCION+'</div>'+
 				'<div>'+data.FECHA_INI+' '+data.HORA_INI+'</div>'+
 				'<div>'+data.DESCRIPCION+'</div>';
 
