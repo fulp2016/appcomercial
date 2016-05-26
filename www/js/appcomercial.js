@@ -548,6 +548,7 @@ function historial_ucefe_empresa(a,b)
 	var cad = '';
 	var clase = 'l1';
 	var tbecas = 0; var tpractica = 0; var tpcurri = 0; var tcat = 0; var tsbeca = 0; var tspract = 0; var tsempleo = 0; 
+	
 	$('#ucefe-empresa').empty();	
 	var serviceURL = "http://www.fulp.es/servicesfulp/historial_ucefe_empresas.json?cod_entidad="+a+"&cod_unidad="+b;
 	$.getJSON(serviceURL, function(data) {
@@ -566,6 +567,7 @@ function historial_ucefe_empresa(a,b)
 					'</tr>'+
 					'</thead>'+
 					'<tbody>';	
+		
 		
 		$.each(data, function(index, dato) {
 			
@@ -608,10 +610,24 @@ function historial_ucefe_empresa(a,b)
 				
 		$('#ucefe-empresa').append(cad);	
 		
+		
+		/*var lineChartData =  = {
+			labels : ['test'],
+			datasets : [
+				{
+					label: "SUE",
+				//	fillColor : "rgba(220,220,220,0.2)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(220,220,220,1)",
+					data : []
+				}
+				]
 
-		var ctx2 = document.getElementById("canvas").getContext("2d");
-		window.myLine = new Chart(ctx2).Line(lineChartData, {responsive: true } );
-		document.getElementById("legendDiv").innerHTML = myLine.generateLegend();
+		}*/
+
 	});
 }
 

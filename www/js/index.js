@@ -155,7 +155,15 @@ function comprobar_sesion()
 				window.localStorage.setItem("cod_personal", cod_personal);
 				window.localStorage.setItem("uuid", uuid);
 				window.localStorage.setItem("so", so);
-				document.getElementById('resgistro').submit();
+				if(cod_personal > 0)
+				{
+					document.getElementById('registrado').submit();
+				}
+				else
+				{
+					document.getElementById('resgistro').submit();
+				}
+				
             }
         });
 }

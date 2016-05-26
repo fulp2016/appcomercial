@@ -162,12 +162,12 @@ $(document).ready(function() {
 	<div class="skin-black" data-role="page" id="grafica">		
 		<div class="wrapper row-offcanvas row-offcanvas-left" data-role="content">	
 			<div class="panel">
-				<div id="ucefe-empresa-grafica" class="panel-body table-responsive">
+				<!--<div id="ucefe-empresa-grafica" class="panel-body table-responsive">
 					<div>
 						<div id="legendDiv"></div>
 						<canvas id="canvas"></canvas>
 					</div>
-				</div>
+				</div>-->
 				<div id="ucefe-empresa" class="panel-body table-responsive" ></div>
 				
 			</div>
@@ -231,6 +231,13 @@ nueva_busqueda_empresa(cod_personal,cod_entidad,cod_unidad);
 	obtener_acciones_entidad(cod_entidad,cod_unidad);
 	opciones_acciones();
 	opciones_personal();
+	
+	/*window.onload = function(){
+		var ctx2 = document.getElementById("canvas").getContext("2d");
+		window.myLine = new Chart(ctx2).Line(lineChartData, {responsive: true } );
+		 document.getElementById("legendDiv").innerHTML = myLine.generateLegend(); 
+		
+	}	*/
 </script>
 </body>
 
