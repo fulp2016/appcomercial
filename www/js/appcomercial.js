@@ -606,7 +606,12 @@ function historial_ucefe_empresa(a,b)
 		cad = cad + '<tbody>'+
 				'</table>';
 				
-		$('#ucefe-empresa').append(cad);			
+		$('#ucefe-empresa').append(cad);	
+		
+
+		var ctx2 = document.getElementById("canvas").getContext("2d");
+		window.myLine = new Chart(ctx2).Line(lineChartData, {responsive: true } );
+		document.getElementById("legendDiv").innerHTML = myLine.generateLegend();
 	});
 }
 
