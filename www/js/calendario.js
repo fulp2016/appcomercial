@@ -8,6 +8,7 @@ window.onload = function() {
 evn = [];
 obtener_evento_agenta();
 var vector_evn = JSON.parse(localStorage.getItem("vector_acciones"));
+var m = 0;
 for(var i = 0; i<vector_evn.length; i++)
 {
 	evn['"'+parseFloat(vector_evn[i].DIA)+'/'+parseFloat(vector_evn[i].MES)+'/'+vector_evn[i].ANO+'"'] = vector_evn[i];
