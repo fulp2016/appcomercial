@@ -804,12 +804,12 @@ function estados_conv_acuerdo(a,b)
 	});
 }
 
-function listado_ofertas_web()
+function listado_ofertas_web(a)
 {
 	var cad = '';
 	var clase = 'l1';
 	$('#list-ofertas-web').empty();
-	var serviceURL = "http://www.fulp.es/servicesfulp/listado_ofertas_publicadas.json?tipo=%";
+	var serviceURL = "http://www.fulp.es/servicesfulp/listado_ofertas_publicadas.json?tipo="+a;
 	$.getJSON(serviceURL, function(data) {
 		cad = '<table style="width:100%" id="tab-ofertas">';	
 		$.each(data, function(index, dato) {
