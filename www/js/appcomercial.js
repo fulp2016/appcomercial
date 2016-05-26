@@ -818,7 +818,8 @@ function listado_ofertas_web(a)
 					'<tr>'+
 						'<td style="padding: 10px; line-height: 1.5em;" nowrap colspan="2" class="'+clase+'"><b>'+dato.EMPRESA+'</b><br>'+
 						'<span style="font-size:10px;">['+dato.TIPO_RELACION+']</span>'+
-						'<br>'+dato.ASUNTO+'<br>'+dato.FECHA_INI_PUBLICACION+' / '+dato.FECHA_FIN_PUBLICACION+'</td>'+
+						'<br><span style="font-size:10px;">Publicada desde '+dato.FECHA_INI_PUBLICACION+' al '+dato.FECHA_FIN_PUBLICACION+'</span>'+
+						'<br>'+dato.ASUNTO+'</td>'+
 					'</tr>';
 		});
 		cad = cad +
