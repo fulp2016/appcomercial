@@ -289,13 +289,19 @@ function listado_empresas(a)
 					'<div class="grupo">'+
 					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+' ['+dato.NIF+']</div>'+
 					'</div>'+
-					'<div class="enlace-empresa"><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'"><img src="img/bojo.png"></a></div>'+
+					'<div class="enlace-empresa"><a data-role="button" onclick="ir_pagina_anadir('+dato.COD_ENTIDAD+','+dato.COD_UNIDAD+')"><img src="img/bmas.png"></a><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'"><img src="img/bojo.png"></a></div>'+
 					'</div>';
 		});
 		
 		$('#list-empresas').append(cad);
 	});
 		
+}
+
+function ir_pagina_anadir(cod_entidad,cod_unidad)
+{
+	window.localStorage.setItem("pagina","anadir");
+	window.location.href='ficha_empresa.html?cod_entidad='+cod_entidad+'&cod_unidad='+cod_unidad+'';
 }
 
 function listado_busqueda_anterior_empresas(cod_personal)
@@ -311,7 +317,7 @@ function listado_busqueda_anterior_empresas(cod_personal)
 					'<div class="grupo">'+
 					'<div class="nombre-empresa">'+dato.NOMBRE_EMPRESA+' ['+dato.NIF+']</div>'+
 					'</div>'+
-					'<div class="enlace-empresa"><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'"><img src="img/bojo.png"></a></div>'+
+					'<div class="enlace-empresa"><a data-role="button" onclick="ir_pagina_anadir('+dato.COD_ENTIDAD+','+dato.COD_UNIDAD+')"><img src="img/bmas.png"></a><a data-role="button" onclick="window.location.href=\'ficha_empresa.html?cod_entidad='+dato.COD_ENTIDAD+'&cod_unidad='+dato.COD_UNIDAD+'\'"><img src="img/bojo.png"></a></div>'+
 					'</div>';
 		});
 		
@@ -533,7 +539,7 @@ function nueva_busqueda_empresa(cod_personal,cod_entidad,cod_unidad)
 
 function eliminar_contacto_entidad(id)
 {
-	var r = confirm("Seguro que deseas eliminarlo!!");
+	var r = confirm("Seguro que deseas eliminarlo??");
 	if(r == true) {
 	 var xmlhttp =new XMLHttpRequest();
 	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?eliminar_contacto=S&id="+id,false);
@@ -650,8 +656,8 @@ function obtener_acciones_entidad(a,b)
 			if(dato.ASUNTO_TRATADO != '') {cad_tratado='. <br>'+dato.ASUNTO_TRATADO;}
 			if(dato.PARTICIPANTES_EMPRESA != '') {cad_participantes='. <br>'+dato.PARTICIPANTES_EMPRESA;}
 			
-			if(dato.CERRADA == 'S'){bestado='<a data-role="button" data-inline="true" class="candado"><img src="img/lock.png"></a>'}
-			else if(dato.CERRADA == 'N'){bestado='<a data-role="button" data-inline="true" class="candado"><img src="img/open.png"></a>'}
+			if(dato.CERRADA == 'S'){bestado='<a data-role="button" onclick="abrir_accion_entidad('+dato.ID_ACCION_ENTIDAD+')" data-inline="true" class="candado"><img src="img/lock.png"></a>'}
+			else if(dato.CERRADA == 'N'){bestado='<a data-role="button" onclick="cerrar_accion_entidad('+dato.ID_ACCION_ENTIDAD+')" data-inline="true" class="candado"><img src="img/open.png"></a>'}
 			cad = cad +
 					'<div data-role="collapsible">'+
 						'<h3 style="font-size:14px">'+dato.DESCRIPCION_TIPO_ACCION+'  <span style="float:right">'+dato.FECHA_INI+'</span> <br> <span style="font-size:11px; font-weight:normal;">'+ dato.RESPONSABLE_FULP+'</span> '+estado+'</h3>'+
@@ -661,7 +667,9 @@ function obtener_acciones_entidad(a,b)
 								'<td style="color:#E9530D">'+dato.ASUNTO+'</td>'+
 							'</tr>'+
 							'<tr>'+
-								'<td>'+ dato.DESCRIPCION + cad_tratado + cad_participantes +'<br>'+bestado+'</td>'+
+								'<td>'+ dato.DESCRIPCION + cad_tratado + cad_participantes +'<br>'+bestado+
+			
+								'</td>'+
 							'</tr>'+
 						'</table>'+
 					'</div>';
@@ -670,6 +678,27 @@ function obtener_acciones_entidad(a,b)
 		cad = cad + '</div>';
 		$('#acciones-empresa').append(cad);	
 	});
+}
+
+function cerrar_accion_entidad(id)
+{
+	var r = confirm("Vas a cerrar la acción??");
+	if(r == true) {
+	 var xmlhttp =new XMLHttpRequest();
+	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?cerrar_accion="+id,false);
+	 xmlhttp.send(null);
+	 
+	 location.reload(true);
+	}
+}
+
+function abrir_accion_entidad(id)
+{
+	 var xmlhttp =new XMLHttpRequest();
+	 xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?abrir_accion="+id,false);
+	 xmlhttp.send(null);
+	 
+	 location.reload(true);
 }
 
 function opciones_acciones()
