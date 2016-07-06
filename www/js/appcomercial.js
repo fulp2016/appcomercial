@@ -862,10 +862,10 @@ function load_pie(cod_personal)
 {
 	var cad_pie = '';
 	alert(1);
-	cad_pie='<a onclick="window.location.href=\'dashboard.html\'" data-role="button" data-inline="true" id="mendest"><img src="img/binformes.png"></a>';
+	/*cad_pie='<a onclick="window.location.href=\'dashboard.html\'" data-role="button" data-inline="true" id="mendest"><img src="img/binformes.png"></a>';
     cad_pie=cad_pie+'<a onclick="window.location.href=\'busq_empresas.html\'" data-role="button" data-inline="true" id="mencita"><img src="img/bdestacado.png"></a>';
     cad_pie=cad_pie+'<a onclick="window.location.href=\'ofertas_web.html\'" data-role="button" data-inline="true" id="menaviso"><img src="img/blista.png"></a>';
-	cad_pie=cad_pie+'<a onclick="window.location.href=\'agenda.html\'" data-role="button" data-inline="true" id="menfav"><img src="img/bcita.png"></a>';
+	cad_pie=cad_pie+'<a onclick="window.location.href=\'agenda.html\'" data-role="button" data-inline="true" id="menfav"><img src="img/bcita.png"></a>';*/
 	alert(cad_pie);
 	$('#menu-pie').append(cad_pie);	
 	//return cad_pie;
