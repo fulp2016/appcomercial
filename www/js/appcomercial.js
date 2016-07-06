@@ -859,13 +859,13 @@ function detalle_accion(id)
 }
 
 function load_pie(cod_personal)
-{alert(1);
+{
 	var cad_pie = '';
 	
-	/*cad_pie='<a onclick="window.location.href=\'dashboard.html\'" data-role="button" data-inline="true" id="mendest"><img src="img/binformes.png"></a>';
+	cad_pie='<a onclick="window.location.href=\'dashboard.html\'" data-role="button" data-inline="true" id="mendest"><img src="img/binformes.png"></a>';
     cad_pie=cad_pie+'<a onclick="window.location.href=\'busq_empresas.html\'" data-role="button" data-inline="true" id="mencita"><img src="img/bdestacado.png"></a>';
     cad_pie=cad_pie+'<a onclick="window.location.href=\'ofertas_web.html\'" data-role="button" data-inline="true" id="menaviso"><img src="img/blista.png"></a>';
-	cad_pie=cad_pie+'<a onclick="window.location.href=\'agenda.html\'" data-role="button" data-inline="true" id="menfav"><img src="img/bcita.png"></a>';*/
+	cad_pie=cad_pie+'<a onclick="window.location.href=\'agenda.html\'" data-role="button" data-inline="true" id="menfav"><img src="img/bcita.png"></a>';
 
 	$('#menu-pie').append(cad_pie);	
 	//return cad_pie;
@@ -881,8 +881,6 @@ function obtener_permisos_usuario(cod_personal)
             success: function(data) {
 				
 				alert(data);
-				
-				}
 				
             }
         });
