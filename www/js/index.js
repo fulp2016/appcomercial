@@ -160,7 +160,7 @@ function comprobar_sesion()
 					//obtener_permisos_usuario(cod_personal);
 					alert(cod_personal);
 					
-					if((cod_personal==4456)||(cod_personal==320))
+					if((cod_personal==4456)OR(cod_personal==320))
 					{
 						document.getElementById('registrado2').submit();
 					}
