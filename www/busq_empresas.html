@@ -34,16 +34,14 @@
 </div>
     <!-- /Pie -->
     <div id="menu-pie" data-role="footer" data-position="fixed">
-    	<a onclick="window.location.href='dashboard.html'" data-role="button" data-inline="true" id="mendest"><img src="img/binformes.png"></a>
-        <a onclick="window.location.href='busq_empresas.html'" data-role="button" data-inline="true" id="mencita"><img src="img/bdestacado.png"></a>
-        <a onclick="window.location.href='ofertas_web.html'" data-role="button" data-inline="true" id="menaviso"><img src="img/blista.png"></a>
-		<a onclick="window.location.href='agenda.html'" data-role="button" data-inline="true" id="menfav"><img src="img/bcita.png"></a>
+
 	</div>
 <script>
 var uuid = window.localStorage.getItem("uuid");
 var regId = window.localStorage.getItem("regId");
 var cod_personal = window.localStorage.getItem("cod_personal");
 listado_busqueda_anterior_empresas(cod_personal);
+load_pie();
 </script>
 </body>
 

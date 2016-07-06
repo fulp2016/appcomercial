@@ -245,7 +245,7 @@ function resumen_ofertas_publicadas()
 						'<th>PR&Aacute;CTICAS</th>'+
 						'<th>EMPLEO</th>'+
 						'<th>INSERTA FP</th>'+                                   
-						'<th>INSERTA UNIVERSITARIOS</th>'+ 
+						'<th>INSERTA UNIV</th>'+ 
 						'<th>TOTAL</th>'+ 						
 					'</tr>'+
 				'</thead>'+
@@ -856,4 +856,34 @@ function detalle_accion(id)
 		$('#contenido-detalle').append(cad);	
 	});
 	document.getElementById('detalle-accion').style.display='block';
+}
+
+function load_pie()
+{
+	var cad_pie = '';
+	
+	cad_pie='<a onclick="window.location.href=\'dashboard.html\'" data-role="button" data-inline="true" id="mendest"><img src="img/binformes.png"></a>';
+    cad_pie=cad_pie+'<a onclick="window.location.href=\'busq_empresas.html\'" data-role="button" data-inline="true" id="mencita"><img src="img/bdestacado.png"></a>';
+    cad_pie=cad_pie+'<a onclick="window.location.href=\'ofertas_web.html\'" data-role="button" data-inline="true" id="menaviso"><img src="img/blista.png"></a>';
+	cad_pie=cad_pie+'<a onclick="window.location.href=\'agenda.html\'" data-role="button" data-inline="true" id="menfav"><img src="img/bcita.png"></a>';
+	
+	$('#menu-pie').append(cad_pie);	
+	//return cad_pie;
+}
+
+function obtener_permisos_usuario(cod_personal)
+{	
+	var dataString = "PermisosUsuario="+cod_personal;
+		$.ajax({ 
+            type: "POST",
+            url: "http://www.fulp.es/FULP/mensajesapp/registro_app.php",
+            data: dataString,
+            success: function(data) {
+				
+				alert(data);
+				
+				}
+				
+            }
+        });
 }

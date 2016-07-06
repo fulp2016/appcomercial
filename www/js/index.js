@@ -157,7 +157,16 @@ function comprobar_sesion()
 				window.localStorage.setItem("so", so);
 				if(cod_personal > 0)
 				{
-					document.getElementById('registrado').submit();
+					obtener_permisos_usuario(cod_personal);
+					
+					if((cod_personal==4456)||(cod_personal==320))
+					{
+						document.getElementById('registrado2').submit();
+					}
+					else
+					{
+						document.getElementById('registrado1').submit();
+					}	
 				}
 				else
 				{

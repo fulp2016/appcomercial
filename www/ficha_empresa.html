@@ -212,10 +212,7 @@ $(document).ready(function() {
 </div>	
     <!-- /Pie -->
     <div id="menu-pie" data-role="footer" data-position="fixed">
-    	<a onclick="window.location.href='dashboard.html'" data-role="button" data-inline="true" id="mendest"><img src="img/binformes.png"></a>
-        <a onclick="window.location.href='busq_empresas.html'" data-role="button" data-inline="true" id="mencita"><img src="img/bdestacado.png"></a>
-        <a onclick="window.location.href='ofertas_web.html'" data-role="button" data-inline="true" id="menaviso"><img src="img/blista.png"></a>
-		<a onclick="window.location.href='agenda.html'" data-role="button" data-inline="true" id="menfav"><img src="img/bcita.png"></a>
+    	
 	</div>
 </div>	
 <script>
@@ -223,6 +220,7 @@ var uuid = window.localStorage.getItem("uuid");
 var regId = window.localStorage.getItem("regId");
 var cod_personal = window.localStorage.getItem("cod_personal");
 var pagina = window.localStorage.getItem("pagina");
+load_pie();
 nueva_busqueda_empresa(cod_personal,cod_entidad,cod_unidad);
 	datos_ficha_empresas(cod_entidad,cod_unidad);
 	servicios_act_empresa(cod_entidad,cod_unidad);
