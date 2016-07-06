@@ -157,7 +157,8 @@ function comprobar_sesion()
 				window.localStorage.setItem("so", so);
 				if(cod_personal > 0)
 				{
-					obtener_permisos_usuario(cod_personal);
+					//obtener_permisos_usuario(cod_personal);
+					alert(cod_personal);
 					
 					if((cod_personal==4456)||(cod_personal==320))
 					{
