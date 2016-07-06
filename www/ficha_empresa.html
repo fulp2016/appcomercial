@@ -220,7 +220,7 @@ var uuid = window.localStorage.getItem("uuid");
 var regId = window.localStorage.getItem("regId");
 var cod_personal = window.localStorage.getItem("cod_personal");
 var pagina = window.localStorage.getItem("pagina");
-load_pie();
+load_pie(cod_personal);
 nueva_busqueda_empresa(cod_personal,cod_entidad,cod_unidad);
 	datos_ficha_empresas(cod_entidad,cod_unidad);
 	servicios_act_empresa(cod_entidad,cod_unidad);

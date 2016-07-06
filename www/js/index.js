@@ -158,7 +158,6 @@ function comprobar_sesion()
 				if(cod_personal > 0)
 				{
 					//obtener_permisos_usuario(cod_personal);
-					alert(cod_personal);
 					
 					if((cod_personal==4456)||(cod_personal==320))
 					{
