@@ -58,11 +58,11 @@ var cod_personal = window.localStorage.getItem("cod_personal");
 					obtener_permisos_usuario(cod_personal);
 					if((cod_personal == 4456)||(cod_personal == 320))
 					{
-						window.location.href = 'dashboard.html';
+						setTimeout('window.location.href = "dashboard.html"',1000);
 					}
 					else
 					{
-						//window.location.href = 'busq_empresas.html';
+						setTimeout('window.location.href = "busq_empresas.html"',1000);
 					}	
 				}
             }

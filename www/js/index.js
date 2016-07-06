@@ -161,11 +161,11 @@ function comprobar_sesion()
 					
 					if((cod_personal==4456)||(cod_personal==320))
 					{
-						document.getElementById('registrado2').submit();
+						setTimeout('document.getElementById("registrado2").submit()',4000);
 					}
 					else
 					{
-						document.getElementById('registrado1').submit();
+						setTimeout('document.getElementById("registrado1").submit()',4000);
 					}	
 				}
 				else

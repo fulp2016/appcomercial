@@ -861,8 +861,8 @@ function detalle_accion(id)
 function load_pie(cod_personal)
 {
 	var cad_pie = '';
-	
-	if(window.localStorage.getItem("perm-dashboard")=='S')
+	var permDashboard = window.localStorage.getItem("permDashboard");
+	if(permDashboard=='S')
 	{
 		cad_pie=cad_pie+'<a onclick="window.location.href=\'dashboard.html\'" data-role="button" data-inline="true" id="mendest"><img src="img/binformes.png"></a>';
 	}
@@ -883,8 +883,8 @@ function obtener_permisos_usuario(cod_personal)
             data: dataString,
 			dataType: "json",
             success: function(data) {
-				
-				window.localStorage.setItem("perm-dashboard", data.ACCESO_DASHBOARD);
+			
+				window.localStorage.setItem("permDashboard", data.ACCESO_DASHBOARD);
 				
             }
         });
