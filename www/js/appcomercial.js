@@ -62,7 +62,14 @@ function evolucion_insertas_formalizados()
 				acumact = parseInt(acumact) + parseInt(dato.TOTAL_ACT);
 				acumant = parseInt(acumant) + parseInt(dato.TOTAL_ANT);
 				cad_acumant = acumant;
-				var increm = ((parseInt(acumact)-parseInt(acumant))/parseInt(acumant)*100);
+				if(parseInt(acumant)!=0)
+				{
+					var increm = ((parseInt(acumact)-parseInt(acumant))/parseInt(acumant)*100);
+				}
+				else
+				{
+					var increm = '';
+				}
 				
 				var espincrem = '&nbsp;&nbsp;';
 				var signinc = '';
@@ -73,7 +80,14 @@ function evolucion_insertas_formalizados()
 				else if(acumact==acumant){cad_acumact=acumact + espincrem + '<span class="label label-warning">';}
 				else {cad_acumact=acumact + espincrem + '<span class="label badge-danger">';}
 				
-				cad_acumact = cad_acumact + signinc + Math.round(increm) + '% </span>';
+				if(parseInt(acumant)!=0)
+				{
+					cad_acumact = cad_acumact + signinc + Math.round(increm) + '% </span>';
+				}
+				else
+				{
+					cad_acumact = cad_acumact + signinc + ' ' + '% </span>';
+				}
 
 			}
 			else 
