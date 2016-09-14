@@ -16,14 +16,21 @@
 </head>
 <body>
 	<div data-role="header" data-position="fixed" class='cab-naranja'>
-		<div id="cabecera">BUSQUEDA</div>
+		<div id="cabecera">BUSQUEDA
+			<span style="float:right">
+				<select  style="font-size: 13px;border-radius: 6px;background: #fff;" id="lugar_empr" onchange="listado_empresas(document.getElementById('buscador').value,document.getElementById('lugar_empr').value)">
+									<option value="GN">GENERAL</option>
+									<option value="LZ">LANZAROTE</option>
+				</select>
+			</span>
+		</div>
 	</div>
 <div class="skin-black" data-role="page" id="pbuscador">
    
 	<div id="empresas-contenido" class="wrapper row-offcanvas row-offcanvas-left" data-role="content">
 		<div class="buscador">
 			<input placeholder="CIF O NOMBRE DE ENTIDAD" type="search" id="buscador" autocomplete="on" autofocus="autofocus">
-			<input type="button" onclick="listado_empresas(document.getElementById('buscador').value)" value="GO">
+			<input type="button" onclick="listado_empresas(document.getElementById('buscador').value,document.getElementById('lugar_empr').value)" value="GO">
 		</div>
 		<div id="list-empresas">
 

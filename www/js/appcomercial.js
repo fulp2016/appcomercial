@@ -301,12 +301,14 @@ function _recargar_Dashboard()
 	resumen_ofertas_publicadas();
 }
 
-function listado_empresas(a)
+function listado_empresas(a,b)
 { 
 	$('#list-empresas').empty();
 	var cad = '';
 	var clase = 'l1';
-	var serviceURL = "http://www.fulp.es/servicesfulp/listado_busqueda_empresas.json?txt="+a;
+	if((b=='GN')&&(a=='')){alert('Consulta demasiado amplia. Introduzca alguna palabra en el buscador.');return false;}
+	else{
+	var serviceURL = "http://www.fulp.es/servicesfulp/listado_busqueda_empresas.json?txt="+a+"&id="+b;
 	$.getJSON(serviceURL, function(data) {
 		$.each(data, function(index, dato) {
 			if(clase == 'l1'){clase = 'l2';} else {clase = 'l1';}
@@ -320,7 +322,7 @@ function listado_empresas(a)
 		
 		$('#list-empresas').append(cad);
 	});
-		
+	}
 }
 
 function ir_pagina_anadir(cod_entidad,cod_unidad)
