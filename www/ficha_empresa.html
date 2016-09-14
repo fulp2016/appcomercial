@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/styles_content.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/appcomercial.js" type="text/javascript"></script>
+	<script src="Chart/Chart.js"></script>
+
+
+<script>
+cadVariables = location.search.substring(1,location.search.length);
+arrVariables = cadVariables.split("&");
+for (i=0; i<arrVariables.length; i++) {
+arrVariableActual = arrVariables[i].split("=");
+if (isNaN(parseFloat(arrVariableActual[1])))
+eval(arrVariableActual[0]+"='"+unescape(arrVariableActual[1])+"';");
+else
+eval(arrVariableActual[0]+"="+arrVariableActual[1]+";");
+}
+
+window.localStorage.setItem("cod_entidad", cod_entidad);
+window.localStorage.setItem("cod_unidad", cod_unidad);
+
+$(document).ready(function() {
+	
+	<!--Botones Submenu Superior -->	
+	$(document).on("click","#menficha", function() { 
+		$.mobile.changePage("#ficha",{ transition: "slidefade", changeHash: false });
+		$("#menficha img").attr("src","img/INFOnaranja.png");
+		$("#menficha").attr("class","active");
+		$("#mengrafica img").attr("src","img/ESTADISTgris.png");
+		$("#mengrafica").attr("class","");
+		$("#menacciones img").attr("src","img/COMgris.png");
+		$("#menacciones").attr("class","");
+		$("#menanadir img").attr("src","img/MASgris.png");
+		$("#menanadir").attr("class","");
+	});
+	
+	$(document).on("click","#mengrafica", function() { 
+		$.mobile.changePage("#grafica",{ transition: "slidefade", changeHash: false });
+		$("#menficha img").attr("src","img/INFOgris.png");
+		$("#menficha").attr("class","");
+		$("#mengrafica img").attr("src","img/ESTADISTnaranja.png");
+		$("#mengrafica").attr("class","active");
+		$("#menacciones img").attr("src","img/COMgris.png");
+		$("#menacciones").attr("class","");
+		$("#menanadir img").attr("src","img/MASgris.png");
+		$("#menanadir").attr("class","");
+	});
+	
+	$(document).on("click","#menacciones", function() { 
+		$.mobile.changePage("#acciones",{ transition: "slidefade", changeHash: false });
+		$("#menficha img").attr("src","img/INFOgris.png");
+		$("#menficha").attr("class","");
+		$("#mengrafica img").attr("src","img/ESTADISTgris.png");
+		$("#mengrafica").attr("class","");
+		$("#menacciones img").attr("src","img/COMnaranja.png");
+		$("#menacciones").attr("class","active");
+		$("#menanadir img").attr("src","img/MASgris.png");
+		$("#menanadir").attr("class","");
+	});
+
+	$(document).on("click","#menanadir", function() { 
+		$.mobile.changePage("#anadir",{ transition: "slidefade", changeHash: false });
+		$("#menficha img").attr("src","img/INFOgris.png");
+		$("#menficha").attr("class","");
+		$("#mengrafica img").attr("src","img/ESTADISTgris.png");
+		$("#mengrafica").attr("class","");
+		$("#menacciones img").attr("src","img/COMgris.png");
+		$("#menacciones").attr("class","");
+		$("#menanadir img").attr("src","img/MASnaranja.png");
+		$("#menanadir").attr("class","active");
+	});	
+	
+	<!--Desplazar dedo -->
+	$(document).on("swipeleft", "#ficha", function() {
+		$.mobile.changePage("#grafica",{ transition: "slidefade", changeHash: false });
+		$("#menficha img").attr("src","img/INFOgris.png");
+		$("#menficha").attr("class","");
+		$("#mengrafica img").attr("src","img/ESTADISTnaranja.png");
+		$("#mengrafica").attr("class","active");
+	});
+	
+	$(document).on("swipeleft", "#grafica", function() {
+		$.mobile.changePage("#acciones",{ transition: "slidefade", changeHash: false, });
+		$("#menacciones img").attr("src","img/COMnaranja.png");
+		$("#menacciones").attr("class","active");
+		$("#mengrafica img").attr("src","img/ESTADISTgris.png");
+		$("#mengrafica").attr("class","");
+	});
+	
+	$(document).on("swipeleft", "#acciones", function() {
+		$.mobile.changePage("#anadir",{ transition: "slidefade", changeHash: false, });
+		$("#menanadir img").attr("src","img/MASnaranja.png");
+		$("#menanadir").attr("class","active");
+		$("#menacciones img").attr("src","img/COMgris.png");
+		$("#menacciones").attr("class","");
+	});
+			
+	$(document).on("swiperight", "#grafica", function() {
+		$.mobile.changePage("#ficha",{ transition: "slidefade", changeHash: false, reverse: true });
+		$("#menficha img").attr("src","img/INFOnaranja.png");
+		$("#menficha").attr("class","active");
+		$("#mengrafica img").attr("src","img/ESTADISTgris.png");
+		$("#mengrafica").attr("class","");
+	});
+	
+	$(document).on("swiperight", "#acciones", function() {
+		$.mobile.changePage("#grafica",{ transition: "slidefade", changeHash: false, reverse: true });
+		$("#mengrafica img").attr("src","img/ESTADISTnaranja.png");
+		$("#mengrafica").attr("class","active");
+		$("#menacciones img").attr("src","img/COMgris.png");
+		$("#menacciones").attr("class","");
+	});
+	
+	$(document).on("swiperight", "#anadir", function() {
+		$.mobile.changePage("#acciones",{ transition: "slidefade", changeHash: false, reverse: true });
+		$("#menacciones img").attr("src","img/COMnaranja.png");
+		$("#menacciones").attr("class","active");
+		$("#menanadir img").attr("src","img/MASgris.png");
+		$("#menanadir").attr("class","");
+	});
+	
+});
+</script>
+</head>
+<body>
+<div>
+<div data-role="header" data-position="fixed" class='cab-naranja'>
+		<div id="cabecera"></div>
+		<div class="sub-menu">
+			<a data-role="button" data-inline="true" class="active" id="menficha"><img src="img/INFOnaranja.png"></a>
+			<a data-role="button" data-inline="true" id="mengrafica"><img src="img/ESTADISTgris.png"></a>
+			<a data-role="button" data-inline="true" id="menacciones"><img src="img/COMgris.png"></a>
+			<a data-role="button" data-inline="true" id="menanadir"><img src="img/MASgris.png"></a>
+		</div>
+	</div>	 
+<div id="contenedor-paginas">	
+	<div class="skin-black" data-role="page" id="ficha">
+	  
+		<div class="wrapper row-offcanvas row-offcanvas-left" data-role="content">
+			<div class="panel">
+				<div id="ficha-empresas"></div>
+				
+				<div id="acuerdo_convenio"></div>
+				
+				<div id="servicios_actuales"></div>
+				
+				<div id="contacto-empresa"></div>
+				
+				<div class="flotante" style="display:none;" id="editar-contacto-empresa"></div>
+			</div>
+		</div>	
+	
+	</div>
+
+	<div class="skin-black" data-role="page" id="grafica">		
+		<div class="wrapper row-offcanvas row-offcanvas-left" data-role="content">	
+			<div class="panel">
+				<!--<div id="ucefe-empresa-grafica" class="panel-body table-responsive">
+					<div>
+						<div id="legendDiv"></div>
+						<canvas id="canvas"></canvas>
+					</div>
+				</div>-->
+				<div id="ucefe-empresa" class="panel-body table-responsive" ></div>
+				
+			</div>
+		</div>
+
+	</div>
+
+	<div class="skin-black" data-role="page" id="acciones">
+		<div class="wrapper row-offcanvas row-offcanvas-left" data-role="content" >
+			<div id="acciones-empresa" ></div>
+		</div>
+
+	</div>
+
+	<div class="skin-black" data-role="page" id="anadir">	
+		<div class="wrapper row-offcanvas row-offcanvas-left" data-role="content">
+			<div id="anadir-accion" >
+				<table class="new_accion">
+					<tr>
+						<td colspan="2"><select id="tipo_accion"></select></td>
+					</tr>
+					<tr>
+						<td><input type="date" data-date-format="DD/MM/YYYY" id="fecha_ini" placeholder="FECHA"></td>
+						<td><input type="text" id="hora_ini" placeholder="HORA"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><select id="cod_responsable"></select></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="text" id="asunto" placeholder="ASUNTO"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><textarea id="descripcion" rows="10" maxlength="250" placeholder="DESCRIPCIÓN"></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input onclick="crear_nueva_accion();" type="button" id="boton" value="AÑADIR">
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+	</div>
+		</div>
+		<!-- /Pie -->
+    <div id="menu-pie" data-role="footer" data-position="fixed"></div>
+	    
+</div>	
+
+</div>	
+<script>
+var uuid = window.localStorage.getItem("uuid");
+var regId = window.localStorage.getItem("regId");
+var cod_personal = window.localStorage.getItem("cod_personal");
+var pagina = window.localStorage.getItem("pagina");
+load_pie(cod_personal);
+nueva_busqueda_empresa(cod_personal,cod_entidad,cod_unidad);
+	datos_ficha_empresas(cod_entidad,cod_unidad);
+	servicios_act_empresa(cod_entidad,cod_unidad);
+	estados_conv_acuerdo(cod_entidad,cod_unidad);
+	obt_contactos_empresa(cod_entidad,cod_unidad);
+	historial_ucefe_empresa(cod_entidad,cod_unidad);
+	obtener_acciones_entidad(cod_entidad,cod_unidad);
+	opciones_acciones();
+	opciones_personal();
+
+window.onload = function(){
+	if(pagina == 'anadir')
+	{
+		$.mobile.changePage("#anadir",{ transition: "slidefade", changeHash: false });
+		$("#menficha img").attr("src","img/INFOgris.png");
+		$("#menficha").attr("class","");
+		$("#mengrafica img").attr("src","img/ESTADISTgris.png");
+		$("#mengrafica").attr("class","");
+		$("#menacciones img").attr("src","img/COMgris.png");
+		$("#menacciones").attr("class","");
+		$("#menanadir img").attr("src","img/MASnaranja.png");
+		$("#menanadir").attr("class","active");
+		window.localStorage.setItem("pagina","");
+	}
+}	
+</script>
+</body>
+
+</html>

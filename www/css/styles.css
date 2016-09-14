@@ -1,0 +1,58 @@
+body.p1{  
+font-family:"Coolvetica",arial;
+background: url("../img/fondo.png") no-repeat center center fixed; background-color:#e5530e; -webkit-background-size: cover; background-size: cover; background-size:auto auto;}
+.cabecera{ width:100%;}
+.cabecera p{ margin:2px; color:#4c4745; text-align:center;  font-weight:bold;}
+.cabecera img{ margin:auto; width:90%;}
+@media(min-width:600px)
+{
+	.cabecera img{ margin:auto; width:50%;}
+}
+.cabecera p.tit{ font-size:25px; }
+.cabecera p.subtit{ font-size:90px;}
+
+.botones{ width:100%; text-align:center; }
+.botones div{ margin-top:15px;}
+
+.botones #destacado{background:url("../img/bdestacadoport.png") no-repeat;background-repeat:no-repeat;
+background-size:100px;
+background-color:#fff;
+border-radius:20px;
+  height:100px;
+  width:100px;
+  background-position:center;
+  margin-right:5px;}
+.botones #aviso{ background:url("../img/bavisoport.png") no-repeat;background-repeat:no-repeat;
+background-size:100px;
+background-color:#fff;
+border-radius:20px;
+  height:100px;
+  width:100px;
+  background-position:center;
+  margin-right:5px;}
+.botones #cita{ background:url("../img/bcitaport.png") no-repeat;background-repeat:no-repeat;
+background-size:100px;
+background-color:#fff;
+border-radius:20px;
+  height:100px;
+  width:100px;
+  background-position:center;
+  margin-left:5px;}
+.botones #favorito{ background:url("../img/bfavoritoport.png") no-repeat;background-repeat:no-repeat;
+background-size:100px;
+background-color:#fff;
+border-radius:20px;
+  height:100px;
+  width:100px;
+  background-position:center;
+  margin-left:5px;}  
+.botones #inicio, .botones #itinerario{ background:url("../img/binicio.png") no-repeat;background-repeat:no-repeat;
+background-size:100px;
+border-radius:20px;
+border-width:5px;
+border-color:#fff;
+  height:100px;
+  width:100px;
+  background-position:center;}
+
+
