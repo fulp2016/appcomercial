@@ -45,6 +45,10 @@
 var uuid = window.localStorage.getItem("uuid");
 var regId = window.localStorage.getItem("regId");
 var cod_personal = window.localStorage.getItem("cod_personal");
+if(cod_personal == '99015')
+{
+	$("#lugar_empr option[value=LZ]").attr("selected",true);
+}
 load_pie(cod_personal);
 listado_busqueda_anterior_empresas(cod_personal);
 
