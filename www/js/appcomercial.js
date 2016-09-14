@@ -5,7 +5,7 @@ function numero_perfiles_solicitantes()
 	$('#empleo').empty();
 	$('#practica').empty();
 	$('#empresas').empty();
-	var serviceURL = "http://www.fulp.es/servicesfulp/numero_perfiles_solicitantes.json";
+	var serviceURL = "http://www.fulp.es/servicesfulp/numero_perfiles_solicitantes.json?id="+document.getElementById('quemostrar').value;
 	$.getJSON(serviceURL, function(data) {
 
 			$('#inserta').append('<span>'+data.PERFILES_INSERTA+'</span>Inserta');
@@ -14,7 +14,7 @@ function numero_perfiles_solicitantes()
 
 	});
 	
-	var serviceURL2 = "http://www.fulp.es/servicesfulp/numero_empresas_empleo.json";
+	var serviceURL2 = "http://www.fulp.es/servicesfulp/numero_empresas_empleo.json?id="+document.getElementById('quemostrar').value;
 	$.getJSON(serviceURL2, function(data2) {
 
 			$('#empresas').append('<span>'+data2.NUMERO_EMPRESAS+'</span>Empresas');
@@ -36,7 +36,7 @@ function evolucion_insertas_formalizados()
 	var cad_acumact = '';
 	var cad_acumant = ''
 	$('#ev-inserta').empty();
-	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json";
+	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json?id="+document.getElementById('quemostrar').value;
 	$.getJSON(serviceURL, function(data) {
 
 		var cad = '<table class="table table-hover" style="font-size:12px !important">'+
@@ -116,7 +116,7 @@ function resumen_relaciones()
 	
 	var cad = '';
 	$('#rel-fomalizadas').empty();
-	var serviceURL = "http://www.fulp.es/servicesfulp/resumen_relaciones.json";
+	var serviceURL = "http://www.fulp.es/servicesfulp/resumen_relaciones.json?id="+document.getElementById('quemostrar').value;
 	$.getJSON(serviceURL, function(data) {
 		
 		cad = '<table class="table table-hover" style="font-size:12px !important">'+
@@ -153,7 +153,7 @@ function evolucion_alta_solicitantes()
 	var mesact = date.getMonth()-1;
 	var cad = '';
 	$('#ev-alta-soli').empty();
-	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_solicitantes.json";
+	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_solicitantes.json?id="+document.getElementById('quemostrar').value;
 	$.getJSON(serviceURL, function(data) {
 		
 		cad = '<table class="table table-hover" style="font-size:12px !important">'+
@@ -196,7 +196,7 @@ function evolucion_alta_empresas()
 	var mesact = date.getMonth()-1;
 	var cad = '';
 	$('#ev-alta-emp').empty();
-	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_empresas.json";
+	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_empresas.json?id="+document.getElementById('quemostrar').value;
 	$.getJSON(serviceURL, function(data) {
 		
 		cad = '<table class="table table-hover" style="font-size:12px !important">'+
@@ -236,7 +236,8 @@ function resumen_ofertas_publicadas()
 	var cad = '';
 	var p = '';	var c = ''; var b = ''; var f = ''; var total = 0;
 	$('#res-ofertas-pub').empty();
-	var serviceURL = "http://www.fulp.es/servicesfulp/resumen_ofertas_publicadas.json";
+	
+	var serviceURL = "http://www.fulp.es/servicesfulp/resumen_ofertas_publicadas.json?id="+document.getElementById('quemostrar').value;
 	$.getJSON(serviceURL, function(data) {
 		
 		cad = '<table class="table table-hover" style="font-size:12px !important">'+
@@ -274,6 +275,16 @@ function resumen_ofertas_publicadas()
 			
 		$('#res-ofertas-pub').append(cad);		
 	});
+}
+
+function _recargar_Dashboard()
+{
+	evolucion_insertas_formalizados();
+	resumen_relaciones();
+	evolucion_alta_solicitantes();
+	evolucion_alta_empresas();
+	numero_perfiles_solicitantes();
+	resumen_ofertas_publicadas();
 }
 
 function listado_empresas(a)

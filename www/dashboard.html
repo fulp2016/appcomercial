@@ -16,7 +16,14 @@
 </head>
 <body>
 <div data-role="header" data-position="fixed" class='cab-naranja' data-tap-toggle="false">
-		<div id="cabecera">DASHBOARD</div>
+		<div id="cabecera">DASHBOARD 
+			<span style="float:right">
+				<select onchange="_recargar_Dashboard()" style="font-size: 13px;border-radius: 6px;" id="quemostrar">
+					<option value="GN">GENERAL</option>
+					<option value="LZ">LANZAROTE</option>
+				</select>
+			</span>
+		</div>
 </div>
 <div class="skin-black" data-role="page" id="pdashboard">
 	<div data-role="content" style="padding: 20px !important;" class="wrapper row-offcanvas row-offcanvas-left">
@@ -81,6 +88,11 @@
 var uuid = window.localStorage.getItem("uuid");
 var regId = window.localStorage.getItem("regId");
 var cod_personal = window.localStorage.getItem("cod_personal");
+if(cod_personal == '99015')
+{
+	$("#quemostrar option[value=LZ]").attr("selected",true);
+	$('#quemostrar').prop( "disabled", true );;
+}
 load_pie(cod_personal);
 	evolucion_insertas_formalizados();
 	resumen_relaciones();
@@ -88,6 +100,7 @@ load_pie(cod_personal);
 	evolucion_alta_empresas();
 	numero_perfiles_solicitantes();
 	resumen_ofertas_publicadas();
+	
 </script>
 
 </body>
