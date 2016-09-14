@@ -86,7 +86,7 @@ function evolucion_insertas_formalizados()
 				}
 				else
 				{
-					cad_acumact = cad_acumact + signinc + ' ' + '% </span>';
+					cad_acumact = cad_acumact + signinc + '&uarr; </span>';
 				}
 
 			}
