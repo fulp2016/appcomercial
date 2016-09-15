@@ -36,7 +36,7 @@ var app = {
         console.log('Received Event: ' + id);
 		//alert('Received Event: ' + id);
 
-	//PLUGIN NOTIFICACIONvar pushNotification = window.plugins.pushNotification; 
+	var pushNotification = ''; //window.plugins.pushNotification; 
 
 	  so = device.platform;
 	  uuid = device.uuid;
@@ -45,39 +45,37 @@ var app = {
        // if (device.platform == 'android' || device.platform == 'Android') { 
            // alert("Register called"); 
             //tu Project ID aca!! 
-
-	/*PLUGIN NOTIFICACION
 	if((so=="Android")||(so=="android")||(so=="ANDROID"))
 	{
-		pushNotification.register(this.successAndroid, this.errorHandler,{"senderID":"694496316425","ecb":"app.onNotificationGCM"});  
+		//pushNotification.register(this.successAndroid, this.errorHandler,{"senderID":"694496316425","ecb":"app.onNotificationGCM"});  
     }
 	else if(so=="iOS")
 	{ 
-		pushNotification.register(this.successIOS, this.errorHandler,{"badge":"true", "sound": "true", "alert": "true", "ecb":"app.onNotificationAPN"});
+		//pushNotification.register(this.successIOS, this.errorHandler,{"badge":"true", "sound": "true", "alert": "true", "ecb":"app.onNotificationAPN"});
 		//setTimeout(app.registrarDispositivo(),10000);
 	}
 	
-    }, */
+    }, 
     // funcion aviso si todo es correcto en ANDROID // 
-	/*PLUGIN NOTIFICACION			successAndroid: function(result) { 
+				successAndroid: function(result) { 
 					// se muestra si la obtención del regId ha sido correcta //
 					/*alert('Callback Success! Result = '+result);*/
-			//PLUGIN NOTIFICACION	}, 
+				}, 
 				
 				// funcion aviso si todo es correcto en IOS // 
-		/*PLUGIN NOTIFICACION		successIOS: function(result) { 
+				successIOS: function(result) { 
 					//envio = 'N';
 					// a diferencia de la parte android aqui el valor "result" es el token del dispositivo //
 					// guardamos en el dispositivo el token, para poder usarlo mas tarde //
 					regId = result;
 					//envio = 'S';
 					//setTimeout(app.registrarDispositivo(),10000);
-				}, */
+				}, 
 				
-		/*PLUGIN NOTIFICACION		errorHandler:function(error) { 
+				errorHandler:function(error) { 
 					alert("Ha ocurrido un error en el registro");
-				}, */
-  /* PLUGIN NOTIFICACION onNotificationGCM: function(e) { 
+				}, 
+    onNotificationGCM: function(e) { 
 
 		switch( e.event ) 
         { 
@@ -90,7 +88,7 @@ var app = {
 					regId = e.regid;
                			/*alert("Regid " + e.regid); */
 					//setTimeout(app.registrarDispositivo(),10000);
-  /* PLUGIN NOTIFICACION                 } 
+                } 
             break; 
 
             case 'message': 
@@ -108,8 +106,8 @@ var app = {
             break; 
         } 
 
-    }, */
-  /*  onNotificationAPN: function(event) { 
+    }, 
+    onNotificationAPN: function(event) { 
 	
         var pushNotification = window.plugins.pushNotification; 
         //alert("Running in JS - onNotificationAPN - Received a notification! " + event.alert); 
@@ -125,7 +123,7 @@ var app = {
             snd.play(); 
         } 
 		
-    },*/
+    },
 	
 	registrarDispositivo: function () 
 	{
@@ -138,6 +136,8 @@ var app = {
 
 
 function registrar_dispositivo(){	 
+
+	var regId='';
 	var xmlhttp =new XMLHttpRequest();
 	xmlhttp.open("GET", "http://www.fulp.es/FULP/mensajesapp/registro_app.php?regId="+regId+"&sist="+so+"&uuid="+uuid+"&newComercial=S",false);
 	xmlhttp.send(null);	
