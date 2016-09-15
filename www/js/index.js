@@ -36,7 +36,7 @@ var app = {
         console.log('Received Event: ' + id);
 		//alert('Received Event: ' + id);
 
-	var pushNotification = window.plugins.pushNotification; 
+	//PLUGIN NOTIFICACIONvar pushNotification = window.plugins.pushNotification; 
 
 	  so = device.platform;
 	  uuid = device.uuid;
@@ -45,6 +45,8 @@ var app = {
        // if (device.platform == 'android' || device.platform == 'Android') { 
            // alert("Register called"); 
             //tu Project ID aca!! 
+
+	/*PLUGIN NOTIFICACION
 	if((so=="Android")||(so=="android")||(so=="ANDROID"))
 	{
 		pushNotification.register(this.successAndroid, this.errorHandler,{"senderID":"694496316425","ecb":"app.onNotificationGCM"});  
@@ -55,27 +57,27 @@ var app = {
 		//setTimeout(app.registrarDispositivo(),10000);
 	}
 	
-    }, 
+    }, */
     // funcion aviso si todo es correcto en ANDROID // 
-				successAndroid: function(result) { 
+	/*PLUGIN NOTIFICACION			successAndroid: function(result) { 
 					// se muestra si la obtención del regId ha sido correcta //
 					/*alert('Callback Success! Result = '+result);*/
-				}, 
+			//PLUGIN NOTIFICACION	}, 
 				
 				// funcion aviso si todo es correcto en IOS // 
-				successIOS: function(result) { 
+		/*PLUGIN NOTIFICACION		successIOS: function(result) { 
 					//envio = 'N';
 					// a diferencia de la parte android aqui el valor "result" es el token del dispositivo //
 					// guardamos en el dispositivo el token, para poder usarlo mas tarde //
 					regId = result;
 					//envio = 'S';
 					//setTimeout(app.registrarDispositivo(),10000);
-				}, 
+				}, */
 				
-				errorHandler:function(error) { 
+		/*PLUGIN NOTIFICACION		errorHandler:function(error) { 
 					alert("Ha ocurrido un error en el registro");
-				}, 
-    onNotificationGCM: function(e) { 
+				}, */
+  /* PLUGIN NOTIFICACION onNotificationGCM: function(e) { 
 
 		switch( e.event ) 
         { 
@@ -88,7 +90,7 @@ var app = {
 					regId = e.regid;
                			/*alert("Regid " + e.regid); */
 					//setTimeout(app.registrarDispositivo(),10000);
-                } 
+  /* PLUGIN NOTIFICACION                 } 
             break; 
 
             case 'message': 
@@ -106,8 +108,8 @@ var app = {
             break; 
         } 
 
-    }, 
-    onNotificationAPN: function(event) { 
+    }, */
+  /*  onNotificationAPN: function(event) { 
 	
         var pushNotification = window.plugins.pushNotification; 
         //alert("Running in JS - onNotificationAPN - Received a notification! " + event.alert); 
@@ -123,7 +125,7 @@ var app = {
             snd.play(); 
         } 
 		
-    },
+    },*/
 	
 	registrarDispositivo: function () 
 	{
