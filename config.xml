@@ -24,8 +24,8 @@
   <preference name="StatusBarOverlaysWebView" value="true" /> 
 	<preference name="StatusBarBackgroundColor" value="#E9530D" />
 	<preference name="StatusBarStyle" value="lightcontent" />
-  <!--Plugin de notificaciones -->
-  <gap:plugin name="com.phonegap.plugins.pushplugin"/>
+  <!--Plugin de notificaciones
+  <gap:plugin name="com.phonegap.plugins.pushplugin"/>-->
   <gap:plugin name="com.phonegap.plugin.statusbar" />
   <!--<gap:plugin name="org.apache.cordova.battery-status"/>-->
   <!--<gap:plugin name="org.apache.cordova.camera"/>-->
