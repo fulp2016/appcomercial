@@ -66,9 +66,7 @@ function evolucion_insertas_formalizados()
 				else if(dato.TOTAL_ACT==dato.TOTAL_ANT1){cad_act = dato.TOTAL_ACT + ' <span class="label label-warning">=</span>';}
 				else{cad_act = dato.TOTAL_ACT + ' <span class="label badge-danger">&darr;</span>';}
 				
-				if(dato.TOTAL_ANT1>dato.TOTAL_ANT2){cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label label-success">&uarr;</span>';}
-				else if(dato.TOTAL_ANT1==dato.TOTAL_ANT2){cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label label-warning">=</span>';}
-				else{cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label badge-danger">&darr;</span>';}
+				cad_ant1 = dato.TOTAL_ANT1
 				
 				acumact = parseInt(acumact) + parseInt(dato.TOTAL_ACT);
 				acumant2 = parseInt(acumant2) + parseInt(dato.TOTAL_ANT2);
@@ -83,15 +81,6 @@ function evolucion_insertas_formalizados()
 				else
 				{
 					var increm1 = '';
-				}
-				
-				if(parseInt(acumant2)!=0)
-				{
-					var increm2 = ((parseInt(acumant1)-parseInt(acumant2))/parseInt(acumant2)*100);
-				}
-				else
-				{
-					var increm2 = '';
 				}
 				
 				var espincrem1 = '&nbsp;&nbsp;';
@@ -111,69 +100,15 @@ function evolucion_insertas_formalizados()
 				{
 					cad_acumact = cad_acumact + signinc1 + '&uarr; </span>';
 				}
-				
-				var espincrem2 = '&nbsp;&nbsp;';
-				var signinc2 = '';
-				if (increm2 > 0){signinc2 = '+';}else{signinc2 = '';}
-				if (increm2.length == 1){espincrem2='&nbsp;&nbsp;&nbsp;&nbsp;';}
-				
-				if(acumant1>acumant2){cad_acumant1=acumant1 + espincrem2 + '<span class="label label-success">';}
-				else if(acumant1==acumant2){cad_acumant1=acumant1 + espincrem2 + '<span class="label label-warning">';}
-				else {cad_acumant1=acumant1 + espincrem2 + '<span class="label badge-danger">';}
-				
-				if(parseInt(acumant2)!=0)
-				{
-					cad_acumant1 = cad_acumant1 + signinc2 + Math.round(increm2) + '% </span>';
-				}
-				else
-				{
-					cad_acumant1 = cad_acumant1 + signinc2 + '&uarr; </span>';
-				}
 
 			}
 			else 
 			{
 				cad_acumact = '';
 				/*cad_acumant2 = '';
-				cad_acumant1 = '';
-				cad_ant1 = dato.TOTAL_ANT1;*/
-				cad_act = dato.TOTAL_ACT;
-				
-				if(dato.TOTAL_ANT1>dato.TOTAL_ANT2){cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label label-success">&uarr;</span>';}
-				else if(dato.TOTAL_ANT1==dato.TOTAL_ANT2){cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label label-warning">=</span>';}
-				else{cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label badge-danger">&darr;</span>';}
-				
-				acumant2 = parseInt(acumant2) + parseInt(dato.TOTAL_ANT2);
-				acumant1 = parseInt(acumant1) + parseInt(dato.TOTAL_ANT1);
-				cad_acumant1 = acumant1;
-				cad_acumant2 = acumant2;
-				
-				if(parseInt(acumant2)!=0)
-				{
-					var increm2 = ((parseInt(acumant1)-parseInt(acumant2))/parseInt(acumant2)*100);
-				}
-				else
-				{
-					var increm2 = '';
-				}
-				
-				var espincrem2 = '&nbsp;&nbsp;';
-				var signinc2 = '';
-				if (increm2 > 0){signinc2 = '+';}else{signinc2 = '';}
-				if (increm2.length == 1){espincrem2='&nbsp;&nbsp;&nbsp;&nbsp;';}
-				
-				if(acumant1>acumant2){cad_acumant1=acumant1 + espincrem2 + '<span class="label label-success">';}
-				else if(acumant1==acumant2){cad_acumant1=acumant1 + espincrem2 + '<span class="label label-warning">';}
-				else {cad_acumant1=acumant1 + espincrem2 + '<span class="label badge-danger">';}
-				
-				if(parseInt(acumant2)!=0)
-				{
-					cad_acumant1 = cad_acumant1 + signinc2 + Math.round(increm2) + '% </span>';
-				}
-				else
-				{
-					cad_acumant1 = cad_acumant1 + signinc2 + '&uarr; </span>';
-				}
+				cad_acumant1 = '';*/
+				cad_ant1 = dato.TOTAL_ANT1;
+				cad_act = dato.TOTAL_ACT;				
 			}
 			
 			cad = cad + '<tr>'+
