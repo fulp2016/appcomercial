@@ -27,14 +27,19 @@ function evolucion_insertas_formalizados()
 	var date = new Date();
 	var mesact = date.getMonth()+1;
 	var acumact = 0;
-	var acumant = 0;
+	var acumant1 = 0;
+	var acumant2 = 0;
 	var cad_act = '';
+	var cad_ant1 = '';
 	var total_act = 0;
-	var total_ant = 0;
+	var total_ant1 = 0;
+	var total_ant2 = 0;
 	var total_acumact = 0;
-	var total_acumant = 0;
+	var total_acumant1 = 0;
+	var total_acumant2 = 0;
 	var cad_acumact = '';
-	var cad_acumant = ''
+	var cad_acumant1 = '';
+	var cad_acumant2 = '';
 	$('#ev-inserta').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json?id="+document.getElementById('quemostrar').value;
 	$.getJSON(serviceURL, function(data) {
@@ -45,8 +50,10 @@ function evolucion_insertas_formalizados()
                                 '<th>M</th>'+
 								'<th>T15</th>'+
                                 '<th>T16</th>'+
+								'<th>T17</th>'+
 								'<th>ACU15</th>'+
-								'<th>ACU16</th>'+                                   									  									  
+								'<th>ACU16</th>'+          
+								'<th>ACU17</th>'+    								
                             '</tr>'+
 						'</thead>'+	
                         '<tbody>';
@@ -55,66 +62,143 @@ function evolucion_insertas_formalizados()
 			
 			if(dato.MES <= mesact)
 			{
-				if(dato.TOTAL_ACT>dato.TOTAL_ANT){cad_act = dato.TOTAL_ACT + ' <span class="label label-success">&uarr;</span>';}
-				else if(dato.TOTAL_ACT==dato.TOTAL_ANT){cad_act = dato.TOTAL_ACT + ' <span class="label label-warning">=</span>';}
+				if(dato.TOTAL_ACT>dato.TOTAL_ANT1){cad_act = dato.TOTAL_ACT + ' <span class="label label-success">&uarr;</span>';}
+				else if(dato.TOTAL_ACT==dato.TOTAL_ANT1){cad_act = dato.TOTAL_ACT + ' <span class="label label-warning">=</span>';}
 				else{cad_act = dato.TOTAL_ACT + ' <span class="label badge-danger">&darr;</span>';}
 				
+				if(dato.TOTAL_ANT1>dato.TOTAL_ANT2){cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label label-success">&uarr;</span>';}
+				else if(dato.TOTAL_ANT1==dato.TOTAL_ANT2){cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label label-warning">=</span>';}
+				else{cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label badge-danger">&darr;</span>';}
+				
 				acumact = parseInt(acumact) + parseInt(dato.TOTAL_ACT);
-				acumant = parseInt(acumant) + parseInt(dato.TOTAL_ANT);
-				cad_acumant = acumant;
-				if(parseInt(acumant)!=0)
+				acumant2 = parseInt(acumant2) + parseInt(dato.TOTAL_ANT2);
+				acumant1 = parseInt(acumant1) + parseInt(dato.TOTAL_ANT1);
+				cad_acumant1 = acumant1;
+				cad_acumant2 = acumant2;
+				
+				if(parseInt(acumant1)!=0)
 				{
-					var increm = ((parseInt(acumact)-parseInt(acumant))/parseInt(acumant)*100);
+					var increm1 = ((parseInt(acumact)-parseInt(acumant1))/parseInt(acumant1)*100);
 				}
 				else
 				{
-					var increm = '';
+					var increm1 = '';
 				}
 				
-				var espincrem = '&nbsp;&nbsp;';
-				var signinc = '';
-				if (increm > 0){signinc = '+';}else{signinc = '';}
-				if (increm.length == 1){espincrem='&nbsp;&nbsp;&nbsp;&nbsp;';}
-				
-				if(acumact>acumant){cad_acumact=acumact + espincrem + '<span class="label label-success">';}
-				else if(acumact==acumant){cad_acumact=acumact + espincrem + '<span class="label label-warning">';}
-				else {cad_acumact=acumact + espincrem + '<span class="label badge-danger">';}
-				
-				if(parseInt(acumant)!=0)
+				if(parseInt(acumant2)!=0)
 				{
-					cad_acumact = cad_acumact + signinc + Math.round(increm) + '% </span>';
+					var increm2 = ((parseInt(acumant1)-parseInt(acumant2))/parseInt(acumant2)*100);
 				}
 				else
 				{
-					cad_acumact = cad_acumact + signinc + '&uarr; </span>';
+					var increm2 = '';
+				}
+				
+				var espincrem1 = '&nbsp;&nbsp;';
+				var signinc1 = '';
+				if (increm1 > 0){signinc1 = '+';}else{signinc1 = '';}
+				if (increm1.length == 1){espincrem1='&nbsp;&nbsp;&nbsp;&nbsp;';}
+				
+				if(acumact>acumant1){cad_acumact=acumact + espincrem1 + '<span class="label label-success">';}
+				else if(acumact==acumant1){cad_acumact=acumact + espincrem1 + '<span class="label label-warning">';}
+				else {cad_acumact=acumact + espincrem1 + '<span class="label badge-danger">';}
+				
+				if(parseInt(acumant1)!=0)
+				{
+					cad_acumact = cad_acumact + signinc1 + Math.round(increm1) + '% </span>';
+				}
+				else
+				{
+					cad_acumact = cad_acumact + signinc1 + '&uarr; </span>';
+				}
+				
+				var espincrem2 = '&nbsp;&nbsp;';
+				var signinc2 = '';
+				if (increm2 > 0){signinc2 = '+';}else{signinc2 = '';}
+				if (increm2.length == 1){espincrem2='&nbsp;&nbsp;&nbsp;&nbsp;';}
+				
+				if(acumant1>acumant2){cad_acumant1=acumant1 + espincrem2 + '<span class="label label-success">';}
+				else if(acumant1==acumant2){cad_acumant1=acumant1 + espincrem2 + '<span class="label label-warning">';}
+				else {cad_acumant1=acumant1 + espincrem2 + '<span class="label badge-danger">';}
+				
+				if(parseInt(acumant2)!=0)
+				{
+					cad_acumant1 = cad_acumant1 + signinc2 + Math.round(increm2) + '% </span>';
+				}
+				else
+				{
+					cad_acumant1 = cad_acumant1 + signinc2 + '&uarr; </span>';
 				}
 
 			}
 			else 
 			{
 				cad_acumact = '';
-				cad_acumant = '';
+				/*cad_acumant2 = '';
+				cad_acumant1 = '';
+				cad_ant1 = dato.TOTAL_ANT1;*/
 				cad_act = dato.TOTAL_ACT;
+				
+				if(dato.TOTAL_ANT1>dato.TOTAL_ANT2){cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label label-success">&uarr;</span>';}
+				else if(dato.TOTAL_ANT1==dato.TOTAL_ANT2){cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label label-warning">=</span>';}
+				else{cad_ant1 = dato.TOTAL_ANT1 + ' <span class="label badge-danger">&darr;</span>';}
+				
+				acumant2 = parseInt(acumant2) + parseInt(dato.TOTAL_ANT2);
+				acumant1 = parseInt(acumant1) + parseInt(dato.TOTAL_ANT1);
+				cad_acumant1 = acumant1;
+				cad_acumant2 = acumant2;
+				
+				if(parseInt(acumant2)!=0)
+				{
+					var increm2 = ((parseInt(acumant1)-parseInt(acumant2))/parseInt(acumant2)*100);
+				}
+				else
+				{
+					var increm2 = '';
+				}
+				
+				var espincrem2 = '&nbsp;&nbsp;';
+				var signinc2 = '';
+				if (increm2 > 0){signinc2 = '+';}else{signinc2 = '';}
+				if (increm2.length == 1){espincrem2='&nbsp;&nbsp;&nbsp;&nbsp;';}
+				
+				if(acumant1>acumant2){cad_acumant1=acumant1 + espincrem2 + '<span class="label label-success">';}
+				else if(acumant1==acumant2){cad_acumant1=acumant1 + espincrem2 + '<span class="label label-warning">';}
+				else {cad_acumant1=acumant1 + espincrem2 + '<span class="label badge-danger">';}
+				
+				if(parseInt(acumant2)!=0)
+				{
+					cad_acumant1 = cad_acumant1 + signinc2 + Math.round(increm2) + '% </span>';
+				}
+				else
+				{
+					cad_acumant1 = cad_acumant1 + signinc2 + '&uarr; </span>';
+				}
 			}
 			
 			cad = cad + '<tr>'+
                             '<td>'+dato.MES+'</td>'+
-							'<td>'+dato.TOTAL_ANT+'</td>'+
+							'<td>'+dato.TOTAL_ANT2+'</td>'+
+							'<td>'+cad_ant1+'</td>'+
 							'<td>'+cad_act+'</td>'+
-							'<td>'+cad_acumant+'</td>'+
+							'<td>'+cad_acumant2+'</td>'+
+							'<td>'+cad_acumant1+'</td>'+
 							'<td>'+cad_acumact+'</td>'+							  								  								    
 						'</tr>';
 								
 			total_act = parseInt(total_act) + parseInt(dato.TOTAL_ACT);
-			total_ant = parseInt(total_ant) + parseInt(dato.TOTAL_ANT);
+			total_ant2 = parseInt(total_ant2) + parseInt(dato.TOTAL_ANT2);
+			total_ant1 = parseInt(total_ant1) + parseInt(dato.TOTAL_ANT1);
 
 		});
 		
 		cad = cad +  '<tr>'+
                         '<td><strong>TOTAL</strong></td>'+
-						'<td><strong>'+total_ant+'</strong></td>'+
+						'<td><strong>'+total_ant2+'</strong></td>'+
+						'<td><strong>'+total_ant1+'</strong></td>'+
 						'<td><strong>'+total_act+'</strong></td>'+
-						'<td><strong>'+acumant+'</strong></td>'+
+						'<td><strong>'+acumant2+'</strong></td>'+
+						'<td><strong>'+acumant1+'</strong></td>'+
 						'<td><strong>'+acumact+'</strong></td>'+
 					'</tr>'+
 				'</tbody>'+  
@@ -138,7 +222,8 @@ function resumen_relaciones()
 					'<tr>'+                                      
 						'<th>TIPO</th>'+
 						'<th>2015</th>'+                                     
-						'<th>2016</th>'+                                    
+						'<th>2016</th>'+
+						'<th>2017</th>'+  						
 					'</tr>'+
 				'</thead>'+
 				'<tbody>';
@@ -148,7 +233,8 @@ function resumen_relaciones()
 			cad = cad +
 				'<tr>'+
 					'<td>'+dato.TIPO+'</td>'+
-					'<td>'+dato.ANTERIOR+'</td>'+
+					'<td>'+dato.ANTERIOR2+'</td>'+
+					'<td>'+dato.ANTERIOR1+'</td>'+
 					'<td>'+dato.ACTUAL+'</td>'+
 				'</tr>';
 		});
