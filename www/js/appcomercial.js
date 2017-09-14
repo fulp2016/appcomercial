@@ -241,7 +241,7 @@ function evolucion_alta_solicitantes()
 	$('#ev-alta-soli').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_alta_solicitantes.json?id="+document.getElementById('quemostrar').value;
 	$.getJSON(serviceURL, function(data) {
-		
+		console.log(data);
 		cad = '<table class="table table-hover" style="font-size:12px !important">'+
 				'<thead>'+                              
 					'<tr>'+                                      
@@ -253,9 +253,9 @@ function evolucion_alta_solicitantes()
 					'</tr>'+
 				'</thead>'+
 				'<tbody>';
-	
+	var m = 1;
 		$.each(data, function(index, dato) {
-			if(dato.MES >= mesact)
+			if(m <= 12)
 			{
 				cad = cad +
 					'<tr>'+
@@ -266,6 +266,7 @@ function evolucion_alta_solicitantes()
 						'<td>'+dato.ALTA_PRACTICA+'</td>'+
 					'</tr>';
 			}
+			m++;
 		});
 		
 		cad = cad +
@@ -295,9 +296,9 @@ function evolucion_alta_empresas()
 					'</tr>'+
 				'</thead>'+
 				'<tbody>';
-	
+		var m = 1;
 		$.each(data, function(index, dato) {
-			if(dato.MES >= mesact)
+			if(m <= 12)
 			{
 				cad = cad +
 					'<tr>'+
@@ -307,6 +308,7 @@ function evolucion_alta_empresas()
 						'<td>'+dato.TOTAL+'</td>'+
 					'</tr>';
 			}
+			m++;
 		});
 		
 		cad = cad +
