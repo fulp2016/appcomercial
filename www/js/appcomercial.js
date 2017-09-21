@@ -42,6 +42,7 @@ function evolucion_insertas_formalizados()
 	var cad_acumant2 = '';
 	$('#ev-inserta').empty();
 	var serviceURL = "http://www.fulp.es/servicesfulp/evolucion_inserta_formalizados.json?id="+document.getElementById('quemostrar').value;
+	console.log(serviceURL);
 	$.getJSON(serviceURL, function(data) {
 
 		var cad = '<table class="table table-hover" style="font-size:12px !important">'+
@@ -118,7 +119,7 @@ function evolucion_insertas_formalizados()
 				if (increm2.length == 1){espincrem2='&nbsp;&nbsp;&nbsp;&nbsp;';}
 				
 				if(acumant1>acumant2){cad_acumant1=acumant1 + espincrem2;}
-				else if(acumant1==acumant2){cad_acumant1=acumant1 + espincrem;}
+				else if(acumant1==acumant2){cad_acumant1=acumant1 + espincrem2;}
 				else {cad_acumant1=acumant1 + espincrem2;}
 				
 				
